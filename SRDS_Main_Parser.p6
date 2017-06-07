@@ -2,6 +2,9 @@
 
 ###my $srds_bit = 'srds-ex.txt'.IO.slurp;
 
+# not only word_start should be there
+#
+
 grammar word_start {
 	rule TOP {
 		[ <title_group> \s* <geo_marking> ] + % [\s*] <properties>* <meaning_wrap>
