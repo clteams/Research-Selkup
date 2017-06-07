@@ -40,11 +40,11 @@ grammar word_start {
 	}
 	token meaning_wrap {
 		# todo: add different meaning formats, not only numbered_mgroup
-		\s*\-\s*
-		\d+\)\s*
+		\s* \- \s*
+		\d+ \) \s*
 		<numbered_mgroup>+ % [
 			[
-				\;\s*\d+\)\s*
+				\; \s* \d+ \) \s*
 			] +
 		]
 	}
