@@ -33,15 +33,54 @@ grammar word_start {
 	token geo_default {
 		\w+ \.
 	}
+	token meaning_wrap {
+		"-" \s* <numbered_mgroup>
+	}
+	# common meaning related tokens
+	token w_selkup {
+		# todo: "\w+" -> selkup alphabet list
+		\w+
+	}
+	token wm_selkup {
+		<w_selkup>+ % [\s+]
+	}
 	token meaning {
-		# should begin from " - " ...
+		# todo: maybe change smth
+		<wm_selkup>
+	}
+	token example_wrap {
+		# maybe ": " -> ":\s*"
+		": " <example>+
+	}
+	token example {
+		<wm_selkup> \s* <geo_marking>* \s* <explanation_wrap>
+	}
+	token explanation_wrap {
+		# todo: check if there are some other types of bracketing
+		«<explanation>»
+	}
+	token explanation {
+		# todo derived from the previous token
+		<-[«»]>+
+	}
+	# numbered meaning group
+	token numbered_mgroup {
+		\d+\) <numbered_mgroup_part> <?before \d>
+	}
+	token numbered_mgroup_part {
+		<meaning> <nmp_example_wrap>*
+	}
+	token nmp_example_wrap {
+		": " <example>+ % ['; '+]
 	}
 	# <<-[,]>+>* %[', '*]
 };
 #my $test_str = "~ агылдэ́гу ~ слово /тым./ ~ овсло /об. С/";
 # немного поесть ! авыт ...
+# #my $test_str = "авырэ́гу /кет./ отгл. гл., пер., смягч., С - немного поесть авыт /об. Ш/ указ. местм. - другой";
 
-my $test_str = "авырэ́гу /кет./ отгл. гл., пер., смягч., С - немного поесть авыт /об. Ш/ указ. местм. - другой";
+my $test_str = 'абсод ~ абсбдй /об. С/ сущ. - 1) пища, еда: могай абсод /об. С/ «мучная пища»; абсодй нюэтй /об. С/ «еда вкусная»; 2';
+
 
 say word_start.subparse($test_str);
 #say $test_str ~~ /(<-[\/~]>+)+ % ["~ "*]/;
