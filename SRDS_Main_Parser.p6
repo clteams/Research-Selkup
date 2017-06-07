@@ -2,7 +2,7 @@
 
 ###my $srds_bit = 'srds-ex.txt'.IO.slurp;
 
-rammar word_start {
+grammar word_start {
 	rule TOP {
 		[ <title_group> \s* <geo_marking> ] + % [\s*]# \s* <title_group>* \s* <pos_tags>* \s* <main>*
 	}
