@@ -82,7 +82,7 @@ grammar word_start {
 	}
 	token explanation {
 		# todo derived from the previous token
-		<-[«»]>+
+		<-[ «  » ]>+
 	}
 	# numbered meaning group
 	token numbered_mgroup {
