@@ -4,13 +4,19 @@
 
 grammar word_start {
 	rule TOP {
-		[ <title_group> \s* <geo_marking> ] + % [\s*]# \s* <title_group>* \s* <pos_tags>* \s* <main>*
+		[ <title_group> \s* <geo_marking> ] + % [\s*] <properties>* <meaning_wrap>
 	}
 	token title_group {
 		[" ~ " || "~ "] * <title>+ % ["~ "*]
 	}
 	token title {
-		<-[\/~]>+
+		<-[\/~,]>+
+	}
+	token properties {
+		<property>+ % [", "+]
+	}
+	token property {
+		[ [ \w+\. ] + % [" "+] || <[А..Я]> ]
 	}
 	token geo_marking {
 		"/" <geo_marks> "/"
@@ -25,11 +31,17 @@ grammar word_start {
 		"об. " ["С" || "Ч" || "Ш"]+ % [", "*] \.*
 	}
 	token geo_default {
-		\w+ \.	
+		\w+ \.
+	}
+	token meaning {
+		# should begin from " - " ...
 	}
 	# <<-[,]>+>* %[', '*]
 };
-my $test_str = "~ агылдэ́гу ~ авыт /тым./ ~ овсло /об. С/";
+#my $test_str = "~ агылдэ́гу ~ слово /тым./ ~ овсло /об. С/";
+# немного поесть ! авыт ...
+
+my $test_str = "авырэ́гу /кет./ отгл. гл., пер., смягч., С - немного поесть авыт /об. Ш/ указ. местм. - другой";
 
 say word_start.subparse($test_str);
 #say $test_str ~~ /(<-[\/~]>+)+ % ["~ "*]/;
