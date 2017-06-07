@@ -4,9 +4,21 @@ import pymorphy2
 s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
 def cut(string):
     def get_left(string):
-        move_left = 4
         rx = r'\S+\s+\/[^\/]+\/\s+[^"]'
         occ = re.findall(rx, string)
+        # recursion
+        if '\n' in string and string.count('\n') != len(occ):
+            rec = True
+            str_sp = string.split('\n')
+            add = '\n'.join(str_sp[:-1])
+            string = str_sp[-1]
+        elif '\n' in string:
+            return string
+        else:
+            add = ''
+            rec = False
+        #
+        move_left = 4
         focus_word = re.split('\s+', occ[1])[0]
         move_left -= 1
         rx = r'\S+\s+' + rx
@@ -41,11 +53,10 @@ def cut(string):
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
     if len(glw) == 1:
-        return border_set(0, glw, gl[1], string)
+        return cut(add + border_set(0, glw, gl[1], string))
     elif len(glw) == 2 and glsp[-3] == 'см.':
-        print('hh')
-        return border_set(-1, glw, gl[1], string)
+        return cut(add + border_set(-1, glw, gl[1], string))
 
-    print(gl)
-    print(glw)
-print(cut(s))
+    #print(gl)
+    #print(glw)
+#print(cut(s))
