@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 import re
 import pymorphy2
-s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень II ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
+#s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень II ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
+s = 'аза /об. Ш, кет./ отриц. част. - 1) не: со ӱтче ~ тюргун /кет./ «хоро- ший мальчик не плачет»; таб ~ варгын эя /об. Ш/ «он неболь- шой»; мат ~ танвап /об. Ш/ «я не знаю»; 2) нет: ~, мат таптёл ~ тӧнжак /об. Ш/ «нет, я сегодня не приду»; см. а, а^а, ажа II азакау /об. Ш/ сущ. - дедушка аздэ /об. Ч/ сущ. - олень; см. ӓждэ'
 def cut(string):
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
-    string = re.sub(r'\n\s*' + roman_numerals_regex + '\s+', '\n', string)
+    string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
+    string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
     def occ_dirty(string):
-        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^"]'
+        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
         first = re.search('^\S+\s+\/[^\/]+\/\s+[^"]', string).group(0)
         newl = re.findall(r'\n' + srx, string)
@@ -78,16 +80,19 @@ def cut(string):
             return ret
         else:
             return False
-    roman_numerals_regex = r'^(I{1,3}|I{0,1}VI{0,3})$'
+    #roman_numerals_regex = r'^(I{1,3}|I{0,1}VI{0,3})$'
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
+    print(gl)
+    print(glsp)
+    print(glw)
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string))
     elif len(glw) == 2 and glsp[-3] == 'см.':
         return cut(add + border_set(-1, glw, gl[1], string))
-    elif len(glw) >= 1 and index_by_regex(roman_numerals_regex, glsp):
-        ibr = index_by_regex(roman_numerals_regex, glw)[0]
-        return cut(add + border_set(ibr, glw, gl[1], string))
+   # elif len(glw) >= 1 and index_by_regex(roman_numerals_regex, glsp):
+   #     ibr = index_by_regex(roman_numerals_regex, glw)[0]
+   #     return cut(add + border_set(ibr, glw, gl[1], string))
 
-#print(cut(s))
+print(cut(s))
