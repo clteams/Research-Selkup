@@ -76,6 +76,7 @@ def cut(string):
         return cut(add + border_set(-1, glw, gl[1], string))
     else:
         return cut(add + border_set(-1, glw, gl[1], string))
+    # todo: more cases
 #    elif len(glw) >= 1 and re.search(roman_numerals_regex, glsp[-2]):
 
 #print(cut(s))
