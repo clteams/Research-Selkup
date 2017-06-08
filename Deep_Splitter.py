@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import re
 import pymorphy2
-s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
+s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень II ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
 def cut(string):
     def occ_dirty(string):
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^"]'
@@ -62,21 +62,39 @@ def cut(string):
             else:
                 break
         return list(reversed(left_w))
-    def border_set(depth, left, matched, string):
+    def border_set(depth, left, matched, string, mapping = 'w'):
+        # todo: -> mapping
+        # todo: left[depth] is not safe, regexes can be confused!
         return string.replace (
-            matched, matched.replace(left[depth], "\n" + left[depth])
+            matched, matched.replace (
+                left[depth], "\n" + left[depth]
+            )
         )
-    roman_numerals_regex = r'^(I{1,3}|I*VI*)$'
+    def index_by_regex(regex, lst):
+        ret = [i for i, e in enumerate(lst) if re.search(regex, e)]
+        if len(ret) > 0:
+            return ret
+        else:
+            return False
+    roman_numerals_regex = r'^(I{1,3}|I{0,1}VI{0,3})$'
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
+    print(362, glw)
+    print(992, glsp)
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string))
     elif len(glw) == 2 and glsp[-3] == 'см.':
         return cut(add + border_set(-1, glw, gl[1], string))
-    else:
-        return cut(add + border_set(-1, glw, gl[1], string))
-    # todo: more cases
+    elif len(glw) >= 1 and index_by_regex(roman_numerals_regex, glsp):
+        ibr = index_by_regex(roman_numerals_regex, glw)[0]
+        print('ibr', ibr)
+        print('xyz', (ibr, glw, gl[1], string))
+        return cut(add + border_set(ibr, glw, gl[1], string))
+    #else:
+    #    return cut(add + border_set(-1, glw, gl[1], string))
 #    elif len(glw) >= 1 and re.search(roman_numerals_regex, glsp[-2]):
 
-#print(cut(s))
+print(cut(s))
+    #print(gl)
+    #print(glw)
