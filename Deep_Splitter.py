@@ -2,29 +2,29 @@
 import re
 #import pymorphy2
 # pseudocode class
-class pymorphy2:
-    def 
+#class pymorphy2:
+#    def 
 #
 #s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень II ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
-s = 'аза /об. Ш, кет./ отриц. част. - 1) не: со ӱтче ~ тюргун /кет./ «хоро- ший мальчик не плачет»; таб ~ варгын эя /об. Ш/ «он неболь- шой»; мат ~ танвап /об. Ш/ «я не знаю»; 2) нет: ~, мат таптёл ~ тӧнжак /об. Ш/ «нет, я сегодня не приду»; см. а, а^а, ажа II азакау /об. Ш/ сущ. - дедушка аздэ /об. Ч/ сущ. - олень; см. ӓждэ'
+#s = 'аза /об. Ш, кет./ отриц. част. - 1) не: со ӱтче ~ тюргун /кет./ «хоро- ший мальчик не плачет»; таб ~ варгын эя /об. Ш/ «он неболь- шой»; мат ~ танвап /об. Ш/ «я не знаю»; 2) нет: ~, мат таптёл ~ тӧнжак /об. Ш/ «нет, я сегодня не приду»; см. а, а^а, ажа II азакау /об. Ш/ сущ. - дедушка аздэ /об. Ч/ сущ. - олень; см. ӓждэ'
+#s = 'аввыгу /кет./ отгл. гл., непер., возвр., С - съесться авга /об. Ч/ прил. - короткий: ~ ылбат «короткая жизнь» авгалк /об. Ш/ 1. нареч. необл. - от голода: табла авгалк кумбат /об. Ш/ «они от голода умерли»; 2. сост. ч. имен. сказ.: кат сӯрум авгалң эя /об. Ш/ «зимой зверь голоден»'
+s = 'авегом /тым./ ~ авегэ /об. Ч/ отым. сущ. - мачеха авегэ /об. Ч/ отым. сущ. - мачеха; см. авегом авендаз /об. Ш/ сущ. - дедушка (по материнской линии) авес /тур./ сущ. - овес (< русск.)'
 def cut(string):
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
     def occ_dirty(string):
-	r_num = r'(I{1,3}|I{0,1}VI{0,3})'
-        rx = r'.\s\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]'
+        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
-        first = re.search('^\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]', string).group(0)
+        first = re.search('^\S+\s+\/[^\/]+\/\s+[^«"]', string).group(0)
         newl = re.findall(r'\n' + srx, string)
         occ = re.findall(rx, string)
         ret = [first] + newl + [x[2:] for x in occ if not x[0] in ('~', ' ')]
         return len(ret) - 1
     def occ_find(string):
-	r_num = r'(I{1,3}|I{0,1}VI{0,3})'
         string = string.split('\n')[-1]
-        rx = r'.\s\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]'
-        first = re.search('^(\s\n)*\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]', string).group(0)
+        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
+        first = re.search('^(\s\n)*\S+\s+\/[^\/]+\/\s+[^«"]', string).group(0)
         occ = re.findall(rx, string)
         ret = [first] + [x[2:] for x in occ if not x[0] in ('~', ' ', '\n')]
         return ret
@@ -43,8 +43,7 @@ def cut(string):
         rec = False
     #
     def get_left(string):
-	r_num = r'(I{1,3}|I{0,1}VI{0,3})'
-        rx = r'(?<!~\s)\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^"]'
+        rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^«"]'
         occ = occ_find(string)
         move_left = 8
         focus_word = re.split('\s+', occ[1])[0]
@@ -65,7 +64,13 @@ def cut(string):
             matched = ms
         return focus_word, matched
     def get_left_w(gl):
-        parsed_list = re.split(r'\s+', gl[1])[:-3]
+        gl_splitted = re.split(r'\s+', gl[1])
+        border_index = -1
+        while gl_splitted[border_index][0] != '/':
+            border_index -= 1
+        #if border_index > -3:
+        #    return []
+        parsed_list = gl_splitted[:border_index]
         left_w = []
         for e in reversed(parsed_list):
             if re.search('^\w+$', e):
@@ -75,11 +80,18 @@ def cut(string):
         return list(reversed(left_w))
     def border_set(depth, left, matched, string, mapping = 'w'):
         # todo: -> mapping
-        # todo: left[depth] is not safe, regexes can be confused!
+        keyword = left[depth]
+        already = False
+        new_matched = []
+        for e in reversed(matched.split()):
+            if e == keyword and not already:
+                new_matched.append("\n" + e)
+                already = True
+            else:
+                new_matched.append(e)
         return string.replace (
-            matched, matched.replace (
-                left[depth], "\n" + left[depth]
-            )
+            matched,
+            " ".join(list(reversed(new_matched)))
         )
     def index_by_regex(regex, lst):
         ret = [i for i, e in enumerate(lst) if re.search(regex, e)]
@@ -91,10 +103,6 @@ def cut(string):
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
-    #print(gl)
-    #print(glsp)
-    #print(glw)
-    def split_group(string, g_before, g_after): # 2 last args must be required by cut(...)
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string))
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
@@ -109,4 +117,4 @@ def cut(string):
    #     ibr = index_by_regex(roman_numerals_regex, glw)[0]
    #     return cut(add + border_set(ibr, glw, gl[1], string))
 
-print(cut(s))
+#print(cut(s))
