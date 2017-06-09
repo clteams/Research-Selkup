@@ -13,7 +13,9 @@ def check_type(string):
     )
     base_no_patterns = (
         #3) проём: мадан ӓк /об. Ш/ «дверной проём»
-        RE_slashG + '\s+[«»]'
+        RE_slashG + r'\s+[«»]',
+	#2. соответствует отриц. приставке «не»
+	r'^\s*\d+\.'
     )
     # check for 'base' type
     base_type = True
