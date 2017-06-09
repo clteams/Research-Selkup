@@ -3,7 +3,7 @@ import re
 #import pymorphy2
 # pseudocode class
 #class pymorphy2:
-#    def 
+#    def
 #
 #s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень II ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
 #s = 'аза /об. Ш, кет./ отриц. част. - 1) не: со ӱтче ~ тюргун /кет./ «хоро- ший мальчик не плачет»; таб ~ варгын эя /об. Ш/ «он неболь- шой»; мат ~ танвап /об. Ш/ «я не знаю»; 2) нет: ~, мат таптёл ~ тӧнжак /об. Ш/ «нет, я сегодня не приду»; см. а, а^а, ажа II азакау /об. Ш/ сущ. - дедушка аздэ /об. Ч/ сущ. - олень; см. ӓждэ'
@@ -103,6 +103,33 @@ def cut(string):
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
+    def smart_spilitter(string, title, g_next):
+        sp_str = re.split(r'\s+', string)
+        # check if there is a russian word
+        morph = pymorphy2.MorphAnalyzer()
+        stop_newline = False
+        ret = []
+        for e in reversed(sp_str):
+            if 'DictionaryAnalyzer' in str(morph.parse(e)) and not stop_newline:
+                ret.append(e + "\n")
+                stop_newline = True
+            else:
+                ret.append(e)
+        ret = " ".join(ret)
+        # there are no russian words => selkup alphabet sorting
+        ret = []
+        if not stop_newline:
+            stop_newline = False
+            for e in sp_str:
+                if type(g_next) != bool:
+                    if e > title and e < g_next:
+                        ret.append("\n" + e)
+                    else:
+                        ret.append(e)
+                else:
+                    ret.append(e)
+            ret = " ".join(ret)
+        return ret
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string))
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
