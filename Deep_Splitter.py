@@ -17,7 +17,7 @@ def cut(string):
         return len(ret) - 1
     def occ_find(string):
         string = string.split('\n')[-1]
-        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^"]'
+        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         first = re.search('^(\s\n)*\S+\s+\/[^\/]+\/\s+[^"]', string).group(0)
         occ = re.findall(rx, string)
         ret = [first] + [x[2:] for x in occ if not x[0] in ('~', ' ', '\n')]
@@ -39,7 +39,7 @@ def cut(string):
     def get_left(string):
         rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^"]'
         occ = occ_find(string)
-        move_left = 4
+        move_left = 8
         focus_word = re.split('\s+', occ[1])[0]
         move_left -= 1
         rx = r'\S+\s+' + rx
@@ -84,13 +84,19 @@ def cut(string):
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
-    print(gl)
-    print(glsp)
-    print(glw)
+    #print(gl)
+    #print(glsp)
+    #print(glw)
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string))
-    elif len(glw) == 2 and glsp[-3] == 'см.':
+    elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
         return cut(add + border_set(-1, glw, gl[1], string))
+    elif index_by_regex(r'^см\.$', glsp):
+        ibr = index_by_regex(r'^см\.$', glsp)[0]
+        sec = glsp[ibr + index_by_regex(r'^[^,]*$', glsp[ibr + 1:])[0] + 1:]
+        if len(sec) == 2:
+            return cut(add + border_set(-1, glw, gl[1], string))
+
    # elif len(glw) >= 1 and index_by_regex(roman_numerals_regex, glsp):
    #     ibr = index_by_regex(roman_numerals_regex, glw)[0]
    #     return cut(add + border_set(ibr, glw, gl[1], string))
