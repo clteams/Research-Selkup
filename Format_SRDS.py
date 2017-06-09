@@ -32,7 +32,6 @@ def check_type(string):
         return 'slice' # todo: (maybe) add other types, except base/slice
     else:
         return 'base'
-buffer = ''
 continue_times = 0
 len_srds = len(srds)
 for i in range(len(srds)):
@@ -43,7 +42,7 @@ for i in range(len(srds)):
     if i != len_srds - 1:
         j = i + 1
         while check_type(srds[j]) != 'base':
-            cs += srds[j]
+            cs += " " + srds[j]
             if j == len_srds - 1:
                 break
     # remove "err- ors"
