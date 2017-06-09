@@ -12,17 +12,19 @@ def cut(string):
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
     def occ_dirty(string):
-        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
+	r_num = r'(I{1,3}|I{0,1}VI{0,3})'
+        rx = r'.\s\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
-        first = re.search('^\S+\s+\/[^\/]+\/\s+[^"]', string).group(0)
+        first = re.search('^\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]', string).group(0)
         newl = re.findall(r'\n' + srx, string)
         occ = re.findall(rx, string)
         ret = [first] + newl + [x[2:] for x in occ if not x[0] in ('~', ' ')]
         return len(ret) - 1
     def occ_find(string):
+	r_num = r'(I{1,3}|I{0,1}VI{0,3})'
         string = string.split('\n')[-1]
-        rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
-        first = re.search('^(\s\n)*\S+\s+\/[^\/]+\/\s+[^"]', string).group(0)
+        rx = r'.\s\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]'
+        first = re.search('^(\s\n)*\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^«"]', string).group(0)
         occ = re.findall(rx, string)
         ret = [first] + [x[2:] for x in occ if not x[0] in ('~', ' ', '\n')]
         return ret
@@ -41,7 +43,8 @@ def cut(string):
         rec = False
     #
     def get_left(string):
-        rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^"]'
+	r_num = r'(I{1,3}|I{0,1}VI{0,3})'
+        rx = r'(?<!~\s)\S+\s+' + r_num + r'*\s*\/[^\/]+\/\s+[^"]'
         occ = occ_find(string)
         move_left = 8
         focus_word = re.split('\s+', occ[1])[0]
@@ -91,6 +94,7 @@ def cut(string):
     #print(gl)
     #print(glsp)
     #print(glw)
+    def split_group(string, g_before, g_after): # 2 last args must be required by cut(...)
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string))
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
