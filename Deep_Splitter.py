@@ -147,7 +147,6 @@ def cut(string, title, g_next):
             return ret
         else:
             return our_ind
-
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string), title, g_next)
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
@@ -157,6 +156,12 @@ def cut(string, title, g_next):
         sec = glsp[ibr + index_by_regex(r'^[^,]*$', glsp[ibr + 1:])[0] + 1:]
         if len(sec) == 2:
             return cut(add + border_set(-1, glw, gl[1], string), title, g_next)
+        else:
+            j_glw = " ".join(glw)
+            return cut(
+                add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
+                title, g_next
+            )
     elif len(glw) >= 3:
         j_glw = " ".join(glw)
         return cut(
