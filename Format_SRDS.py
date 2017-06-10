@@ -47,4 +47,6 @@ for i in range(len(srds)):
                 break
     # remove "err- ors"
     cs = re.sub(r'(?<=[^\s-])-\s', '', cs)
+    # `^ -> 'гх'` 2017-06-10 issue
+    cs = re.sub(r'\^', 'гх', cs)
 
