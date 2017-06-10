@@ -1,15 +1,12 @@
 #!/usr/bin/python3
 import re
-#import pymorphy2
-# pseudocode class
-#class pymorphy2:
-#    def
+import pymorphy2
 #
 #s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень II ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
 #s = 'аза /об. Ш, кет./ отриц. част. - 1) не: со ӱтче ~ тюргун /кет./ «хоро- ший мальчик не плачет»; таб ~ варгын эя /об. Ш/ «он неболь- шой»; мат ~ танвап /об. Ш/ «я не знаю»; 2) нет: ~, мат таптёл ~ тӧнжак /об. Ш/ «нет, я сегодня не приду»; см. а, а^а, ажа II азакау /об. Ш/ сущ. - дедушка аздэ /об. Ч/ сущ. - олень; см. ӓждэ'
 #s = 'аввыгу /кет./ отгл. гл., непер., возвр., С - съесться авга /об. Ч/ прил. - короткий: ~ ылбат «короткая жизнь» авгалк /об. Ш/ 1. нареч. необл. - от голода: табла авгалк кумбат /об. Ш/ «они от голода умерли»; 2. сост. ч. имен. сказ.: кат сӯрум авгалң эя /об. Ш/ «зимой зверь голоден»'
 s = 'авегом /тым./ ~ авегэ /об. Ч/ отым. сущ. - мачеха авегэ /об. Ч/ отым. сущ. - мачеха; см. авегом авендаз /об. Ш/ сущ. - дедушка (по материнской линии) авес /тур./ сущ. - овес (< русск.)'
-def cut(string):
+def cut(string, title, g_next):
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
@@ -29,6 +26,7 @@ def cut(string):
         ret = [first] + [x[2:] for x in occ if not x[0] in ('~', ' ', '\n')]
         return ret
     # recursion
+    print(string)
     occ = occ_find(string)
     occd = occ_dirty(string)
     if '\n' in string and string.count('\n') != occd:
@@ -103,45 +101,61 @@ def cut(string):
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
-    def smart_spilitter(string, title, g_next):
+    def smart_splitter(string, title, g_next, indices = False):
         sp_str = re.split(r'\s+', string)
         # check if there is a russian word
         morph = pymorphy2.MorphAnalyzer()
         stop_newline = False
         ret = []
+        ind = 0
+        our_ind = False
         for e in reversed(sp_str):
             if 'DictionaryAnalyzer' in str(morph.parse(e)) and not stop_newline:
                 ret.append(e + "\n")
+                our_ind = ind
                 stop_newline = True
             else:
                 ret.append(e)
+            ind -= 1
         ret = " ".join(ret)
         # there are no russian words => selkup alphabet sorting
         ret = []
         if not stop_newline:
             stop_newline = False
+            ind = 0
+            our_ind = False
             for e in sp_str:
                 if type(g_next) != bool:
                     if e > title and e < g_next:
                         ret.append("\n" + e)
+                        our_ind = ind
                     else:
                         ret.append(e)
                 else:
                     ret.append(e)
+            ind += 1
             ret = " ".join(ret)
-        return ret
+        if not indices:
+            return ret
+        else:
+            return our_ind
     if len(glw) == 1:
-        return cut(add + border_set(0, glw, gl[1], string))
+        return cut(add + border_set(0, glw, gl[1], string), title, g_next)
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
-        return cut(add + border_set(-1, glw, gl[1], string))
+        return cut(add + border_set(-1, glw, gl[1], string), title, g_next)
     elif index_by_regex(r'^см\.$', glsp):
         ibr = index_by_regex(r'^см\.$', glsp)[0]
         sec = glsp[ibr + index_by_regex(r'^[^,]*$', glsp[ibr + 1:])[0] + 1:]
         if len(sec) == 2:
-            return cut(add + border_set(-1, glw, gl[1], string))
-
-   # elif len(glw) >= 1 and index_by_regex(roman_numerals_regex, glsp):
-   #     ibr = index_by_regex(roman_numerals_regex, glw)[0]
-   #     return cut(add + border_set(ibr, glw, gl[1], string))
-
-#print(cut(s))
+            return cut(add + border_set(-1, glw, gl[1], string), title, g_next)
+    elif len(glw) >= 3:
+        return cut(
+            add + border_set(
+                smart_splitter(" ".join(glw), title, g_next, True),
+                glw, gl[1], string
+            ),
+            title, g_next
+        )
+s = 'амырқоль /тур./ отгл. прил. - съедобный амырқоль апсот /тур./ сост. наим - обед'
+next = 'амырле'
+print(cut(s, 'амырқоль', next ))
