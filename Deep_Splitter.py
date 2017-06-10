@@ -13,7 +13,7 @@ def cut(string, title, g_next):
     def occ_dirty(string):
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
-        first = re.search('^\S+\s+\/[^\/]+\/\s+[^«"]', string).group(0)
+        first = re.search('^[\w\s]+\/[^\/]+\/\s+[^«"]', string).group(0)
         newl = re.findall(r'\n' + srx, string)
         occ = re.findall(rx, string)
         ret = [first] + newl + [x[2:] for x in occ if not x[0] in ('~', ' ')]
@@ -21,12 +21,11 @@ def cut(string, title, g_next):
     def occ_find(string):
         string = string.split('\n')[-1]
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
-        first = re.search('^(\s\n)*\S+\s+\/[^\/]+\/\s+[^«"]', string).group(0)
+        first = re.search('^(\s\n|\s)*[\w\s]+\/[^\/]+\/\s+[^«"]', string).group(0)
         occ = re.findall(rx, string)
         ret = [first] + [x[2:] for x in occ if not x[0] in ('~', ' ', '\n')]
         return ret
     # recursion
-    print(string)
     occ = occ_find(string)
     occd = occ_dirty(string)
     if '\n' in string and string.count('\n') != occd:
@@ -102,6 +101,12 @@ def cut(string, title, g_next):
     glsp = re.split(r'\s+', gl[1])[:-3]
     glw = get_left_w(gl)
     def smart_splitter(string, title, g_next, indices = False):
+        def to_cyr(s):
+            rep1 = 'қ э́ ӓ җ ӣ ң ё ӧ и́ ӯ ӱ'.split()
+            rep2 = 'к э а ж и н е о и у у'.split()
+            for j in range(len(rep1)):
+                s = s.replace(rep1[j], rep2[j])
+            return s
         sp_str = re.split(r'\s+', string)
         # check if there is a russian word
         morph = pymorphy2.MorphAnalyzer()
@@ -109,24 +114,26 @@ def cut(string, title, g_next):
         ret = []
         ind = 0
         our_ind = False
-        for e in reversed(sp_str):
-            if 'DictionaryAnalyzer' in str(morph.parse(e)) and not stop_newline:
+        for i in range(len(sp_str) - 1, -1, -1):
+            e = sp_str[i]
+            str_parse = str(morph.parse(e))
+            if 'DictionaryAnalyzer' in str_parse and not 'Unknown' in str_parse and not stop_newline:
                 ret.append(e + "\n")
                 our_ind = ind
                 stop_newline = True
             else:
                 ret.append(e)
             ind -= 1
-        ret = " ".join(ret)
+        ret = " ".join(reversed(ret))
         # there are no russian words => selkup alphabet sorting
-        ret = []
         if not stop_newline:
+            ret = []
             stop_newline = False
             ind = 0
             our_ind = False
             for e in sp_str:
                 if type(g_next) != bool:
-                    if e > title and e < g_next:
+                    if to_cyr(e) >= to_cyr(title) and to_cyr(e) <= to_cyr(g_next):
                         ret.append("\n" + e)
                         our_ind = ind
                     else:
@@ -135,10 +142,12 @@ def cut(string, title, g_next):
                     ret.append(e)
             ind += 1
             ret = " ".join(ret)
+        ret = re.sub(r'\n\s+', '\n', ret)
         if not indices:
             return ret
         else:
             return our_ind
+
     if len(glw) == 1:
         return cut(add + border_set(0, glw, gl[1], string), title, g_next)
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
@@ -149,11 +158,9 @@ def cut(string, title, g_next):
         if len(sec) == 2:
             return cut(add + border_set(-1, glw, gl[1], string), title, g_next)
     elif len(glw) >= 3:
+        j_glw = " ".join(glw)
         return cut(
-            add + border_set(
-                smart_splitter(" ".join(glw), title, g_next, True),
-                glw, gl[1], string
-            ),
+            add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
             title, g_next
         )
 s = 'амырқоль /тур./ отгл. прил. - съедобный амырқоль апсот /тур./ сост. наим - обед'
