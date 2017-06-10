@@ -13,7 +13,7 @@ def cut(string, title, g_next):
     def occ_dirty(string):
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
-        first = re.search('^[\w\s]+\/[^\/]+\/\s+[^«"]', string).group(0)
+        first = re.search('^[\w\s~]+\/[^\/]+\/\s+[^«"]', string).group(0)
         newl = re.findall(r'\n' + srx, string)
         occ = re.findall(rx, string)
         ret = [first] + newl + [x[2:] for x in occ if not x[0] in ('~', ' ')]
@@ -21,7 +21,7 @@ def cut(string, title, g_next):
     def occ_find(string):
         string = string.split('\n')[-1]
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
-        first = re.search('^(\s\n|\s)*[\w\s]+\/[^\/]+\/\s+[^«"]', string).group(0)
+        first = re.search('^(\s\n|\s)*[\w\s~]+\/[^\/]+\/\s+[^«"]', string).group(0)
         occ = re.findall(rx, string)
         ret = [first] + [x[2:] for x in occ if not x[0] in ('~', ' ', '\n')]
         return ret
