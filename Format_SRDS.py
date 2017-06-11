@@ -52,5 +52,7 @@ for i in range(len(srds)):
     cs = re.sub(r'(?<=[^\s-])-\s', '', cs)
     # `^ -> 'гх'` 2017-06-10 issue
     cs = re.sub(r'\^', 'гх', cs)
-    print(cs + "\n")
+    # `rsi 18` issue [not full]
+    cs = re.sub(r'(?<=\w)\d', 'гх', cs)
+    print(cs)
 
