@@ -21,7 +21,7 @@ def check_type(string):
     # check for 'base' type
     base_type = False
     for bp in base_patterns:
-        if not re.search(bp, string):
+        if re.search(bp, string):
             base_type = True
             break
     if base_type:
