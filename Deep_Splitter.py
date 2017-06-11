@@ -2,10 +2,11 @@
 import re
 import pymorphy2
 #
-#s = 'ақоди /об. Ч/ част. - только: мананэ́л ӣкэк ~ тэтэ́мҗэл под «мое- му сыну-моему только четыре года»; тав қыбачэнд ~ муктэ́т надэллат «этому ребёнку только шесть недель» см. каткабарт ақодя /об. Ш/ ~ ақоҗе /об. Ч/ ~ ақочей /тым./ сущ. - селезень II ақоҗе /об. Ч/ сущ. - селезень; см. ақодя';
-#s = 'аза /об. Ш, кет./ отриц. част. - 1) не: со ӱтче ~ тюргун /кет./ «хоро- ший мальчик не плачет»; таб ~ варгын эя /об. Ш/ «он неболь- шой»; мат ~ танвап /об. Ш/ «я не знаю»; 2) нет: ~, мат таптёл ~ тӧнжак /об. Ш/ «нет, я сегодня не приду»; см. а, а^а, ажа II азакау /об. Ш/ сущ. - дедушка аздэ /об. Ч/ сущ. - олень; см. ӓждэ'
-#s = 'аввыгу /кет./ отгл. гл., непер., возвр., С - съесться авга /об. Ч/ прил. - короткий: ~ ылбат «короткая жизнь» авгалк /об. Ш/ 1. нареч. необл. - от голода: табла авгалк кумбат /об. Ш/ «они от голода умерли»; 2. сост. ч. имен. сказ.: кат сӯрум авгалң эя /об. Ш/ «зимой зверь голоден»'
-s = 'авегом /тым./ ~ авегэ /об. Ч/ отым. сущ. - мачеха авегэ /об. Ч/ отым. сущ. - мачеха; см. авегом авендаз /об. Ш/ сущ. - дедушка (по материнской линии) авес /тур./ сущ. - овес (< русск.)'
+s = open('tests/ds1').read()
+#
+class reg:
+    w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
+    w_lex = w[:-1] + r'\s~]+'
 def cut(string, title, g_next):
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
@@ -13,7 +14,7 @@ def cut(string, title, g_next):
     def occ_dirty(string):
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
-        first = re.search('^[\w\s~]+\/[^\/]+\/\s+[^«"]', string).group(0)
+        first = re.search(r'^' + reg.w_lex + r'\/[^\/]+\/\s+[^«"]', string).group(0)
         newl = re.findall(r'\n' + srx, string)
         occ = re.findall(rx, string)
         ret = [first] + newl + [x[2:] for x in occ if not x[0] in ('~', ' ')]
@@ -21,7 +22,7 @@ def cut(string, title, g_next):
     def occ_find(string):
         string = string.split('\n')[-1]
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
-        first = re.search('^(\s\n|\s)*[\w\s~]+\/[^\/]+\/\s+[^«"]', string).group(0)
+        first = re.search('^(\s\n|\s)*' + reg.w_lex + r'\/[^\/]+\/\s+[^«"]', string).group(0)
         occ = re.findall(rx, string)
         ret = [first] + [x[2:] for x in occ if not x[0] in ('~', ' ', '\n')]
         return ret
@@ -43,6 +44,7 @@ def cut(string, title, g_next):
         rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^«"]'
         occ = occ_find(string)
         move_left = 8
+        print('occ', occ)
         focus_word = re.split('\s+', occ[1])[0]
         move_left -= 1
         rx = r'\S+\s+' + rx
@@ -168,6 +170,21 @@ def cut(string, title, g_next):
             add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
             title, g_next
         )
-s = 'амырқоль /тур./ отгл. прил. - съедобный амырқоль апсот /тур./ сост. наим - обед'
-next = 'амырле'
-print(cut(s, 'амырқоль', next ))
+strs = s.splitlines()
+first_s = []
+for s in strs:
+    first_s.append(re.search(r'^(\s\n|\s)*[\w\s~]+', s))
+for j in range(len(strs)):
+    strs_j = strs[j]
+    print(strs_j)
+    if len(re.findall(reg.w_lex + r'\s+\/[^\/]+\/\s+[^«"]', strs_j)) > 1:
+        print('OOOOOO')
+        strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
+        if j == len(strs) - 1:
+            next = False
+        else:
+            next = first_s[j + 1]
+        print(cut(strs_j, first_s[j], next))
+    else:
+        print('AAAA')
+        print(strs_j)
