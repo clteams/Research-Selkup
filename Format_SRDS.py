@@ -19,10 +19,10 @@ def check_type(string):
 	r'^\s*\d+\.'
     )
     # check for 'base' type
-    base_type = True
+    base_type = False
     for bp in base_patterns:
         if not re.search(bp, string):
-            base_type = False
+            base_type = True
             break
     if base_type:
         for bnp in base_no_patterns:
