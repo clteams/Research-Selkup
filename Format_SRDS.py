@@ -3,7 +3,7 @@ import pymorphy2
 import re
 
 #srds = open('./srds2.txt').read().splitlines()
-srds = open('tests/f1').read().splitlines()
+srds = open('tests/f4').read().splitlines()
 
 def check_type(string):
     RE_slashG = r'\/\w+\.[^\/]*\/'
@@ -54,5 +54,7 @@ for i in range(len(srds)):
     cs = re.sub(r'\^', 'гх', cs)
     # `rsi 18` issue [not full]
     cs = re.sub(r'(?<=\w)\d', 'гх', cs)
+    # `rsi 19` issue
+    cs = re.sub(r'(/[^\/]+/)(\d+)', '\g<1> \g<2>', cs)
     print(cs)
 
