@@ -60,7 +60,7 @@ with open('srds-formatted.txt', 'a') as o:
         cs = re.sub(r'(/[^\/]+/)(\d+)', '\g<1> \g<2>', cs)
         # `rsi 21` issue
         cs = re.sub(r'(?<=\w)[\d;]+(?=\w)', 'дф', cs)
-        o.write(cs)
+        o.write(cs + "\n")
         print(ix)
         ix += 1
 
