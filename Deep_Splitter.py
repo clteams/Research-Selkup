@@ -8,20 +8,11 @@ class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
     w_lex = w[:-1] + r'\s~]+'
 def cut(string, title, g_next):
-    def prepare(string, first_title, new_title, t_space):
-        if not t_space:
-            return string
-        else:
-            return string.replace(new_title, first_title)
+    debug = False
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
-    first_title = re.search(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', string).group(0)
-    new_title = first_title#.replace(' ', '')
-    t_space = False
-#    t_space = len(first_title.split()) != 1
-#    if t_space:
-#        string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)
+    string = re.sub(r'/[^/]+/', '/J/', string)
     def occ_dirty(string):
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
@@ -39,18 +30,16 @@ def cut(string, title, g_next):
         return ret
     # recursion
     occ = occ_find(string)
-    print(occ)
+    if len(occ) == 1:
+        return string	
     occd = occ_dirty(string)
-    print(occd)
-    print(string)
     if '\n' in string and string.count('\n') != occd:
         rec = True
         str_sp = string.split('\n')
         add = '\n'.join(str_sp[:-1]) + '\n'
         string = str_sp[-1]
     elif '\n' in string:
-        print(4664764764)
-        return prepare(string, first_title, new_title, t_space)
+        return string
     else:
         add = ''
         rec = False
@@ -112,15 +101,17 @@ def cut(string, title, g_next):
             return ret
         else:
             return False
-    #roman_numerals_regex = r'^(I{1,3}|I{0,1}VI{0,3})$'
+    first_title = re.search(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', string).group(0)
+    new_title = first_title.replace(' ', '')
+    t_space = False
+    t_space = len(first_title.split()) != 1
+    if t_space:
+        string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)    
     gl = get_left(string)
-    glsp = re.split(r'\s+', gl[1])[:-3]
+    glsp = re.split(r'\s+', gl[1])[:-2]
     glw = get_left_w(gl)
     def smart_splitter(string, title, g_next, indices = False):
         def to_cyr(s):
-            if type(s) != str:
-                s = s.group(0)
-            s = re.sub('Q+$', '', s)
             rep1 = 'қ э́ ӓ җ ӣ ң ё ӧ и́ ӯ ӱ'.split()
             rep2 = 'к э а ж и н е о и у у'.split()
             for j in range(len(rep1)):
@@ -146,6 +137,7 @@ def cut(string, title, g_next):
         ret = " ".join(reversed(ret))
         # there are no russian words => selkup alphabet sorting
         if not stop_newline:
+            alph_sorting = False
             ret = []
             stop_newline = False
             ind = 0
@@ -155,94 +147,98 @@ def cut(string, title, g_next):
                     if to_cyr(e) >= to_cyr(title) and to_cyr(e) <= to_cyr(g_next):
                         ret.append("\n" + e)
                         our_ind = ind
+                        alph_sorting = True
                     else:
                         ret.append(e)
                 else:
                     ret.append(e)
-            ind += 1
+                ind += 1
+            ret = " ".join(ret)
+        if not alph_sorting:
+            def i_simil(a, b):
+                a = re.split(r'\s+', a)[0]
+                b = re.split(r'\s+', b)[0]
+                s = 0
+                try:
+                    while a[s] == b[s]:
+                        s += 1
+                except IndexError:
+                    return s
+                return s
+            ret = []
+            stop_newline = False
+            results = []
+            for e in sp_str:
+                results.append(i_simil(e, g_next))
+            def find_max_ind(l):
+                m = -1
+                ix = -1
+                for i in range(len(l)):
+                    if l[i] > m:
+                        m = l[i]
+                        ix = i
+                return ix
+            our_ind = find_max_ind(results)
+            ret = []
+            for i in range(len(sp_str)):
+                if i != our_ind:
+                    ret.append(sp_str[i])
+                else:
+                    ret.append("\n" + sp_str[i])
             ret = " ".join(ret)
         ret = re.sub(r'\n\s+', '\n', ret)
         if not indices:
             return ret
         else:
             return our_ind
-    print(glw)
+    ret = False
     if len(glw) == 1:
-        return cut(
-            prepare(
-                add + border_set(0, glw, gl[1], string),
-                first_title,
-                new_title,
-                t_space
-            ),
-            title, g_next
-        )
+        if debug:
+            print('parsing mode: 1')
+        ret = add + border_set(0, glw, gl[1], string)
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
-        return cut(
-            prepare(
-                add + border_set(-1, glw, gl[1], string),
-                first_title,
-                new_title,
-                t_space
-            ),
-            title, g_next
-        )
-    elif len(glw) == 2 and glsp[-3][-1] == ',':
-        return cut(
-            prepare(
-                add + border_set(-1, glw, gl[1], string),
-                first_title,
-                new_title,
-                t_space
-            ),
-            title, g_next
-        )
+        if debug:
+            print('parsing mode: 2')
+        ret = add + border_set(-1, glw, gl[1], string)
     elif index_by_regex(r'^см\.$', glsp):
+        if debug:
+            print('parsing mode: 3')
         ibr = index_by_regex(r'^см\.$', glsp)[0]
-        print('jkrtjkhkhrkjthrjkhtr')
         sec = glsp[ibr + index_by_regex(r'^[^,]*$', glsp[ibr + 1:])[0] + 1:]
         if len(sec) == 2:
-            return cut(
-                prepare(
-                    add + border_set(-1, glw, gl[1], string),
-                    first_title,
-                    new_title,
-                    t_space
-                ),
-                title, g_next
-            )
+            if debug:
+                print('parsing mode: 3A')
+            ret = add + border_set(-1, glw, gl[1], string)
         else:
+            if debug:
+                print('parsing mode: 3B')
             j_glw = " ".join(glw)
-            return cut(
-                prepare(
-                    add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
-                    first_title,
-                    new_title,
-                    t_space
-                ),
-                title, g_next
-            )
+            ret = add + string.replace(j_glw, smart_splitter(j_glw, title, g_next))
     elif len(glw) >= 3:
+        if debug:
+            print('parsing mode: 4')
         j_glw = " ".join(glw)
-        return cut(
-            prepare(
-                add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
-                first_title,
-                new_title,
-                t_space
-            ),
-            title, g_next
-        )
+        ret = add + string.replace(j_glw, smart_splitter(j_glw, title, g_next))
+    if ret:
+        if t_space:
+            ret = ret.replace(new_title, first_title)
+        return cut(ret, title, g_next)
+    else:
+        raise ValueError('')
 strs = s.splitlines()
 first_s = []
 for s in strs:
-    first_s.append(re.search(r'^(\s\n|\s)*[\w\s~]+', s))
+    first_s.append(re.search(r'^(\s\n|\s)*' + reg.w[:-1] + r'\s]' + r'+', s).group(0))
+    first_s[-1] = re.sub(r'\s+$', '', first_s[-1])
 for j in range(len(strs)):
     strs_j = strs[j]
     q_occs = re.finditer(r'\s+~\s+(\w+\s*)+(?=\s+\/)', strs_j)
+    m_occs = re.finditer(r'/[^/]+/', strs_j)
     strs_j = re.sub(r'\s+~\s+(\w+\s*)+(?=\s+\/)', 'Q', strs_j)
+    strs_j = re.sub(r'/[^/]+/', '/J/', strs_j)
     if len(re.findall(reg.w_lex + r'\s+\/[^\/]+\/\s+[^«"]', strs_j)) > 1:
         strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
+        # Q & /J/
         if j == len(strs) - 1:
             g_next = False
         else:
@@ -252,4 +248,10 @@ for j in range(len(strs)):
         res = strs_j
     for qo in q_occs:
         res = res.replace('Q', qo.group(0), 1)
+    for mo in m_occs:
+        res = res.replace('/J/', mo.group(0), 1)
     print(res)
+    
+    
+    
+# /J/ and Q instead of ~...
