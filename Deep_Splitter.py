@@ -235,10 +235,8 @@ for j in range(len(strs)):
     q_occs = re.finditer(r'\s+~\s+(\w+\s*)+(?=\s+\/)', strs_j)
     m_occs = re.finditer(r'/[^/]+/', strs_j)
     strs_j = re.sub(r'\s+~\s+(\w+\s*)+(?=\s+\/)', 'Q', strs_j)
-    strs_j = re.sub(r'/[^/]+/', '/J/', strs_j)
     if len(re.findall(reg.w_lex + r'\s+\/[^\/]+\/\s+[^«"]', strs_j)) > 1:
         strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
-        # Q & /J/
         if j == len(strs) - 1:
             g_next = False
         else:
@@ -251,7 +249,3 @@ for j in range(len(strs)):
     for mo in m_occs:
         res = res.replace('/J/', mo.group(0), 1)
     print(res)
-    
-    
-    
-# /J/ and Q instead of ~...
