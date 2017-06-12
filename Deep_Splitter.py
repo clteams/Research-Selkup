@@ -8,9 +8,19 @@ class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
     w_lex = w[:-1] + r'\s~]+'
 def cut(string, title, g_next):
+    def prepare(string, first_title, new_title, t_space):
+        if not t_space:
+            return string
+        else:
+            return string.replace(new_title, first_title)
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
+    first_title = re.search(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', string).group(0)
+    new_title = first_title.replace(' ', '')
+    t_space = len(first_title.split()) != 1
+    if t_space:
+        string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)
     def occ_dirty(string):
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
@@ -35,7 +45,7 @@ def cut(string, title, g_next):
         add = '\n'.join(str_sp[:-1]) + '\n'
         string = str_sp[-1]
     elif '\n' in string:
-        return string
+        return prepare(string, first_title, new_title, t_space)
     else:
         add = ''
         rec = False
@@ -44,7 +54,6 @@ def cut(string, title, g_next):
         rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^«"]'
         occ = occ_find(string)
         move_left = 8
-        print('occ', occ)
         focus_word = re.split('\s+', occ[1])[0]
         move_left -= 1
         rx = r'\S+\s+' + rx
@@ -72,7 +81,7 @@ def cut(string, title, g_next):
         parsed_list = gl_splitted[:border_index]
         left_w = []
         for e in reversed(parsed_list):
-            if re.search('^\w+$', e):
+            if re.search(r'^' + reg.w + r'+$', e):
                 left_w.append(e)
             else:
                 break
@@ -104,6 +113,7 @@ def cut(string, title, g_next):
     glw = get_left_w(gl)
     def smart_splitter(string, title, g_next, indices = False):
         def to_cyr(s):
+            s = re.sub('Q+$', '', s)
             rep1 = 'қ э́ ӓ җ ӣ ң ё ӧ и́ ӯ ӱ'.split()
             rep2 = 'к э а ж и н е о и у у'.split()
             for j in range(len(rep1)):
@@ -150,24 +160,68 @@ def cut(string, title, g_next):
         else:
             return our_ind
     if len(glw) == 1:
-        return cut(add + border_set(0, glw, gl[1], string), title, g_next)
+        return cut(
+            prepare(
+                add + border_set(0, glw, gl[1], string),
+                first_title,
+                new_title,
+                t_space
+            ),
+            title, g_next
+        )
     elif len(glw) == 2 and glsp[-3] in ('см.', '-'):
-        return cut(add + border_set(-1, glw, gl[1], string), title, g_next)
+        return cut(
+            prepare(
+                add + border_set(-1, glw, gl[1], string),
+                first_title,
+                new_title,
+                t_space
+            ),
+            title, g_next
+        )
+    elif len(glw) == 2 and glsp[-3][-1] == ',':
+        return cut(
+            prepare(
+                add + border_set(-1, glw, gl[1], string),
+                first_title,
+                new_title,
+                t_space
+            ),
+            title, g_next
+        )
     elif index_by_regex(r'^см\.$', glsp):
         ibr = index_by_regex(r'^см\.$', glsp)[0]
         sec = glsp[ibr + index_by_regex(r'^[^,]*$', glsp[ibr + 1:])[0] + 1:]
         if len(sec) == 2:
-            return cut(add + border_set(-1, glw, gl[1], string), title, g_next)
+            return cut(
+                prepare(
+                    add + border_set(-1, glw, gl[1], string),
+                    first_title,
+                    new_title,
+                    t_space
+                ),
+                title, g_next
+            )
         else:
             j_glw = " ".join(glw)
             return cut(
-                add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
+                prepare(
+                    add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
+                    first_title,
+                    new_title,
+                    t_space
+                ),
                 title, g_next
             )
     elif len(glw) >= 3:
         j_glw = " ".join(glw)
         return cut(
-            add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
+            prepare(
+                add + string.replace(j_glw, smart_splitter(j_glw, title, g_next)),
+                first_title,
+                new_title,
+                t_space
+            ),
             title, g_next
         )
 strs = s.splitlines()
@@ -176,15 +230,17 @@ for s in strs:
     first_s.append(re.search(r'^(\s\n|\s)*[\w\s~]+', s))
 for j in range(len(strs)):
     strs_j = strs[j]
-    print(strs_j)
+    q_occs = re.finditer(r'\s+~\s+(\w+\s*)+(?=\s+\/)', strs_j)
+    strs_j = re.sub(r'\s+~\s+(\w+\s*)+(?=\s+\/)', 'Q', strs_j)
     if len(re.findall(reg.w_lex + r'\s+\/[^\/]+\/\s+[^«"]', strs_j)) > 1:
-        print('OOOOOO')
         strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
         if j == len(strs) - 1:
             next = False
         else:
             next = first_s[j + 1]
-        print(cut(strs_j, first_s[j], next))
+        res = cut(strs_j, first_s[j], next)
     else:
-        print('AAAA')
-        print(strs_j)
+        res = strs_j
+    for qo in q_occs:
+        res = res.replace('Q', qo.group(0), 1)
+    print(res)
