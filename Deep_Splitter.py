@@ -2,7 +2,7 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds2').read()
+s = open('tests/ds1').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
@@ -106,6 +106,7 @@ def cut(string, title, g_next):
     t_space = len(first_title.split()) != 1
     if t_space:
         string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)
+    print('kkjre', string)
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-2]
     glw = get_left_w(gl)
@@ -244,7 +245,7 @@ for j in range(len(strs)):
     q_occs = re.finditer(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*(\s/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/(\s~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]*)+', strs_j)
     m_occs = re.finditer(r'/(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', strs_j)
     strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
-    strs_j = re.sub(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*(\s/\s*(([а-я]{,6}\.*(\s[А-Я])*|[А-Я])(,\s)*)+/(\s~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]*)+', 'Q', strs_j)
+    strs_j = re.sub(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*(\s/(\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+|J)/(\s~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]*)+', 'Q', strs_j)
     strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
     #print(strs_j)
     if len(re.findall(reg.w_lex + r'\s+\/[^\/]+\/\s+[^«"]', strs_j)) > 1:
