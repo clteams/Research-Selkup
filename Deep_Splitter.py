@@ -2,7 +2,7 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds1').read()
+s = open('tests/ds2').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
@@ -39,7 +39,7 @@ def cut(string, title, g_next):
     # recursion
     occ = occ_find(string)
     occd = occ_dirty(string)
-    if '\n' in string and string.count('\n') != occd:
+    if '\n' in string and string.count('\n') != occd and len(re.findall(reg.w_lex + r'\/[^\/]+\/\s+[^«"]', string.splitlines()[-1])) > 1:
         rec = True
         str_sp = string.split('\n')
         add = '\n'.join(str_sp[:-1]) + '\n'
@@ -113,6 +113,8 @@ def cut(string, title, g_next):
     glw = get_left_w(gl)
     def smart_splitter(string, title, g_next, indices = False):
         def to_cyr(s):
+            if type(s) != str:
+                s = s.group(0)
             s = re.sub('Q+$', '', s)
             rep1 = 'қ э́ ӓ җ ӣ ң ё ӧ и́ ӯ ӱ'.split()
             rep2 = 'к э а ж и н е о и у у'.split()
