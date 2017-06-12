@@ -17,10 +17,11 @@ def cut(string, title, g_next):
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
     first_title = re.search(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', string).group(0)
-    new_title = first_title.replace(' ', '')
-    t_space = len(first_title.split()) != 1
-    if t_space:
-        string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)
+    new_title = first_title#.replace(' ', '')
+    t_space = False
+#    t_space = len(first_title.split()) != 1
+#    if t_space:
+#        string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)
     def occ_dirty(string):
         rx = r'.\s\S+\s+\/[^\/]+\/\s+[^«"]'
         srx = rx[3:]
@@ -38,13 +39,17 @@ def cut(string, title, g_next):
         return ret
     # recursion
     occ = occ_find(string)
+    print(occ)
     occd = occ_dirty(string)
-    if '\n' in string and string.count('\n') != occd and len(re.findall(reg.w_lex + r'\/[^\/]+\/\s+[^«"]', string.splitlines()[-1])) > 1:
+    print(occd)
+    print(string)
+    if '\n' in string and string.count('\n') != occd:
         rec = True
         str_sp = string.split('\n')
         add = '\n'.join(str_sp[:-1]) + '\n'
         string = str_sp[-1]
     elif '\n' in string:
+        print(4664764764)
         return prepare(string, first_title, new_title, t_space)
     else:
         add = ''
@@ -161,6 +166,7 @@ def cut(string, title, g_next):
             return ret
         else:
             return our_ind
+    print(glw)
     if len(glw) == 1:
         return cut(
             prepare(
@@ -193,6 +199,7 @@ def cut(string, title, g_next):
         )
     elif index_by_regex(r'^см\.$', glsp):
         ibr = index_by_regex(r'^см\.$', glsp)[0]
+        print('jkrtjkhkhrkjthrjkhtr')
         sec = glsp[ibr + index_by_regex(r'^[^,]*$', glsp[ibr + 1:])[0] + 1:]
         if len(sec) == 2:
             return cut(
@@ -237,10 +244,10 @@ for j in range(len(strs)):
     if len(re.findall(reg.w_lex + r'\s+\/[^\/]+\/\s+[^«"]', strs_j)) > 1:
         strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
         if j == len(strs) - 1:
-            next = False
+            g_next = False
         else:
-            next = first_s[j + 1]
-        res = cut(strs_j, first_s[j], next)
+            g_next = first_s[j + 1]
+        res = cut(strs_j, first_s[j], g_next)
     else:
         res = strs_j
     for qo in q_occs:
