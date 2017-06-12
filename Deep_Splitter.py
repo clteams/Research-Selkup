@@ -106,7 +106,6 @@ def cut(string, title, g_next):
     t_space = len(first_title.split()) != 1
     if t_space:
         string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)
-    print('kkjre', string)
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-2]
     glw = get_left_w(gl)
