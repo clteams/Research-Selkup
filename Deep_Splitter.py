@@ -2,13 +2,13 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds8').read()
+s = open('tests/ds11').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
     w_lex = w[:-1] + r'\s~]+'
 def cut(string, title, g_next):
-    debug = True
+    debug = False
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
@@ -47,7 +47,14 @@ def cut(string, title, g_next):
         rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^«"]'
         occ = occ_find(string)
         move_left = 8
+        if debug:
+            print('string = ', string)
+            print('occ = ', occ)
+        while len(occ) > 2 and occ[0].endswith(occ[1]):
+            del occ[1]
         focus_word = re.split('\s+', occ[1])[0]
+        if debug:
+            print('focus_word = ', focus_word)
         move_left -= 1
         rx = r'\S+\s+' + rx
         matched = ''
@@ -100,12 +107,8 @@ def cut(string, title, g_next):
             return ret
         else:
             return False
-    first_title = re.search(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', string).group(0)
-    new_title = first_title.replace(' ', '') + ' '
-    t_space = False
-    t_space = len(first_title.split()) != 1
-    if t_space:
-        string = re.sub(r'^' + reg.w_lex + r'(?=\/[^\/]+\/\s+[^«"])', new_title, string)
+    if len(re.findall(r'[\wёқэ́ӓҗӣңёӧи́ӯӱ\s]+(?=\s+\/[^\/]+\/\s+[^«\"])', string)) == 1:
+        return string
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-2]
     glw = get_left_w(gl)
@@ -237,8 +240,6 @@ def cut(string, title, g_next):
         j_glw = " ".join(glw)
         ret = add + string.replace(j_glw, smart_splitter(j_glw, title, g_next))
     if ret:
-        if t_space:
-            ret = ret.replace(new_title, first_title)
         return cut(ret, title, g_next)
     else:
         if debug:
@@ -260,8 +261,12 @@ for j in range(len(strs)):
     strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
     q_occs = [x.group(0) for x in re.finditer(r'(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
     strs_j = re.sub(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
-    #print(strs_j)
-    if len(tuple(m_occs)) > 1:
+    ptrn = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ\s]+(?=\s+\/[^\/]+\/\s+[^«\"])'
+    l_occs = re.findall(r'(?<=\n)' + ptrn + '|^' + ptrn, strs_j)
+    for lo in l_occs:
+        if len(lo.split()) > 1:
+            strs_j = strs_j.replace(lo, "дф".join(lo.split()))
+    if len(m_occs) > 1:
         if j == len(strs) - 1:
             g_next = False
         else:
@@ -270,6 +275,9 @@ for j in range(len(strs)):
     else:
         res = strs_j
     res = res.replace(' /B/', '')
+    l_rec = re.findall(r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]+дф[\wёқэ́ӓҗӣңёӧи́ӯӱ]+', res)
+    for lr in l_rec:
+        res = res.replace(lr, " ".join(lr.split("дф")))
     for qo in q_occs:
         res = res.replace('Q', ' ' + qo, 1)
     for mo in m_occs:
