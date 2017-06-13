@@ -2,7 +2,7 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds7').read()
+s = open('tests/ds3').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
@@ -249,8 +249,8 @@ for j in range(len(strs)):
     strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
     m_occs = [x.group(0) for x in re.finditer(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', strs_j)]
     strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
-    q_occs = [x.group(0) for x in re.finditer(r'\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
-    strs_j = re.sub(r'\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
+    q_occs = [x.group(0) for x in re.finditer(r'(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
+    strs_j = re.sub(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
     #print(strs_j)
     if len(tuple(m_occs)) > 1:
         if j == len(strs) - 1:
@@ -262,7 +262,7 @@ for j in range(len(strs)):
         res = strs_j
     res = res.replace(' /B/', '')
     for qo in q_occs:
-        res = res.replace('Q', qo, 1)
+        res = res.replace('Q', ' ' + qo, 1)
     for mo in m_occs:
         res = res.replace('/J/', mo, 1)
     res = re.sub(r'(' + reg.w + r')' + r'/J/', '\g<0> /J/', res)
