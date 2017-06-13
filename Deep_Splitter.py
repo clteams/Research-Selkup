@@ -46,7 +46,6 @@ def cut(string, title, g_next):
     def get_left(string):
         rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^«"]'
         occ = occ_find(string)
-        print(occ)
         move_left = 8
         focus_word = re.split('\s+', occ[1])[0]
         move_left -= 1
