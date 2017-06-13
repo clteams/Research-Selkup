@@ -2,8 +2,7 @@
 import re
 import pymorphy2
 #
-n = input()
-s = open('tests/ds' + n).read()
+s = open('srds-merged.txt').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
@@ -250,46 +249,56 @@ def cut(string, title, g_next):
             print('glw = ', glw)
             print('glsp = ', glsp)
         raise ValueError('')
-strs = s.splitlines()
-while '' in strs:
-    strs.remove('')
-first_s = []
-for s in strs:
-    first_s.append(re.search(r'^(\s\n|\s)*' + reg.w[:-1] + r'\s]' + r'+', s).group(0))
-    first_s[-1] = re.sub(r'\s+$', '', first_s[-1])
-for j in range(len(strs)):
-    strs_j = strs[j]
-    while '  ' in strs_j:
-        strs_j = strs_j.replace('  ', ' ')
-    #print(strs_j)
-    strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
-    m_occs = [x.group(0) for x in re.finditer(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', strs_j)]
-    strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
-    q_occs = [x.group(0) for x in re.finditer(r'\s*(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s(~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
-    strs_j = re.sub(r'\s*(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s(~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
-    #print(strs_j)
-    ptrn = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ\s]+(?=\s+\/[^\/]+\/\s+[^«\"])'
-    l_occs = re.findall(r'(?<=\n)' + ptrn + '|^' + ptrn, strs_j)
-    for lo in l_occs:
-        if len(lo.split()) > 1:
-            strs_j = strs_j.replace(lo, "чф".join(lo.split()))
-    if len(m_occs) > 1:
-        if j == len(strs) - 1:
-            g_next = False
-        else:
-            g_next = first_s[j + 1]
-        res = cut(strs_j, first_s[j], g_next)
-    else:
-        res = strs_j
-    res = res.replace(' /B/', '')
-    l_rec = re.findall(r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]+чф[\wёқэ́ӓҗӣңёӧи́ӯӱ]+', res)
-    for lr in l_rec:
-        res = res.replace(lr, " ".join(lr.split("чф")))
-    for qo in q_occs:
-        res = res.replace('Q', ' ' + qo, 1)
-    for mo in m_occs:
-        res = res.replace('/J/', mo, 1)
-    res = re.sub(r'(' + reg.w + r')' + r'/J/', '\g<0> /J/', res)
-    while '  ' in res:
-        res = res.replace('  ', ' ')
-    print(res)
+with open('srds-splitted.txt', 'a') as sp:
+    with open('split-log.txt', 'a') as spl:
+        strs = s.splitlines()
+        while '' in strs:
+            strs.remove('')
+        first_s = []
+        for s in strs:
+            try:
+                first_s.append(re.search(r'^(\s\n|\s)*' + reg.w[:-1] + r'\s]' + r'+', s).group(0))
+                first_s[-1] = re.sub(r'\s+$', '', first_s[-1])
+            except:
+                print(s)
+        for j in range(len(strs)):
+            strs_j = strs[j]
+            try:
+                while '  ' in strs_j:
+                    strs_j = strs_j.replace('  ', ' ')
+                #print(strs_j)
+                strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
+                m_occs = [x.group(0) for x in re.finditer(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', strs_j)]
+                strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
+                q_occs = [x.group(0) for x in re.finditer(r'\s*(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s(~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
+                strs_j = re.sub(r'\s*(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s(~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
+                #print(strs_j)
+                ptrn = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ\s]+(?=\s+\/[^\/]+\/\s+[^«\"])'
+                l_occs = re.findall(r'(?<=\n)' + ptrn + '|^' + ptrn, strs_j)
+                for lo in l_occs:
+                    if len(lo.split()) > 1:
+                        strs_j = strs_j.replace(lo, "чф".join(lo.split()))
+                if len(m_occs) > 1:
+                    if j == len(strs) - 1:
+                        g_next = False
+                    else:
+                        g_next = first_s[j + 1]
+                    res = cut(strs_j, first_s[j], g_next)
+                else:
+                    res = strs_j
+                res = res.replace(' /B/', '')
+                l_rec = re.findall(r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]+чф[\wёқэ́ӓҗӣңёӧи́ӯӱ]+', res)
+                for lr in l_rec:
+                    res = res.replace(lr, " ".join(lr.split("чф")))
+                for qo in q_occs:
+                    res = res.replace('Q', ' ' + qo, 1)
+                for mo in m_occs:
+                    res = res.replace('/J/', mo, 1)
+                res = re.sub(r'(' + reg.w + r')' + r'/J/', '\g<0> /J/', res)
+                while '  ' in res:
+                    res = res.replace('  ', ' ')
+                sp.write(res + "\n")
+            except:
+                spl.write("--\n")
+                spl.write(strs_j)
+                spl.write("\n--\n")
