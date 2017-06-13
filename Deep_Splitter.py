@@ -2,7 +2,8 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds11').read()
+n = input()
+s = open('tests/ds' + n).read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
@@ -265,7 +266,7 @@ for j in range(len(strs)):
     l_occs = re.findall(r'(?<=\n)' + ptrn + '|^' + ptrn, strs_j)
     for lo in l_occs:
         if len(lo.split()) > 1:
-            strs_j = strs_j.replace(lo, "дф".join(lo.split()))
+            strs_j = strs_j.replace(lo, "чф".join(lo.split()))
     if len(m_occs) > 1:
         if j == len(strs) - 1:
             g_next = False
@@ -275,9 +276,9 @@ for j in range(len(strs)):
     else:
         res = strs_j
     res = res.replace(' /B/', '')
-    l_rec = re.findall(r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]+дф[\wёқэ́ӓҗӣңёӧи́ӯӱ]+', res)
+    l_rec = re.findall(r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]+чф[\wёқэ́ӓҗӣңёӧи́ӯӱ]+', res)
     for lr in l_rec:
-        res = res.replace(lr, " ".join(lr.split("дф")))
+        res = res.replace(lr, " ".join(lr.split("чф")))
     for qo in q_occs:
         res = res.replace('Q', ' ' + qo, 1)
     for mo in m_occs:
