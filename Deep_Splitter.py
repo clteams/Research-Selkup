@@ -2,13 +2,13 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds1').read()
+s = open('tests/ds6').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
     w_lex = w[:-1] + r'\s~]+'
 def cut(string, title, g_next):
-    debug = False
+    debug = True
     roman_numerals_regex = r'(I{1,3}|I{0,1}VI{0,3})'
     string = re.sub(r'\n\s*' + roman_numerals_regex + r'\s+', '\n', string)
     string = re.sub(r'\s+' + roman_numerals_regex + r'\s+', ' ', string)
@@ -46,6 +46,7 @@ def cut(string, title, g_next):
     def get_left(string):
         rx = r'(?<!~\s)\S+\s+\/[^\/]+\/\s+[^«"]'
         occ = occ_find(string)
+        print(occ)
         move_left = 8
         focus_word = re.split('\s+', occ[1])[0]
         move_left -= 1
@@ -120,6 +121,7 @@ def cut(string, title, g_next):
         # check if there is a russian word
         morph = pymorphy2.MorphAnalyzer()
         stop_newline = False
+        alph_sorting = False
         ret = []
         ind = 0
         our_ind = False
@@ -241,13 +243,13 @@ for s in strs:
     first_s[-1] = re.sub(r'\s+$', '', first_s[-1])
 for j in range(len(strs)):
     strs_j = strs[j]
-    q_occs = re.finditer(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*(\s/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/(\s~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]*)+', strs_j)
-    m_occs = re.finditer(r'/(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', strs_j)
-    strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
-    strs_j = re.sub(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*(\s/(\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+|J)/(\s~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]*)+', 'Q', strs_j)
     strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
+    m_occs = [x.group(0) for x in re.finditer(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', strs_j)]
+    strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
+    q_occs = [x.group(0) for x in re.finditer(r'\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
+    strs_j = re.sub(r'\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
     #print(strs_j)
-    if len(re.findall(reg.w_lex + r'\s+\/[^\/]+\/\s+[^«"]', strs_j)) > 1:
+    if len(tuple(m_occs)) > 1:
         if j == len(strs) - 1:
             g_next = False
         else:
@@ -255,9 +257,11 @@ for j in range(len(strs)):
         res = cut(strs_j, first_s[j], g_next)
     else:
         res = strs_j
-    for mo in m_occs:
-        res = res.replace('/J/', mo.group(0), 1)
+    res = res.replace(' /B/', '')
     for qo in q_occs:
-        res = res.replace('Q', qo.group(0), 1)
+        res = res.replace('Q', qo, 1)
+    for mo in m_occs:
+        res = res.replace('/J/', mo, 1)
     res = re.sub(r'(' + reg.w + r')' + r'/J/', '\g<0> /J/', res)
+    res = res.replace('  ', ' ')
     print(res)
