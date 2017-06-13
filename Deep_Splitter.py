@@ -2,7 +2,7 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds6').read()
+s = open('tests/ds7').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
@@ -203,6 +203,10 @@ def cut(string, title, g_next):
     elif len(glw) == 2 and (glsp[-3] in ('см.', '-') or glsp[-3][-1] in (',', ')')):
         if debug:
             print('parsing mode: 2')
+        ret = add + border_set(-1, glw, gl[1], string)
+    elif len(glw) == 2 and glsp[-3][-1] == '»':
+        if debug:
+            print('parsing mode: 6')
         ret = add + border_set(-1, glw, gl[1], string)
     elif index_by_regex(r'^см\.$', glsp):
         if debug:
