@@ -209,11 +209,13 @@ def cut(string, title, g_next):
         else:
             return our_ind
     ret = False
-    if len(glw) == 1:
+    if len(glw) == 1:# and not glw[0] in glsp:
         if debug:
             print('parsing mode: 1')
         ret = add + border_set(0, glw, gl[1], string)
-    elif len(glw) == 2 and (glsp[-3] in ('см.', '-') or glsp[-3][-1] in (',', ')')):
+    elif len(glw) == 1 and len(glsp) > 1:
+        return string
+    elif len(glw) == 2 and (glsp[-3] in ('см.', '-') or glsp[-3][-1] in (',', ')', ';')):
         if debug:
             print('parsing mode: 2')
         ret = add + border_set(-1, glw, gl[1], string)
@@ -257,11 +259,15 @@ for s in strs:
     first_s[-1] = re.sub(r'\s+$', '', first_s[-1])
 for j in range(len(strs)):
     strs_j = strs[j]
+    while '  ' in strs_j:
+        strs_j = strs_j.replace('  ', ' ')
+    #print(strs_j)
     strs_j = re.sub(r'\s(I+|I*VI*)\s|^(I+|I*VI*)\s|\s(I+|I*VI*)$', ' ', strs_j)
     m_occs = [x.group(0) for x in re.finditer(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', strs_j)]
     strs_j = re.sub(r'/\s*(([а-я]{,6}\.(\s[А-Я])*|[А-Я])(,\s)*)+/', '/J/', strs_j)
-    q_occs = [x.group(0) for x in re.finditer(r'(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
-    strs_j = re.sub(r'(\s~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
+    q_occs = [x.group(0) for x in re.finditer(r'\s*(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s(~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', strs_j)]
+    strs_j = re.sub(r'\s*(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s(~\s)*[\wёқэ́ӓҗӣңёӧи́ӯӱ]+)*)*\s/J/\s(~\s[\wёқэ́ӓҗӣңёӧи́ӯӱ]+(\s/J/)*\s)*', 'Q /B/ ', strs_j)
+    #print(strs_j)
     ptrn = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ\s]+(?=\s+\/[^\/]+\/\s+[^«\"])'
     l_occs = re.findall(r'(?<=\n)' + ptrn + '|^' + ptrn, strs_j)
     for lo in l_occs:
@@ -284,5 +290,6 @@ for j in range(len(strs)):
     for mo in m_occs:
         res = res.replace('/J/', mo, 1)
     res = re.sub(r'(' + reg.w + r')' + r'/J/', '\g<0> /J/', res)
-    res = res.replace('  ', ' ')
+    while '  ' in res:
+        res = res.replace('  ', ' ')
     print(res)
