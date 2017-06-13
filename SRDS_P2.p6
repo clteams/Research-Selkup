@@ -30,11 +30,9 @@ grammar article {
 	}
 	token symbol_med {
 		[
-			|| \w
-			|| "'"
+			|| <alpha>
+			|| <?after <alpha>> [ <digit> || <punct> ] + <?before <alpha>>
 			|| "-"
-			|| \d
-			|| ";"
 		]
 	}
 	# meaning
@@ -47,18 +45,32 @@ grammar article {
 		]
 	}
 	token meaning {
-		[
-			|| <alpha>
-			|| <?after <alpha>> [ <digit> || <punct> ] + <?before <alpha>>
-		] + % [ \s * ]
-
+		<symbol_med> + % [ \s * ]
+	}
+	# examples
+	token examples {
+		":" \h + <example_group>+
+	}
+	token example_group {
+		[ <original> <geo_marking> \h* <translation> ] +
+		#<comment>
+	}
+	token original {
+		[ <symbol_med> || <punct> ] + % [ \h* ]
+	}
+	token translation_wrap {
+		"«" <translation> "»"
+	}
+	token translation {
+		[ <symbol_med> || <punct> ] + % [ \h* ]
 	}
 	# # parenthesis numbered meaning arr
 	token par_numbered_ma {
-		<pm_meaning_group>+ % [ [ \h* \; \h* ] * ]
+		<pm_meaning_group>+
 	}
 	token pm_meaning_group {
-		\d+ ")" \h* <meaning>+ %% [ \h* [";" || ","] \h* ]
+		\d+ ")" \h* <meaning>+ % [ \h* [";" || ","] \h* ]
+		[ <examples>+ || \;\s+ ]
 	}
 	# properties
 	token prop_wrap {
@@ -72,7 +84,7 @@ grammar article {
 	}
 	# geo marking
 	token geo_marking {
-		\s+ "/" <geo_marks> "/"
+		\h+ "/" <geo_marks> "/"
 	}
 	token geo_marks {
 		<geo_mark>+ % [ ", "* ]
