@@ -2,7 +2,7 @@
 import re
 import pymorphy2
 #
-s = open('tests/ds3').read()
+s = open('tests/ds8').read()
 #
 class reg:
     w = r'[\wёқэ́ӓҗӣңёӧи́ӯӱ]'
@@ -109,6 +109,10 @@ def cut(string, title, g_next):
     gl = get_left(string)
     glsp = re.split(r'\s+', gl[1])[:-2]
     glw = get_left_w(gl)
+    if debug:
+        print('gl = ', gl)
+        print('glsp = ', glsp)
+        print('glw = ', glw)
     def smart_splitter(string, title, g_next, indices = False):
         def to_cyr(s):
             rep1 = 'қ э́ ӓ җ ӣ ң ё ӧ и́ ӯ ӱ'.split()
@@ -183,6 +187,11 @@ def cut(string, title, g_next):
                         ix = i
                 return ix
             our_ind = find_max_ind(results)
+            if len(results) > 1 and our_ind == 0:
+                our_ind = 1
+            if debug:
+                print('results = ', results)
+                print('our_ind = ', our_ind)
             ret = []
             for i in range(len(sp_str)):
                 if i != our_ind:
