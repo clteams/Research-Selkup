@@ -38,10 +38,10 @@ grammar article {
 	}
 	# see group
 	token see_group {
-		\; \h* "см" "."* \h* <see>+ % [ [ [ ";" || ","] \s* ] * ]
+		\; \h* "см" "."* \h* <see>+ % [ [ [ ";" || ","] \h* ] * ]
 	}
 	token see {
-		<symbol_med>+ % [ \s * ]
+		<symbol_med>+ % [ \h * ]
 	}
 	# meaning
 	token meaning_wrap {
