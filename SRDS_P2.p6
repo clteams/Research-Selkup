@@ -67,12 +67,13 @@ grammar article {
 		":" \h + <example_group>
 	}
 	token example_group {
-		[
-			<original>
-			<geo_marking>* [\h || \;]*
-			[ "«" <translation> "»" ] *
-			<comment_wrap>*
-		] + % [ [ \;\s+ ] ? ]
+		<example> + % [ [ \;\s+ ] ? ]
+	}
+	token example {
+		<original>
+		<geo_marking>* [\h || \;]*
+		[ "«" <translation> "»" ] *
+		<comment_wrap>*
 	}
 	token comment_wrap {
 		\s+ \( <comment> \)
@@ -140,7 +141,7 @@ my $str = q:to/END/;
 абвэжигу /тым./ отгл. гл., пер., инт.-перф., С - 1) объесть; 2) обжечь; 3) ошпарить; см. абвэдигу 
 абдалгу /кет./ отым. гл., непер., С - забодать; см. амдалгу 
 абды /кет./ сущ. - рога; см. амд
-абдэ́гу /об. Ч/ ~ абэ́дугу /об. Ч, вас./ ~ авдыгу /вас./ гл., пер., С - 1) покормить: абдэ́ленд! /об. Ч/ «покорми (его)!»; надэ́ кыбӓчэп абдугу /об. Ч/ «надо ребёнка накормить»; на бурёнушкап қӓрт абэ́дэ́ладэ /об. Ч/ «эту бурёнушку утром накормят-двое»; кек абэ́дугу /об. Ч/ «сильно обкормить»; 2) зарядить (ружьё, патрон): абэ́дэ́гу тӱльдэм /об. Ч/ «зарядить ружьё»
+абдэ́гу /об. Ч/ ~ абэ́дугу /об. Ч, вас./ ~ авдыгу /вас./ гл., пер., С - 1) покормить, забодать: абдэ́ленд! /об. Ч/ «покорми (его)!»; надэ́ кыбӓчэп абдугу /об. Ч/ «надо ребёнка накормить»; на бурёнушкап қӓрт абэ́дэ́ладэ /об. Ч/ «эту бурёнушку утром накормят-двое»; кек абэ́дугу /об. Ч/ «сильно обкормить»; 2) зарядить (ружьё, патрон): абэ́дэ́гу тӱльдэм /об. Ч/ «зарядить ружьё»
 абдэ́гугу /вас./ ~ аутэ́куку /тым./ отгл. гл., пер., повт., НС - угощать: мат абдэ́вак «я угощаю»
 END
 my @data = $str.lines();
@@ -168,21 +169,59 @@ grammar check_for_see {
 my $final = @data[3];
 my $see_check = check_for_see.parse($final);
 my @see_occs = $see_check ?? $see_check<see_group><see>.map(*.Str) !! [];
-say @see_occs;
+#say @see_occs;
 # remove see_group from $final
 my $parsed = article.parse($final);
-my %format = "title" => [];
+my %format = "title" => [], "lexic" => [];
 for $parsed<title_wrap><title_pair> {
 	my %cur_hash;
-	%cur_hash{"query"} = $_<title>.Str;
-	%cur_hash{"dialects"} = [];
+	%cur_hash<query> = $_<title>.Str;
+	%cur_hash<dialects> = [];
 	if ( $_<geo_marking> ) {
-		%cur_hash{"dialects"} = $_<geo_marking><geo_marks><geo_mark>.map(*.Str);
+		%cur_hash<dialects> = $_<geo_marking><geo_marks><geo_mark>.map(*.Str);
 	}
-	%format{"title"}.push: %cur_hash;
+	%format<title>.push: %cur_hash;
 	#say $_;
 }
-
+my $holder = '';
+my $subcat = '';
+given $parsed<meaning_wrap> {
+	when $_<par_numbered_ma> {
+		$holder = 'par_numbered_ma';
+		$subcat = 'pm_meaning_group';
+	}
+	when $_<simple_ma> {
+		$holder = 'simple_ma';
+		$subcat = 'si_meaning_group';
+	}
+	when $_<point_numbered_ma> {
+		$holder = 'point_numbered_ma';
+		$subcat = 'po_meaning_group';
+	}
+}
+%format<lexic> = [];
+for $parsed<meaning_wrap>{$holder}{$subcat} {
+	my @meaning = $_<meaning>.map(*.Str);
+	my @examples = [];
+	for $_<examples>[0]<example_group><example> -> $e {
+		my $example = $e;
+		my %example_hash;
+		%example_hash<selkup> = $example<original>.Str;
+		if ( $example<geo_marking> ) {
+			%example_hash<dialects> = $example<geo_marking>[0]<geo_marks><geo_mark>.map(*.Str);
+		}
+		if ( $example<translation> ) {
+			%example_hash<russian> = $example<translation>.Str;
+		}
+		@examples.push: %example_hash;
+	}
+	my %ins_hash;
+	%ins_hash<meaning> = @meaning;
+	if ( @examples != [] ) {
+		%ins_hash<examples> = @examples;
+	}
+	%format<lexic>.push: %ins_hash;
+}
 say %format;
 
 #for @data -> $cur is rw, $nex? is rw {
