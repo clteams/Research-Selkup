@@ -27,7 +27,7 @@ grammar article {
 		<title_pair>+ % [ [ \h* \~ \h* ] * ] \h* <prop_wrap>?
 	}
 	token title_pair {
-		<title> <geo_marking>?
+		<title> <geo_marking>? \h* <prop_wrap>? \h*
 	}
 	token title {
 		<symbol_strict>+ % [ \h* ]
@@ -54,13 +54,13 @@ grammar article {
 	token meaning_wrap {
 		\h*
 		[
-			|| "-" \h* <par_numbered_ma>
+			|| "-"* \h* <par_numbered_ma>
 			|| "-"* \h* <simple_ma>
 			|| <point_numbered_ma>
 		]
 	}
 	token meaning {
-		[ <symbol_med> || "(" || ")" || "."  || "<" ] + % [ \h * ]
+		[ <symbol_med> || "(" || ")" || "."  || "<" || "?" ] + % [ \h * ]
 	}
 	# examples
 	token examples {
@@ -111,11 +111,18 @@ grammar article {
 	# properties
 	token prop_wrap {
 		<property> + % [ [ \h*\,\h* || \h*\~\h* ] ? ]
+		<external_property>?	
 	}
 	token property {
 		[
 			|| [ <alpha>\.* ] + % [ [ \s+ || "/" || "-" ] ? ]
 			|| [ <[А..Я]> ] + % [ "/" ? ]
+		]
+	}
+	token external_property {
+		[
+			\h* "-"
+			[  \h* \w+ % [ \h* ] \?  ] +
 		]
 	}
 	# geo marking
@@ -141,6 +148,11 @@ my $str = q:to/END/;
 абвэжигу /тым./ отгл. гл., пер., инт.-перф., С - 1) объесть; 2) обжечь; 3) ошпарить; см. абвэдигу 
 абдалгу /кет./ отым. гл., непер., С - забодать; см. амдалгу 
 абды /кет./ сущ. - рога; см. амд
+кат ~ каттэ́ /кет./ сущ. - 1) анат. - ноготь; ногти; 2) коготь; когти; кадла мн. ч.;
+каптэ́ла /об. С/ мн. ч.;
+таңэң /ел./ сущ.-лето;
+иметий /ел./ отым. прил. - женский: ~ қаймпоргх; «женское платье»
+кыл /тым./ ~ кылнол /об. Ш, Ч/ ~ кылы /кет., тур./ ~ кылэнол /кет./ 1) грудь;
 анэлҗэмби /об. Ш/ - при: ~ ӓчыде арк мылазэ аза ӱлҗэнҗал /тым./ «меченого оленя с другими оленями (букв штуками) не спутаешь»
 дам пилянмын /ел./ сост. нареч., прод. п. - налево (когда погоняют оленей)
 қӓлымпықо /тур./ отгл. гл., непер., многокр., НС - 1) идти: сӧль тэттоқыт кошке эңа ~«по глинистой земле плохо идти»; ирақота, нургыкло қӓлимпас! «дедушка, иди прямее!»; 2) бежать
@@ -184,6 +196,9 @@ for $parsed<title_wrap><title_pair> {
 	%cur_hash<dialects> = [];
 	if ( $_<geo_marking> ) {
 		%cur_hash<dialects> = $_<geo_marking><geo_marks><geo_mark>.map(*.Str);
+	}
+	if ( $_<prop_wrap> ) {
+		%cur_hash<props> = $_<prop_wrap><property>.map(*.Str);
 	}
 	%format<title>.push: %cur_hash;
 	#say $_;
@@ -229,16 +244,4 @@ for $parsed<meaning_wrap>{$holder}{$subcat} {
 }
 say %format;
 
-#for @data -> $cur is rw, $nex? is rw {
-#	my $final = $cur;
-#	my $see_check = check_for_see.parse($final);
-#	my @see_occs = $see_check ?? $see_check<see_group><see>.map(*.Str) !! [];
-	
-	#my $parsed = article.parse($_);
-	#for $parsed<title_wrap><title_pair> {
-	#	say $_<title>.Str;
-	#}
-#}
-#say article.subparse($s);
-#say $res;
-#say $res<title_wrap><title_pair>.WHAT;
+
