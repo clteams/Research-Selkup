@@ -149,7 +149,7 @@ grammar article {
 
 # IO declarations
 my $str = open 'srds-splitted-final.txt';
-my $output = open 'srds-parsed.json', ':a';
+my $output = open 'srds-parsed.json', :a;
 # 
 
 my @data = $str.lines();
