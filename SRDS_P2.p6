@@ -187,8 +187,8 @@ for @data -> $final is copy {
 	$final ~~ s:g/\; \h* "см" \.* \h+ .* $//;
 	my $parsed = article.parse($final);
 	if ( ! $parsed ) {
-		$str ~~ /<-[\h\s]>+ $/ and my $add = $/.Str ~ ' ';
-		$str ~~ s:g/\h* <-[\h\s]>+ $//;
+		$final ~~ /<-[\h\s]>+ $/ and my $add = $/.Str ~ ' ';
+		$final ~~ s:g/\h* <-[\h\s]>+ $//;
 		$parsed = article.parse($final);
 		if ( ! $parsed ) {
 			$add = '';
