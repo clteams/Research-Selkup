@@ -60,7 +60,7 @@ grammar article {
 		]
 	}
 	token meaning {
-		[ <symbol_med> || "(" || ")" || "."  || "<" || "?" ] + % [ \h * ]
+		[ <symbol_med> || "(" || ")" || "."  || "<" || "?" || < [ “ ” ] > ] + % [ \h * ]
 	}
 	# examples
 	token examples {
@@ -148,6 +148,8 @@ my $str = q:to/END/;
 абвэжигу /тым./ отгл. гл., пер., инт.-перф., С - 1) объесть; 2) обжечь; 3) ошпарить; см. абвэдигу 
 абдалгу /кет./ отым. гл., непер., С - забодать; см. амдалгу 
 абды /кет./ сущ. - рога; см. амд
+тэкэпий /ел./ 1. прич. от гл. тэкэгу; 2. отгл. прил. - 1) сухой: ~ қӧс «сухая кора»; 2) засушливый: ~ понь «засушливый год»; 3) вяленый: ~ апся «вяленое мясо» тэ
+тами /об. С/ прил. - 1) верхний: а тау ~ едан ук «а это верхний конец деревни»; 2) “верховский” (селькуп)
 кат ~ каттэ́ /кет./ сущ. - 1) анат. - ноготь; ногти; 2) коготь; когти; кадла мн. ч.;
 каптэ́ла /об. С/ мн. ч.;
 таңэң /ел./ сущ.-лето;
@@ -181,67 +183,80 @@ grammar check_for_see {
 		<symbol_med>+ % [ \h * ]
 	}
 }
+my $add = '';
+### OVER |
 #for
-my $final = @data[3];
-my $see_check = check_for_see.parse($final);
-my @see_occs = $see_check ?? $see_check<see_group><see>.map(*.Str) !! [];
-#say @see_occs;
-# remove see_group from $final
-my $parsed = article.parse($final);
-say $parsed;
-my %format = "title" => [], "lexic" => [];
-for $parsed<title_wrap><title_pair> {
-	my %cur_hash;
-	%cur_hash<query> = $_<title>.Str;
-	%cur_hash<dialects> = [];
-	if ( $_<geo_marking> ) {
-		%cur_hash<dialects> = $_<geo_marking><geo_marks><geo_mark>.map(*.Str);
+say @data;
+for @data -> $final is copy {
+	$final = $final.trim;
+	if ( $add ne '' ) {
+		$final ~= $add;
+		$add = '';
 	}
-	if ( $_<prop_wrap> ) {
-		%cur_hash<props> = $_<prop_wrap><property>.map(*.Str);
-	}
-	%format<title>.push: %cur_hash;
-	#say $_;
-}
-my $holder = '';
-my $subcat = '';
-given $parsed<meaning_wrap> {
-	when $_<par_numbered_ma> {
-		$holder = 'par_numbered_ma';
-		$subcat = 'pm_meaning_group';
-	}
-	when $_<simple_ma> {
-		$holder = 'simple_ma';
-		$subcat = 'si_meaning_group';
-	}
-	when $_<point_numbered_ma> {
-		$holder = 'point_numbered_ma';
-		$subcat = 'po_meaning_group';
-	}
-}
-%format<lexic> = [];
-for $parsed<meaning_wrap>{$holder}{$subcat} {
-	my @meaning = $_<meaning>.map(*.Str);
-	my @examples = [];
-	for $_<examples>[0]<example_group><example> -> $e {
-		my $example = $e;
-		my %example_hash;
-		%example_hash<selkup> = $example<original>.Str;
-		if ( $example<geo_marking> ) {
-			%example_hash<dialects> = $example<geo_marking>[0]<geo_marks><geo_mark>.map(*.Str);
+	my $see_check = check_for_see.parse($final);
+	my @see_occs = $see_check ?? $see_check<see_group><see>.map(*.Str) !! [];
+	$final ~~ s:g/\; \h* "см" \.* \h+ .* $//;
+	my $parsed = article.parse($final);
+	if ( ! $parsed ) {
+		$str ~~ /<-[\h\s]>+ $/ and my $add = $/.Str ~ ' ';
+		$str ~~ s:g/\h* <-[\h\s]>+ $//;
+		$parsed = article.parse($final);
+		if ( ! $parsed ) {
+			$add = '';
+			next;
 		}
-		if ( $example<translation> ) {
-			%example_hash<russian> = $example<translation>.Str;
+	}
+	my %format = "title" => [], "lexic" => [], "see" => @see_occs;
+	for $parsed<title_wrap><title_pair> {
+		my %cur_hash;
+		%cur_hash<query> = $_<title>.Str;
+		%cur_hash<dialects> = [];
+		if ( $_<geo_marking> ) {
+			%cur_hash<dialects> = $_<geo_marking><geo_marks><geo_mark>.map(*.Str);
 		}
-		@examples.push: %example_hash;
+		if ( $_<prop_wrap> ) {
+			%cur_hash<props> = $_<prop_wrap><property>.map(*.Str);
+		}
+		%format<title>.push: %cur_hash;
 	}
-	my %ins_hash;
-	%ins_hash<meaning> = @meaning;
-	if ( @examples != [] ) {
-		%ins_hash<examples> = @examples;
+	my $holder = '';
+	my $subcat = '';
+	given $parsed<meaning_wrap> {
+		when $_<par_numbered_ma> {
+			$holder = 'par_numbered_ma';
+			$subcat = 'pm_meaning_group';
+		}
+		when $_<simple_ma> {
+			$holder = 'simple_ma';
+			$subcat = 'si_meaning_group';
+		}
+		when $_<point_numbered_ma> {
+			$holder = 'point_numbered_ma';
+			$subcat = 'po_meaning_group';
+		}
 	}
-	%format<lexic>.push: %ins_hash;
+	%format<lexic> = [];
+	for $parsed<meaning_wrap>{$holder}{$subcat} {
+		my @meaning = $_<meaning>.map(*.Str);
+		my @examples = [];
+		for $_<examples>[0]<example_group><example> -> $e {
+			my $example = $e;
+			my %example_hash;
+			%example_hash<selkup> = $example<original>.Str;
+			if ( $example<geo_marking> ) {
+				%example_hash<dialects> = $example<geo_marking>[0]<geo_marks><geo_mark>.map(*.Str);
+			}
+			if ( $example<translation> ) {
+				%example_hash<russian> = $example<translation>.Str;
+			}
+			@examples.push: %example_hash;
+		}
+		my %ins_hash;
+		%ins_hash<meaning> = @meaning;
+		if ( @examples != [] ) {
+			%ins_hash<examples> = @examples;
+		}
+		%format<lexic>.push: %ins_hash;
+	}
+	say %format;
 }
-say %format;
-
-
