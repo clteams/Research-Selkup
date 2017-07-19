@@ -40,15 +40,18 @@ for row in dic_rows:
     if not indx % commit_interval:
         ndic.commit()
         print('-- Committing --')
+print('Switching to corpus!')
 #CREATE TABLE srds_based_corpus(ind integer, selkup text, russian text, dialects text, links text);
 corp_rows = corp.execute('select ind, selkup, russian, dialects, links from srds_based_corpus').fetchall()
 for row in corp_rows:
+    print('Reading row {0} from old database...'.format(indx))
     ind = int(row[0])
     selkup = row[1]
     russian = row[2]
     dialects = row[3]
     links = row[4]
     selkup = selkup_alphabet.unify(selkup, strict_only = False)
+    print('Writing to new database...')
     ncorp.execute (
         'insert into table srds_based_corpus values(?,?,?,?,?)',
         (ind, selkup, russian, dialects, links,)
