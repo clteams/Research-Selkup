@@ -3,6 +3,29 @@ import json
 import sqlite3
 import selkup_alphabet
 
+class processing:
+    def __init(self, string):
+        self.string = string
+    def basic_rep(self):
+        self.string = selkup_alphabet.uni.unify(self.string, strict_only = True)
+    def srds_rep(self):
+        repl_map = [
+            ["о́", "ӧ"],
+            ["э́", "ӭ"],
+            ["у́", "ӱ"],
+            ["а́", "ӓ"],
+            ["ю́", "ю̈"],
+            ["О́", "Ӧ"],
+            ["Э́", "Ӭ"],
+            ["У́", "Ӱ"],
+            ["А́", "Ӓ"],
+            ["Ю́", "Ю̈"],
+        ]
+        for pair in repl_map:
+            self.string = self.string.replace(pair[0], pair[1])
+    def get_string(self):
+        return self.string
+
 dictionary = sqlite3.connect('dic.sqlite3')
 dic = dictionary.cursor()
 
@@ -30,9 +53,9 @@ commit_interval = 300
 for row in dic_rows:
     indx = int(row[0])
     print('Reading row {0} from old database...'.format(indx))
-    title = selkup_alphabet.uni.unify(row[1], strict_only = True)
+    title = processing(row[1]).get_string()
     content = str(json.loads(row[2]))
-    content = selkup_alphabet.uni.unify(content, strict_only = True)
+    content = processing(content).get_string()
     content = json.dumps(eval(content))
     print('Writing to new database...')
     ndic.execute('insert into srds_dictionary values(?, ?, ?)', (indx, title, content,))
@@ -50,7 +73,7 @@ for row in corp_rows:
     russian = row[2]
     dialects = row[3]
     links = row[4]
-    selkup = selkup_alphabet.uni.unify(selkup, strict_only = False)
+    selkup = processing(selkup).get_string()
     print('Writing to new database...')
     ncorp.execute (
         'insert into srds_based_corpus values(?,?,?,?,?)',
