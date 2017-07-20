@@ -30,12 +30,12 @@ commit_interval = 300
 for row in dic_rows:
     indx = int(row[0])
     print('Reading row {0} from old database...'.format(indx))
-    title = selkup_alphabet.unify(row[1], strict_only = True)
+    title = selkup_alphabet.uni.unify(row[1], strict_only = True)
     content = str(json.loads(row[2]))
-    content = selkup_alphabet.unify(content, strict_only = True)
+    content = selkup_alphabet.uni.unify(content, strict_only = True)
     content = json.dumps(eval(content))
     print('Writing to new database...')
-    ndic.execute('insert into table srds_dictionary values(?, ?, ?)', (indx, title, content,))
+    ndic.execute('insert into srds_dictionary values(?, ?, ?)', (indx, title, content,))
     row_index += 1
     if not indx % commit_interval:
         ndic.commit()
@@ -50,10 +50,10 @@ for row in corp_rows:
     russian = row[2]
     dialects = row[3]
     links = row[4]
-    selkup = selkup_alphabet.unify(selkup, strict_only = False)
+    selkup = selkup_alphabet.uni.unify(selkup, strict_only = False)
     print('Writing to new database...')
     ncorp.execute (
-        'insert into table srds_based_corpus values(?,?,?,?,?)',
+        'insert into srds_based_corpus values(?,?,?,?,?)',
         (ind, selkup, russian, dialects, links,)
     )
     if not ind % commit_interval:
