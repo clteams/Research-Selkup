@@ -43,6 +43,12 @@ try:
 except:
     pass
 
+try:
+    ncorp.execute (
+        'create table srds_based_corpus(ind integer, selkup text, russian text, dialects text, links text)'
+    )
+except:
+    pass
 
 #CREATE TABLE srds_dictionary(indx int, title text, content text);
 
