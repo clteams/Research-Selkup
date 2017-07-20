@@ -4,8 +4,10 @@ import sqlite3
 import selkup_alphabet
 
 class processing:
-    def __init(self, string):
+    def __init__(self, string):
         self.string = string
+        self.basic_rep()
+        self.srds_rep()
     def basic_rep(self):
         self.string = selkup_alphabet.uni.unify(self.string, strict_only = True)
     def srds_rep(self):
@@ -54,10 +56,16 @@ except:
 
 dic_rows = dic.execute('select indx, title, content from srds_dictionary').fetchall()
 dic_rows_length = len(dic_rows)
+
 row_index = 0
 commit_interval = 300
+start_from = -1
+
 for row in dic_rows:
+    print('|||')
     indx = int(row[0])
+    if indx < start_from:
+        continue
     print('Reading row {0} from old database...'.format(indx))
     title = processing(row[1]).get_string()
     content = str(json.loads(row[2]))
@@ -69,6 +77,8 @@ for row in dic_rows:
     if not indx % commit_interval:
         new_dictionary.commit()
         print('-- Committing --')
+new_dictionary.commit()
+print('-- Committing --')
 print('Switching to corpus!')
 #CREATE TABLE srds_based_corpus(ind integer, selkup text, russian text, dialects text, links text);
 corp_rows = corp.execute('select ind, selkup, russian, dialects, links from srds_based_corpus').fetchall()
