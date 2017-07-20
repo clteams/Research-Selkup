@@ -38,7 +38,7 @@ for row in dic_rows:
     ndic.execute('insert into srds_dictionary values(?, ?, ?)', (indx, title, content,))
     row_index += 1
     if not indx % commit_interval:
-        ndic.commit()
+        new_dictionary.commit()
         print('-- Committing --')
 print('Switching to corpus!')
 #CREATE TABLE srds_based_corpus(ind integer, selkup text, russian text, dialects text, links text);
@@ -57,7 +57,7 @@ for row in corp_rows:
         (ind, selkup, russian, dialects, links,)
     )
     if not ind % commit_interval:
-        ncorp.commit()
+        new_corpus.commit()
         print('-- Committing --')
 new_dictionary.close()
 dictionary.close()
