@@ -7,8 +7,8 @@ import re
 class processing:
     def __init__(self, string):
         self.string = string
-        #self.basic_rep()
-        #self.srds_rep()
+        self.basic_rep()
+        self.srds_rep()
         self.yk_rep()
     def basic_rep(self):
         self.string = selkup_alphabet.uni.unify(self.string, strict_only = True)
