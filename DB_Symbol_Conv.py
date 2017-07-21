@@ -2,14 +2,27 @@
 import json
 import sqlite3
 import selkup_alphabet
+import re
 
 class processing:
     def __init__(self, string):
         self.string = string
-        self.basic_rep()
-        self.srds_rep()
+        #self.basic_rep()
+        #self.srds_rep()
+        self.yk_rep()
     def basic_rep(self):
         self.string = selkup_alphabet.uni.unify(self.string, strict_only = True)
+    def yk_rep(self):
+        repl_map = [            
+            [r'([ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])й$', '\g<1>й'],
+            [r'([^ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])й$', '\g<1>и̇'],
+            [r'([^ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])й([^ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])', '\g<1>и̇\g<2>'],
+            [r'([ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])й([ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])', '\g<1>й\g<2>'],
+            [r'([ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])й([^ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])', '\g<1>й\g<2>'],
+            [r'([^ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])й([ё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱ̄ӯёеоюуяаэиы])', '\g<1>и̇\g<2>']            
+        ]
+        for pair in repl_map:
+            self.string = re.sub(pair[0], pair[1], self.string)
     def srds_rep(self):
         repl_map = [
             ["о́", "ӧ"],
@@ -41,7 +54,7 @@ new_corpus = sqlite3.connect('new-corp.sqlite3')
 ncorp = new_corpus.cursor()
 
 try:
-    ndic.execute('create table srds_dictionary(ind int, title text, content text)')
+    ndic.execute('create table srds_dictionary(indx int, title text, content text)')
 except:
     pass
 
@@ -98,6 +111,8 @@ for row in corp_rows:
     if not ind % commit_interval:
         new_corpus.commit()
         print('-- Committing --')
+new_corpus.commit()
+new_dictionary.commit()
 new_dictionary.close()
 dictionary.close()
 new_corpus.close()
