@@ -4,6 +4,7 @@ import sqlite3
 import csv
 import io
 import string
+import re
 from difflib import SequenceMatcher
 
 '''
@@ -40,14 +41,20 @@ for row in old_corpus:
 
     links = "(" + row[Indices.links] + ")"
     prepare = 'SELECT title from srds_dictionary where indx in ' + links
-    link_words = [x for x in dictionary_db.execute(prepare).fetchall()]
+    link_words = [x[0] for x in dictionary_db.execute(prepare).fetchall()]
 
-    punct_list = [x for x in string.punctuation]
+    punct_list = [x for x in string.punctuation if x != '~']
 
     crow_selkup_text = ['']
     crow_russian_text = ['']
 
-    for sym in row[Indices.selkup]:
+    source_selkup_text = row[Indices.selkup]
+    source_selkup_text = re.sub(r'\s*\([^\)]*\)', '', source_selkup_text)
+    source_russian_text = row[Indices.russian]
+    source_russian_text = re.sub(r'\s*\([^\)]*\)', '', source_russian_text)
+
+
+    for sym in source_selkup_text:
         if sym != ' ' and sym not in punct_list:
             crow_selkup_text[len(crow_selkup_text) - 1] += sym
         elif sym == ' ':
@@ -56,7 +63,7 @@ for row in old_corpus:
             crow_selkup_text.append(sym)
             crow_selkup_text.append('')
 
-    for sym in row[Indices.russian]:
+    for sym in source_russian_text:
         if sym != ' ' and sym not in punct_list:
             crow_russian_text[len(crow_russian_text) - 1] += sym
         elif sym == ' ':
@@ -88,11 +95,12 @@ for row in old_corpus:
     crow_selkup_lemmatized = []
 
     if '~' in crow_selkup_text:
-        for token in crow_selkup_text:
+        for i, token in enumerate(crow_selkup_text):
             if token != '~':
                 crow_selkup_lemmatized.append('')
             else:
                 crow_selkup_lemmatized.append(link_words[0])
+                crow_selkup_text[i] = link_words[0]
     else:
         extractor = ExtractLemma(link_words)
         for token in crow_selkup_text:
@@ -104,10 +112,23 @@ for row in old_corpus:
             else:
                 crow_selkup_lemmatized.append(rel[2])
 
+    if row[Indices.dialects] == '@':
+        crow_metadata_dialects = ''
+    else:
+        crow_metadata_dialects = row[Indices.dialects]
+
+    crow_metadata_source = 'srds'
+    crow_metadata_date = '9/29/2017'
+    crow_metadata_pushed_by = 'admin'
+
     for data, func in (
         (crow_selkup_text, 'text.selkup'),
         (crow_selkup_lemmatized, 'lemmatized.selkup'),
-        (crow_russian_text, 'text.russian')
+        (crow_russian_text, 'text.russian'),
+        (crow_metadata_source, 'metadata.source'),
+        (crow_metadata_dialects, 'metadata.dialects'),
+        (crow_metadata_date, 'metadata.date'),
+        (crow_metadata_pushed_by, 'metadata.pushed_by')
     ):
         output = io.StringIO()
         writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
