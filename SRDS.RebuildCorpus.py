@@ -39,7 +39,8 @@ for row in old_corpus:
         continue
 
     links = "(" + row[Indices.links] + ")"
-    link_words = [x for x in dictionary_db.execute('SELECT title from srds_dictionary where indx in ' + links)]
+    prepare = 'SELECT title from srds_dictionary where indx in ' + links
+    link_words = [x for x in dictionary_db.execute(prepare).fetchall()]
 
     punct_list = [x for x in string.punctuation]
 
@@ -115,6 +116,7 @@ for row in old_corpus:
         new_corpus_database.execute(prepare, (crow_id, func, output.getvalue(),))
 
     crow_id += 1
+    print(crow_id)
 
 corpus_database.commit()
 dictionary_database.commit()
