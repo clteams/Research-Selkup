@@ -116,6 +116,10 @@ for row in old_corpus:
 
     crow_id += 1
 
+corpus_database.commit()
+dictionary_database.commit()
+new_corpus_database.commit()
+
 corpus_database.close()
 dictionary_database.close()
 new_corpus_database.close()
