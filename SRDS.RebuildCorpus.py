@@ -53,7 +53,6 @@ for row in old_corpus:
     source_russian_text = row[Indices.russian]
     source_russian_text = re.sub(r'\s*\([^\)]*\)', '', source_russian_text)
 
-
     for sym in source_selkup_text:
         if sym != ' ' and sym not in punct_list:
             crow_selkup_text[len(crow_selkup_text) - 1] += sym
@@ -97,20 +96,10 @@ for row in old_corpus:
     if '~' in crow_selkup_text:
         for i, token in enumerate(crow_selkup_text):
             if token != '~':
-                crow_selkup_lemmatized.append('')
+                crow_selkup_lemmatized.append('_')
             else:
                 crow_selkup_lemmatized.append(link_words[0])
                 crow_selkup_text[i] = link_words[0]
-    else:
-        extractor = ExtractLemma(link_words)
-        for token in crow_selkup_text:
-            extractor.check(token)
-        rel = extractor.extract()
-        for token in crow_selkup_text:
-            if token != rel[1]:
-                crow_selkup_lemmatized.append('')
-            else:
-                crow_selkup_lemmatized.append(rel[2])
 
     if row[Indices.dialects] == '@':
         crow_metadata_dialects = ''
@@ -125,10 +114,10 @@ for row in old_corpus:
         (crow_selkup_text, 'text.selkup'),
         (crow_selkup_lemmatized, 'lemmatized.selkup'),
         (crow_russian_text, 'text.russian'),
-        (crow_metadata_source, 'metadata.source'),
-        (crow_metadata_dialects, 'metadata.dialects'),
-        (crow_metadata_date, 'metadata.date'),
-        (crow_metadata_pushed_by, 'metadata.pushed_by')
+        ([crow_metadata_source], 'metadata.source'),
+        ([crow_metadata_dialects], 'metadata.dialects'),
+        ([crow_metadata_date], 'metadata.date'),
+        ([crow_metadata_pushed_by], 'metadata.pushed_by')
     ):
         output = io.StringIO()
         writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
