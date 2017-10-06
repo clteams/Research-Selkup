@@ -4,7 +4,7 @@ import csv
 import io
 import re
 
-corpus_database = sqlite3.connect('./databases/29-09-2017-build/corpus.sqlite3')
+corpus_database = sqlite3.connect('./databases/29-09-2017-build/corpusget.sqlite3')
 corpus = corpus_database.cursor()
 
 prepare = 'SELECT crow_content from corpus where crow_function = "metadata.dialects"'
@@ -18,7 +18,6 @@ rx_ob_capital_incl = rx_ob_capital[1:-2]
 def get_csv(s):
     obj = csv.reader(s, quoting=csv.QUOTE_NONNUMERIC)
     obj = [x[0] for x in list(obj) if x != ['', ''] and x != []]
-    print(obj)
     return obj
 
 for dialects_tuple in crow_metadata_dialects:
