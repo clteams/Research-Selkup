@@ -69,3 +69,27 @@ grammar Annotated-Vol2-Text1-Parser-Fabula {
     <number> ")" \s* <plain>
   }
 }
+
+grammar Annotated-Vol2-Text1-Parser-Notation {
+  rule TOP {
+    ^ [ <break-plot> || <section> || <plain> ] $
+  }
+  token section {
+    <number>
+    "." \s* <plain>
+  }
+  token number {
+    <:digit + [a .. z]> +
+  }
+  token plain {
+    [
+      <- :digit> <- [\.]>
+        ||
+      <digit> + <- [a .. z]>
+    ]
+    .*
+  }
+  token break-plot {
+    \s* <digit>+ \s*
+  }
+}
