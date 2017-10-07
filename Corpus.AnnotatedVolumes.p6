@@ -46,5 +46,3 @@ grammar Annotated-Text1-Parser-Notation {
     ]
   }
 }
-
-say Annotated-Text1-Parser-Fabula.parse('102) Таб кунымба по̄нэ, к̜ванба́ 102) He ran away outside, went');
