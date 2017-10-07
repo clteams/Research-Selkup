@@ -1,6 +1,6 @@
 #!/usr/bin/perl6
 
-grammar Annotated-Text1-Parser-Fabula {
+grammar Annotated-Vol1-Text1-Parser-Fabula {
   rule TOP {
     ^ [
       <plain>
@@ -19,7 +19,7 @@ grammar Annotated-Text1-Parser-Fabula {
   }
 }
 
-grammar Annotated-Text1-Parser-Notation {
+grammar Annotated-Vol1-Text1-Parser-Notation {
   rule TOP {
     ^ [ <break-plot> || <section> || <plain> ] $
   }
@@ -44,5 +44,28 @@ grammar Annotated-Text1-Parser-Notation {
         ||
       "-" \s* <digit>+ \s* "-"
     ]
+  }
+}
+
+grammar Annotated-Vol2-Text1-Parser-Fabula {
+  rule TOP {
+    ^ [
+      <plain>
+        ||
+      <section>+ % [\s*]
+      ] $
+  }
+  token plain {
+    [
+      <- [\(\)] - :digit> +
+      ||
+      \( <- [\)]>* \)
+    ]
+  }
+  token number {
+    <digit> +
+  }
+  token section {
+    <number> ")" \s* <plain>
   }
 }
