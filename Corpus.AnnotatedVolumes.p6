@@ -2,7 +2,11 @@
 
 grammar Annotated-Text1-Parser-Fabula {
   rule TOP {
-    ^ [ <plain> || <section> ] $
+    ^ [
+      <plain>
+        ||
+      <section>+ % [\s*]
+      ] $
   }
   token plain {
     <- [\(\)] - :digit> +
@@ -17,16 +21,19 @@ grammar Annotated-Text1-Parser-Fabula {
 
 grammar Annotated-Text1-Parser-Notation {
   rule TOP {
-    ^ [ <break-plot> || <plain> || <section> ] $
+    ^ [ <break-plot> || <section> || <plain> ] $
   }
   token section {
-    <:digit + [a .. z]> +
+    <number>
     "." \s* <plain>
+  }
+  token number {
+    <:digit + [a .. z]> +
   }
   token plain {
     [
       <- :digit> <- [\.]>
-      ||
+        ||
       <digit> + <- [a .. z]>
     ]
     .*
@@ -34,9 +41,10 @@ grammar Annotated-Text1-Parser-Notation {
   token break-plot {
     [
       "Пелек" ["а" || "а́"] "т" .*
-      ||
+        ||
       "-" \s* <digit>+ \s* "-"
     ]
   }
 }
-say Annotated-Text1-Parser-Fabula.parse('99) Придя, поел и лег, крепко');
+
+say Annotated-Text1-Parser-Fabula.parse('102) Таб кунымба по̄нэ, к̜ванба́ 102) He ran away outside, went');
