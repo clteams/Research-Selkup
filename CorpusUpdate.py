@@ -80,11 +80,10 @@ class Database(Master):
 
     def add_segment(self, kwargs):
         for crow_function, crow_content in kwargs.items():
-            if type(crow_content) != str:
-                output = io.StringIO()
-                writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
-                writer.writerow(crow_content)
-                crow_content = output.getvalue()
+            output = io.StringIO()
+            writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+            writer.writerow(crow_content)
+            crow_content = output.getvalue()
             self.db_cursor.execute('INSERT INTO corpus VALUES (?, ?, ?)',
                 (self.start_crow_id, crow_function, crow_content,)
             )

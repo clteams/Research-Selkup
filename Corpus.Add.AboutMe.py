@@ -47,6 +47,7 @@ for s in about_me:
                 russian_buffer[-1] += s
         my_db.add_segment({
             'text.selkup' : selkup_buffer,
+            'lemmatized.selkup' : ['_' for _ in range(len(selkup_buffer))],
             'text.russian' : russian_buffer,
             'metadata.source' : 'pro_sebya',
             'metadata.date' : '10/11/2017',
