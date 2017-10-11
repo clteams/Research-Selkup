@@ -78,7 +78,7 @@ class Database(Master):
         ).fetchone()[0]
         self.start_crow_id = int(self.max_crow_id) + 1
 
-    def add_segment(self, **kwargs):
+    def add_segment(self, kwargs):
         for crow_function, crow_content in kwargs.items():
             if type(crow_content) != str:
                 output = io.StringIO()
