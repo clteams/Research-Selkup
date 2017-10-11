@@ -24,36 +24,46 @@ class Master:
         self.today = datetime.datetime.now()
         self.closest = min(self.dts, key=lambda x: abs(x - self.today))
         self.closest_path = self.closest.strftime('%d-%m-%Y') + '-build'
+        self.closest_path = self.get_last_build(self.closest_path, self.all_dbs)
+        self.ST = self.today.strftime('%d-%m-%Y') + '-build'
+        self.last_build = self.get_last_build(self.ST, self.all_dbs)
+        if self.ST != self.last_build:
+            self.closest_path = self.closest_path + int(self.last_build[-1])
+            self.ST = self.last_build
+
+    @staticmethod
+    def get_last_build(path, parent):
         max_index = 0
-        for catalogue in self.all_dbs:
-            if not catalogue.startswith(self.closest_path):
+        at_least_one = False
+        for catalogue in parent:
+            if not catalogue.startswith(path):
                 continue
+            at_least_one = True
             index = re.findall(r'\d+$', catalogue)
             index = 0 if len(index) == 0 else int(index[0])
             if index > max_index:
                 max_index = index
         if max_index > 0:
-            self.closest_path += str(max_index)
+            path += str(max_index)
+        return path if at_least_one else False
 
 
 class Database(Master):
     def __init__(self):
         Master.__init__(self)
         self.D = '/.databases/'
-        self.B = '-build'
         self.E = '/corpus.sqlite3'
         self.DE = '/dictionary.sqlite3'
         self.ST = self.today.strftime('%d-%m-%Y')
         self.src_db = self.D + self.closest_path + self.E
         self.src_dict = self.D + self.closest_path + self.DE
-        self.dest_db = self.D + self.ST + self.B + self.E
-        self.dest_dict = self.D + self.ST + self.B + self.DE
+        self.dest_db = self.D + self.ST + self.E
+        self.dest_dict = self.D + self.ST + self.DE
         assert not os.path.isabs(self.src_db)
         self.dest_dir = os.path.join(self.dest_db, os.path.dirname(self.src_db))
         self.dest_dict_dir = os.path.join(self.dest_dict, os.path.dirname(self.src_dict))
         os.makedirs(self.dest_dir)
         os.makedirs(self.dest_dict_dir)
-        # check if there are builds in the directory!
         shutil.copy(self.src_db, self.dest_dir)
         shutil.copy(self.src_db, self.dest_dict_dir)
         self.db_loaded = sqlite3.connect(self.dest_db)
