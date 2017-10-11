@@ -53,6 +53,7 @@ class Database(Master):
         self.dest_dict_dir = os.path.join(self.dest_dict, os.path.dirname(self.src_dict))
         os.makedirs(self.dest_dir)
         os.makedirs(self.dest_dict_dir)
+        # check if there are builds in the directory!
         shutil.copy(self.src_db, self.dest_dir)
         shutil.copy(self.src_db, self.dest_dict_dir)
         self.db_loaded = sqlite3.connect(self.dest_db)
@@ -64,6 +65,11 @@ class Database(Master):
 
     def add_segment(self, **kwargs):
         for crow_function, crow_content in kwargs.items():
+            if type(crow_content) != str:
+                output = io.StringIO()
+                writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+                writer.writerow(crow_content)
+                crow_content = output.getvalue()
             self.db_cursor.execute('INSERT INTO corpus VALUES (?, ?, ?)',
                 (self.start_crow_id, crow_function, crow_content,)
             )
