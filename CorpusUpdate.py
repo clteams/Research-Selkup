@@ -27,9 +27,14 @@ class Master:
         self.closest_path = self.get_last_build(self.closest_path, self.all_dbs)
         self.ST = self.today.strftime('%d-%m-%Y') + '-build'
         self.last_build = self.get_last_build(self.ST, self.all_dbs)
-        if self.ST != self.last_build:
-            self.closest_path = self.closest_path + int(self.last_build[-1])
-            self.ST = self.last_build
+        if self.last_build != False:
+            try:
+                index_decr = int(self.last_build[-1]) - 1
+                if index_decr > 2:
+                    self.closest_path += str(index_decr)
+                self.ST = self.last_build[:-1] + str(int(self.last_build[-1]) + 1)
+            except ValueError:
+                self.ST += '2'
 
     @staticmethod
     def get_last_build(path, parent):
@@ -51,21 +56,21 @@ class Master:
 class Database(Master):
     def __init__(self):
         Master.__init__(self)
-        self.D = '/.databases/'
+        self.D = './databases/'
         self.E = '/corpus.sqlite3'
         self.DE = '/dictionary.sqlite3'
-        self.ST = self.today.strftime('%d-%m-%Y')
         self.src_db = self.D + self.closest_path + self.E
         self.src_dict = self.D + self.closest_path + self.DE
         self.dest_db = self.D + self.ST + self.E
         self.dest_dict = self.D + self.ST + self.DE
-        assert not os.path.isabs(self.src_db)
-        self.dest_dir = os.path.join(self.dest_db, os.path.dirname(self.src_db))
-        self.dest_dict_dir = os.path.join(self.dest_dict, os.path.dirname(self.src_dict))
+        try:
+            assert not os.path.isabs(self.src_db)
+        except AssertionError:
+            print('assertion does not work')
+        self.dest_dir = self.D + self.ST
         os.makedirs(self.dest_dir)
-        os.makedirs(self.dest_dict_dir)
         shutil.copy(self.src_db, self.dest_dir)
-        shutil.copy(self.src_db, self.dest_dict_dir)
+        shutil.copy(self.src_dict, self.dest_dir)
         self.db_loaded = sqlite3.connect(self.dest_db)
         self.db_cursor = self.db_loaded.cursor()
         self.max_crow_id = self.db_cursor.execute(
