@@ -54,7 +54,7 @@ class Master:
 
 
 class Database(Master):
-    def __init__(self):
+    def __init__(self, update=False):
         Master.__init__(self)
         self.D = './databases/'
         self.E = '/corpus.sqlite3'
@@ -63,15 +63,20 @@ class Database(Master):
         self.src_dict = self.D + self.closest_path + self.DE
         self.dest_db = self.D + self.ST + self.E
         self.dest_dict = self.D + self.ST + self.DE
-        try:
-            assert not os.path.isabs(self.src_db)
-        except AssertionError:
-            print('assertion does not work')
-        self.dest_dir = self.D + self.ST
-        os.makedirs(self.dest_dir)
-        shutil.copy(self.src_db, self.dest_dir)
-        shutil.copy(self.src_dict, self.dest_dir)
-        self.db_loaded = sqlite3.connect(self.dest_db)
+
+        if not update:
+            try:
+                assert not os.path.isabs(self.src_db)
+            except AssertionError:
+                print('assertion does not work')
+            self.dest_dir = self.D + self.ST
+            os.makedirs(self.dest_dir)
+            shutil.copy(self.src_db, self.dest_dir)
+            shutil.copy(self.src_dict, self.dest_dir)
+            self.db_loaded = sqlite3.connect(self.dest_db)
+        else:
+            self.db_loaded = sqlite3.connect(self.src_db)
+
         self.db_cursor = self.db_loaded.cursor()
         self.max_crow_id = self.db_cursor.execute(
             'SELECT max(crow_id) FROM corpus'
