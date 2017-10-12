@@ -49,10 +49,10 @@ for s in about_me:
             'text.selkup' : selkup_buffer,
             'lemmatized.selkup' : ['_' for _ in range(len(selkup_buffer))],
             'text.russian' : russian_buffer,
-            'metadata.source' : 'pro_sebya',
-            'metadata.date' : '10/11/2017',
-            'metadata.pushed_by' : 'admin',
-            'metadata.sequence' : 'true'
+            'metadata.source' : ['pro_sebya'],
+            'metadata.date' : ['10/11/2017'],
+            'metadata.pushed_by' : ['admin'],
+            'metadata.sequence' : ['true']
         })
 
 my_db.commit()
