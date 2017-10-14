@@ -32,6 +32,7 @@ def add_to_buffer(num, content, update=False):
             Buffer[-1][num][-1] += content
         except IndexError:
             print(Buffer)
+            raise ValueError()
 
 
 def append_on_buffer():
