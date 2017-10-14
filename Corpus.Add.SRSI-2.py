@@ -75,13 +75,13 @@ for BufferSection in Buffer:
     for Index in BufferSection:
         prepare = {
             'text.selkup': selkup_alphabet.Conv.Methods.unify(
-                Buffer[Index][0],
+                BufferSection[Index][0],
                 strict=srsi_strict,
                 soft=[],
                 strict_only=True
             ),
-            'lemmatized.selkup': ['_' for _ in range(len(Buffer[Index][0]))],
-            'text.russian': Buffer[Index][1],
+            'lemmatized.selkup': ['_' for _ in range(len(BufferSection[Index][0]))],
+            'text.russian': BufferSection[Index][1],
             'metadata.source': ['SRSI_2_'],
             'metadata.date': ['10/14/2017'],
             'metadata.pushed_by': ['admin']
