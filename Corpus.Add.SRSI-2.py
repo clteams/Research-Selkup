@@ -37,10 +37,11 @@ def append_on_buffer():
 
 for line in srsi_file:
     if re.search(RX_USEFUL_START, line):
+        Appended = False
         StartNum = int(re.search(r'^\s*(\d+)', line).group(1))
         upd_line = re.sub('^\s*\d+\s*\.\s*', '', line)
         add_to_buffer(StartNum, upd_line)
-    elif re.search(RX_PAGE_PATTERN, line) or re.search(RX_PAGE_DIV, line) and not Appended:
+    elif (re.search(RX_PAGE_PATTERN, line) or re.search(RX_PAGE_DIV, line)) and not Appended:
         Mode = 'continue'
         Appended = True
         append_on_buffer()
