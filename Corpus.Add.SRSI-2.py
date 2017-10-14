@@ -34,18 +34,22 @@ def add_to_buffer(num, content, update=False):
 def append_on_buffer():
     Buffer.append({})
 
+## I can't use the debugger and therefore I use prints ;)
 
 for line in srsi_file:
     if re.search(RX_USEFUL_START, line):
+        print('a')
         Appended = False
         StartNum = int(re.search(r'^\s*(\d+)', line).group(1))
         upd_line = re.sub('^\s*\d+\s*\.\s*', '', line)
         add_to_buffer(StartNum, upd_line)
     elif (re.search(RX_PAGE_PATTERN, line) or re.search(RX_PAGE_DIV, line)) and not Appended:
+        print('b')
         Mode = 'continue'
         Appended = True
         append_on_buffer()
     elif Mode == 'started':
+        print('c')
         add_to_buffer(StartNum, line, update=True)
 
 print(Buffer)
