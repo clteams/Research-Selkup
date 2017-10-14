@@ -73,23 +73,25 @@ srsi_strict = selkup_alphabet.Conv.srsi.strict
 for BufferSection in Buffer:
     bsl = len(BufferSection)
     for Index in BufferSection:
-        print(BufferSection[Index])
-        prepare = {
-            'text.selkup': selkup_alphabet.Conv.Methods.unify(
-                BufferSection[Index][0],
-                strict=srsi_strict,
-                soft=[],
-                strict_only=True
-            ),
-            'lemmatized.selkup': ['_' for _ in range(len(BufferSection[Index][0]))],
-            'text.russian': BufferSection[Index][1],
-            'metadata.source': ['SRSI_2_'],
-            'metadata.date': ['10/14/2017'],
-            'metadata.pushed_by': ['admin']
-        }
-        if Index != bsl - 1:
-            prepare['metadata.sequence'] = ['true']
-        my_db.add_segment(prepare)
+        try:
+            prepare = {
+                'text.selkup': selkup_alphabet.Conv.Methods.unify(
+                    BufferSection[Index][0],
+                    strict=srsi_strict,
+                    soft=[],
+                    strict_only=True
+                ),
+                'lemmatized.selkup': ['_' for _ in range(len(BufferSection[Index][0]))],
+                'text.russian': BufferSection[Index][1],
+                'metadata.source': ['SRSI_2_'],
+                'metadata.date': ['10/14/2017'],
+                'metadata.pushed_by': ['admin']
+            }
+            if Index != bsl - 1:
+                prepare['metadata.sequence'] = ['true']
+            my_db.add_segment(prepare)
+        except:
+            pass
 
 my_db.commit()
 my_db.close()
