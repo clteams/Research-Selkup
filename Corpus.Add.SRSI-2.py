@@ -72,16 +72,16 @@ srsi_strict = selkup_alphabet.Conv.srsi.strict
 
 for BufferSection in Buffer:
     bsl = len(BufferSection)
-    for Index, Pair in enumerate(BufferSection):
+    for Index in BufferSection:
         prepare = {
             'text.selkup': selkup_alphabet.Conv.Methods.unify(
-                Pair[0],
+                Buffer[Index][0],
                 strict=srsi_strict,
                 soft=[],
                 strict_only=True
             ),
-            'lemmatized.selkup': ['_' for _ in range(len(Pair[0]))],
-            'text.russian': Pair[1],
+            'lemmatized.selkup': ['_' for _ in range(len(Buffer[Index][0]))],
+            'text.russian': Buffer[Index][1],
             'metadata.source': ['SRSI_2_'],
             'metadata.date': ['10/14/2017'],
             'metadata.pushed_by': ['admin']
