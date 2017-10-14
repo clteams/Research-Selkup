@@ -3,7 +3,7 @@ import re
 import CorpusUpdate
 import pymorphy2
 
-my_db = CorpusUpdate.Database()
+#my_db = CorpusUpdate.Database()
 srsi_file = open('resources/srsi-2-plain.txt').read()
 
 RX_STOP = r'[\.\?!]$'
@@ -37,6 +37,7 @@ def append_on_buffer():
 ## I can't use the debugger and therefore I use prints ;)
 
 for line in srsi_file:
+    print('-')
     if re.search(RX_USEFUL_START, line):
         print('a')
         Appended = False
