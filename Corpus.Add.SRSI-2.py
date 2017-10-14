@@ -18,6 +18,16 @@ Mode = 'continue'
 Appended = False
 
 
+def content_handler(on, what):
+    on = on.strip()
+    what = what.strip()
+    if re.search('-$', on):
+        on = on[:-1]
+    else:
+        on += ' '
+    return on + what
+
+
 def add_to_buffer(num, content, update=False):
     if not num in Buffer[-1]:
         Buffer[-1][num] = []
@@ -26,10 +36,10 @@ def add_to_buffer(num, content, update=False):
     elif len(Buffer[-1][num]) == 1 and not update:
         Buffer[-1][num].append(content)
     elif len(Buffer[-1][num]) == 1:
-        Buffer[-1][num][-1] += content
+        Buffer[-1][num][-1] = content_handler(Buffer[-1][num][-1], content)
     elif len(Buffer[-1][num]) == 2 and update:
         try:
-            Buffer[-1][num][-1] += content
+            Buffer[-1][num][-1] = content_handler(Buffer[-1][num][-1], content)
         except IndexError:
             print(Buffer)
             raise ValueError()
