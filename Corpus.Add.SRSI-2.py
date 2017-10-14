@@ -54,6 +54,9 @@ for line in srsi_file:
         print('c')
         add_to_buffer(StartNum, line, update=True)
     else:
-        print(line)
+        if not Appended:
+            append_on_buffer()
+            Appended = True
+        Mode = 'continue'
 
 print(Buffer)
