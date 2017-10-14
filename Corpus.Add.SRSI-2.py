@@ -21,13 +21,13 @@ Appended = False
 def add_to_buffer(num, content, update=False):
     if not num in Buffer[-1]:
         Buffer[-1][num] = []
-    if len(Buffer[-1]) == 0:
+    if len(Buffer[-1][num]) == 0:
         Buffer[-1][num].append(content)
-    elif len(Buffer[-1]) == 1 and not update:
+    elif len(Buffer[-1][num]) == 1 and not update:
         Buffer[-1][num].append(content)
-    elif len(Buffer[-1]) == 1:
+    elif len(Buffer[-1][num]) == 1:
         Buffer[-1][num][-1] += content
-    elif len(Buffer[-1]) == 2 and update:
+    elif len(Buffer[-1][num]) == 2 and update:
         try:
             Buffer[-1][num][-1] += content
         except IndexError:
