@@ -42,6 +42,7 @@ for line in srsi_file:
         add_to_buffer(StartNum, upd_line)
     elif re.search(RX_PAGE_PATTERN, line) or re.search(RX_PAGE_DIV, line) and not Appended:
         Mode = 'continue'
+        Appended = True
         append_on_buffer()
     elif Mode == 'started':
         add_to_buffer(StartNum, line, update=True)
