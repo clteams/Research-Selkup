@@ -28,7 +28,10 @@ def add_to_buffer(num, content, update=False):
     elif len(Buffer[-1]) == 1:
         Buffer[-1][num][-1] += content
     elif len(Buffer[-1]) == 2 and update:
-        Buffer[-1][num][-1] += content
+        try:
+            Buffer[-1][num][-1] += content
+        except IndexError:
+            print(Buffer)
 
 
 def append_on_buffer():
