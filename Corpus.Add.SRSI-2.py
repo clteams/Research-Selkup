@@ -74,15 +74,43 @@ for BufferSection in Buffer:
     bsl = len(BufferSection)
     for Index in BufferSection:
         try:
+            selkup_buffer = [""]
+            selkup_text = selkup_alphabet.Conv.Methods.unify(
+                BufferSection[Index][0],
+                strict=srsi_strict,
+                soft=[],
+                strict_only=True
+            )
+            for s in selkup_text:
+                if s == " ":
+                    selkup_buffer.append("")
+                elif s in punct:
+                    selkup_buffer.append(s)
+                    punct_before = True
+                else:
+                    if punct_before:
+                        selkup_buffer.append("")
+                        punct_before = False
+                    selkup_buffer[-1] += s
+            selkup_buffer = [x for x in selkup_buffer if x != '']
+            russian_buffer = [""]
+            russian_text = BufferSection[Index][1]
+            for s in russian_text:
+                if s == " ":
+                    russian_buffer.append("")
+                elif s in punct:
+                    russian_buffer.append(s)
+                    punct_before = True
+                else:
+                    if punct_before:
+                        russian_buffer.append("")
+                        punct_before = False
+                    russian_buffer[-1] += s
+            russian_buffer = [x for x in russian_buffer if x != '']
             prepare = {
-                'text.selkup': selkup_alphabet.Conv.Methods.unify(
-                    BufferSection[Index][0],
-                    strict=srsi_strict,
-                    soft=[],
-                    strict_only=True
-                ),
-                'lemmatized.selkup': ['_' for _ in range(len(BufferSection[Index][0]))],
-                'text.russian': BufferSection[Index][1],
+                'text.selkup': selkup_buffer,
+                'lemmatized.selkup': ['_' for _ in range(len(selkup_buffer))],
+                'text.russian': russian_buffer,
                 'metadata.source': ['SRSI_2_'],
                 'metadata.date': ['10/14/2017'],
                 'metadata.pushed_by': ['admin']
