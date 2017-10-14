@@ -53,5 +53,7 @@ for line in srsi_file:
     elif Mode == 'started':
         print('c')
         add_to_buffer(StartNum, line, update=True)
+    else:
+        print(line)
 
 print(Buffer)
