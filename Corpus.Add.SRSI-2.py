@@ -2,6 +2,7 @@
 import re
 import CorpusUpdate
 import selkup_alphabet
+import string
 
 my_db = CorpusUpdate.Database()
 srsi_file = open('resources/srsi-2-plain.txt').read().splitlines()
@@ -81,6 +82,9 @@ for BufferSection in Buffer:
                 soft=[],
                 strict_only=True
             )
+            punct = [x for x in string.punctuation]
+            punct += ['«', '»']
+            punct_before = False
             for s in selkup_text:
                 if s == " ":
                     selkup_buffer.append("")
