@@ -4,7 +4,7 @@ import CorpusUpdate
 import pymorphy2
 
 #my_db = CorpusUpdate.Database()
-srsi_file = open('resources/srsi-2-plain.txt').read()
+srsi_file = open('resources/srsi-2-plain.txt').read().splitlines()
 
 RX_STOP = r'[\.\?!]$'
 RX_USEFUL_START = r'^\s*\d+\s*\.\s*'
