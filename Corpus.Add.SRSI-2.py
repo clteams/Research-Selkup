@@ -73,6 +73,7 @@ srsi_strict = selkup_alphabet.Conv.srsi.strict
 for BufferSection in Buffer:
     bsl = len(BufferSection)
     for Index in BufferSection:
+        print(BufferSection[Index])
         prepare = {
             'text.selkup': selkup_alphabet.Conv.Methods.unify(
                 BufferSection[Index][0],
