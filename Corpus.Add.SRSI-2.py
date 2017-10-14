@@ -44,6 +44,7 @@ for line in srsi_file:
         StartNum = int(re.search(r'^\s*(\d+)', line).group(1))
         upd_line = re.sub('^\s*\d+\s*\.\s*', '', line)
         add_to_buffer(StartNum, upd_line)
+        Mode = 'started'
     elif (re.search(RX_PAGE_PATTERN, line) or re.search(RX_PAGE_DIV, line)) and not Appended:
         print('b')
         Mode = 'continue'
