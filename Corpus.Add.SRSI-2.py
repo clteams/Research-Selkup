@@ -74,7 +74,7 @@ for BufferSection in Buffer:
     bsl = len(BufferSection)
     for Index, Pair in enumerate(BufferSection):
         prepare = {
-            'text.selkup': selkup_alphabet.Conv.unify(
+            'text.selkup': selkup_alphabet.Conv.Methods.unify(
                 Pair[0],
                 strict=srsi_strict,
                 soft=[],
