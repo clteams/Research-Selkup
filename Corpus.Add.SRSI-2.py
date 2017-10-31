@@ -4,7 +4,7 @@ import CorpusUpdate
 import selkup_alphabet
 import string
 
-my_db = CorpusUpdate.Database(update=True)
+my_db = CorpusUpdate.Database()
 srsi_file = open('resources/srsi-2-plain.txt').read().splitlines()
 
 RX_STOP = r'[\.\?!]$'
@@ -81,6 +81,17 @@ for BufferSection in Buffer:
                 soft=[],
                 strict_only=True
             )
+            vowels = 'ёуеыаоэяиюё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱӱ̄ӯи̇и̇̄ӣ'
+            non_vowels = '[^' + vowels + ']'
+            vowels = '[' + vowels + ']'
+            punct = r'[!"#\$%&\'\(\)\*\+,-\.\/:;<=>\?@\[\]\^_`\{\|\}~–«»]'
+            selkup_text = re.sub(r'\t', ' ', selkup_text)
+            selkup_text = re.sub(r'\s{2,}', ' ', selkup_text)
+            selkup_text = re.sub(
+                r'(.)(' + non_vowels + r'+|' + punct + r'+)(́)', '\g<1>\g<3>\g<2>',
+                selkup_text
+            )
+
             russian_text = BufferSection[Index][1]
 
             tokenizer = CorpusUpdate.CorpusData(
