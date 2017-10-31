@@ -13,10 +13,10 @@ for a in (1, 2):
         selkup_splitted = [selkup_text[j]]
         russian_splitted = [russian_text[j]]
 
-        for e, element in enumerate(selkup_splitted):
+        for i, element in enumerate(selkup_splitted):
             tokenizer = CorpusUpdate.CorpusData(
-                selkup=selkup_splitted[e],
-                russian=russian_splitted[e]
+                selkup=selkup_splitted[i],
+                russian=russian_splitted[i]
             )
             tokenizer.extend_punct_list(['«', '»'])
             selkup_buffer, russian_buffer = tokenizer.tokenize_simple()
