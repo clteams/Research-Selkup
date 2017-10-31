@@ -75,7 +75,7 @@ for BufferSection in Buffer:
     bsl = len(BufferSection)
     for Index in BufferSection:
         try:
-            selkup_text = selkup_alphabet.Conv.Methods.unify(
+            selkup_text = selkup_alphabet.Conv.unify(
                 BufferSection[Index][0],
                 strict=srsi_strict,
                 soft=[],
