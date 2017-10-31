@@ -33,7 +33,7 @@ for j in (1, 2):
                 'metadata.date' : ['10/12/2017'],
                 'metadata.pushed_by' : ['admin']
             }
-            if i != len(selkup_splitted) - 1:
+            if e != len(selkup_splitted) - 1:
                 prepare['metadata.sequence'] = ['true']
             my_db.add_segment(prepare)
 
