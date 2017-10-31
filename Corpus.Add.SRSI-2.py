@@ -4,7 +4,7 @@ import CorpusUpdate
 import selkup_alphabet
 import string
 
-my_db = CorpusUpdate.Database()
+my_db = CorpusUpdate.Database(update=True)
 srsi_file = open('resources/srsi-2-plain.txt').read().splitlines()
 
 RX_STOP = r'[\.\?!]$'
@@ -75,42 +75,21 @@ for BufferSection in Buffer:
     bsl = len(BufferSection)
     for Index in BufferSection:
         try:
-            selkup_buffer = [""]
             selkup_text = selkup_alphabet.Conv.Methods.unify(
                 BufferSection[Index][0],
                 strict=srsi_strict,
                 soft=[],
                 strict_only=True
             )
-            punct = [x for x in string.punctuation]
-            punct += ['«', '»']
-            punct_before = False
-            for s in selkup_text:
-                if s == " ":
-                    selkup_buffer.append("")
-                elif s in punct:
-                    selkup_buffer.append(s)
-                    punct_before = True
-                else:
-                    if punct_before:
-                        selkup_buffer.append("")
-                        punct_before = False
-                    selkup_buffer[-1] += s
-            selkup_buffer = [x for x in selkup_buffer if x != '']
-            russian_buffer = [""]
             russian_text = BufferSection[Index][1]
-            for s in russian_text:
-                if s == " ":
-                    russian_buffer.append("")
-                elif s in punct:
-                    russian_buffer.append(s)
-                    punct_before = True
-                else:
-                    if punct_before:
-                        russian_buffer.append("")
-                        punct_before = False
-                    russian_buffer[-1] += s
-            russian_buffer = [x for x in russian_buffer if x != '']
+
+            tokenizer = CorpusUpdate.CorpusData(
+                selkup=selkup_text,
+                russian=russian_text
+            )
+            tokenizer.extend_punct_list(['«', '»'])
+            selkup_buffer, russian_buffer = tokenizer.tokenize_simple()
+
             prepare = {
                 'text.selkup': selkup_buffer,
                 'lemmatized.selkup': ['_' for _ in range(len(selkup_buffer))],

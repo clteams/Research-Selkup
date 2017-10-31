@@ -105,9 +105,12 @@ class Database(Master):
 class CorpusData:
     def __init__(self, **kwargs):
         self.data = kwargs
+        self.punct_list = [x for x in string.punctuation if x != '~']
+
+    def extend_punct_list(self, ext_list):
+        self.punct_list += ext_list
 
     def tokenize_simple(self):
-        punct_list = [x for x in string.punctuation if x != '~']
         crow_text = dict()
         crow_text['selkup'] = ['']
         crow_text['russian'] = ['']
@@ -119,7 +122,7 @@ class CorpusData:
 
         for lang in ('selkup', 'russian'):
             for e, sym in enumerate(self.data[lang]):
-                if sym != ' ' and sym not in punct_list:
+                if sym != ' ' and sym not in self.punct_list:
                     crow_text[lang][-1] += sym
                 elif sym == ' ':
                     crow_text[lang].append('')
@@ -133,5 +136,8 @@ class CorpusData:
                         crow_text[lang].append('')
                     else:
                         crow_text[lang][-1] += sym
-                        
+
+        crow_text['selkup'] = [x for x in crow_text['selkup'] if x != '']
+        crow_text['russian'] = [x for x in crow_text['russian'] if x != '']
+
         return crow_text['selkup'], crow_text['russian']
