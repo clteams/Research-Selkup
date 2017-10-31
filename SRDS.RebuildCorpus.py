@@ -3,9 +3,8 @@
 import sqlite3
 import csv
 import io
-import string
-import re
 from difflib import SequenceMatcher
+import CorpusUpdate
 
 '''
     New Database Schema
@@ -33,6 +32,7 @@ class Indices:
     dialects = 3
     links = 4
 
+
 crow_id = 0
 
 for row in old_corpus:
@@ -43,33 +43,10 @@ for row in old_corpus:
     prepare = 'SELECT title from srds_dictionary where indx in ' + links
     link_words = [x[0] for x in dictionary_db.execute(prepare).fetchall()]
 
-    punct_list = [x for x in string.punctuation if x != '~']
-
-    crow_selkup_text = ['']
-    crow_russian_text = ['']
-
-    source_selkup_text = row[Indices.selkup]
-    source_selkup_text = re.sub(r'\s*\([^\)]*\)', '', source_selkup_text)
-    source_russian_text = row[Indices.russian]
-    source_russian_text = re.sub(r'\s*\([^\)]*\)', '', source_russian_text)
-
-    for sym in source_selkup_text:
-        if sym != ' ' and sym not in punct_list:
-            crow_selkup_text[len(crow_selkup_text) - 1] += sym
-        elif sym == ' ':
-            crow_selkup_text.append('')
-        else:
-            crow_selkup_text.append(sym)
-            crow_selkup_text.append('')
-
-    for sym in source_russian_text:
-        if sym != ' ' and sym not in punct_list:
-            crow_russian_text[len(crow_russian_text) - 1] += sym
-        elif sym == ' ':
-            crow_russian_text.append('')
-        else:
-            crow_russian_text.append(sym)
-            crow_russian_text.append('')
+    crow_selkup_text, crow_russian_text = CorpusUpdate.CorpusData(
+        selkup=row[Indices.selkup],
+        russian=row[Indices.russian]
+    )
 
     class ExtractLemma:
         def __init__(self, l_words):

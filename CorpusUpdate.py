@@ -6,6 +6,7 @@ import shutil
 import datetime
 import os
 import re
+import string
 
 
 class Master:
@@ -99,3 +100,38 @@ class Database(Master):
 
     def close(self):
         self.db_loaded.close()
+
+
+class CorpusData:
+    def __init__(self, **kwargs):
+        self.data = kwargs
+
+    def tokenize_simple(self):
+        punct_list = [x for x in string.punctuation if x != '~']
+        crow_text = dict()
+        crow_text['selkup'] = ['']
+        crow_text['russian'] = ['']
+        self.data['selkup'] = re.sub(r'\s*\([^\)]*\)', '', self.data['selkup'])
+        self.data['russian'] = re.sub(r'\s*\([^\)]*\)', '', self.data['russian'])
+        last_index = dict()
+        last_index['selkup'] = len(self.data['selkup']) - 1
+        last_index['russian'] = len(self.data['russian']) - 1\
+
+        for lang in ('selkup', 'russian'):
+            for e, sym in enumerate(self.data[lang]):
+                if sym != ' ' and sym not in punct_list:
+                    crow_text[lang][-1] += sym
+                elif sym == ' ':
+                    crow_text[lang].append('')
+                elif sym not in ('-', '–'):
+                    crow_text[lang].append(sym)
+                    crow_text[lang].append('')
+                else:
+                    if e == 0 or e == last_index[lang] or self.data[lang][e - 1] == ' ' \
+                            or self.data[lang][e + 1] == ' ':
+                        crow_text[lang].append(sym)
+                        crow_text[lang].append('')
+                    else:
+                        crow_text[lang][-1] += sym
+                        
+        return crow_text['selkup'], crow_text['russian']
