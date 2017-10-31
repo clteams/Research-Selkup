@@ -4,7 +4,7 @@ import csv
 import io
 import re
 
-corpus_database = sqlite3.connect('./databases/29-09-2017-build/corpus.sqlite3')
+corpus_database = sqlite3.connect('./databases/31-10-2017-build/corpus.sqlite3')
 corpus = corpus_database.cursor()
 
 prepare = 'SELECT crow_content from corpus where crow_function = "metadata.dialects"'
