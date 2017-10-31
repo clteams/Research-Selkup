@@ -46,7 +46,7 @@ for row in old_corpus:
     crow_selkup_text, crow_russian_text = CorpusUpdate.CorpusData(
         selkup=row[Indices.selkup],
         russian=row[Indices.russian]
-    )
+    ).tokenize_simple()
 
     class ExtractLemma:
         def __init__(self, l_words):
