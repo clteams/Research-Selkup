@@ -95,6 +95,7 @@ for BufferSection in Buffer:
                 r'(.)(' + non_vowels + r'+|' + punct + r'+)(́)', '\g<1>\g<3>\g<2>',
                 selkup_text
             )
+            selkup_text = selkup_text.replace('дж', 'җ')
 
             russian_text = BufferSection[Index][1]
 
