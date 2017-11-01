@@ -88,6 +88,10 @@ for BufferSection in Buffer:
             selkup_text = re.sub(r'\t', ' ', selkup_text)
             selkup_text = re.sub(r'\s{2,}', ' ', selkup_text)
             selkup_text = re.sub(
+                r'(.)(' + non_vowels + r'+|' + punct + r'+)(̄)', '\g<1>\g<3>\g<2>',
+                selkup_text
+            )
+            selkup_text = re.sub(
                 r'(.)(' + non_vowels + r'+|' + punct + r'+)(́)', '\g<1>\g<3>\g<2>',
                 selkup_text
             )
