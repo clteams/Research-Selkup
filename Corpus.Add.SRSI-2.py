@@ -82,6 +82,8 @@ for BufferSection in Buffer:
                 strict_only=True
             )
             vowels = 'ёуеыаоэяиюё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱӱ̄ӯи̇и̇̄ӣ'
+            cap_vow = 'ЁУЕЫАОЭЯИЮЁ̄Е̄Ы̄ӦӦ̄О̄Ю̈Ю̈̄Ю̄Я̄ӬӬ̄Э̄ӒӒ̄ĀӰӰ̄ӮИ̇И̇̄Ӣ'
+            cap_vow = '[' + cap_vow + ']'
             non_vowels = '[^' + vowels + ']'
             vowels = '[' + vowels + ']'
             punct = r'[!"#\$%&\'\(\)\*\+,-\.\/:;<=>\?@\[\]\^_`\{\|\}~–«»]'
@@ -95,6 +97,8 @@ for BufferSection in Buffer:
                 r'(.)(' + non_vowels + r'+|' + punct + r'+)(́)', '\g<1>\g<3>\g<2>',
                 selkup_text
             )
+            selkup_text = re.sub(r'(́)([\s]*)(' + cap_vow + r')', '\g<2>\g<3>\g<1>',
+                selkup_text)
             selkup_text = selkup_text.replace('дж', 'җ')
 
             russian_text = BufferSection[Index][1]
