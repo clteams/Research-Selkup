@@ -131,7 +131,7 @@ class CorpusData:
                     crow_text[lang].append('')
                 else:
                     if e == 0 or e == last_index[lang] or self.data[lang][e - 1] == ' ' \
-                            or self.data[lang][e + 1] == ' ':
+                            and self.data[lang][e + 1] == ' ':
                         crow_text[lang].append(sym)
                         crow_text[lang].append('')
                     else:
