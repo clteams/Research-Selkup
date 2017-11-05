@@ -33,13 +33,16 @@ class GrigorovskyParser(language_resource_parser.LanguageResourceParser):
                     prev_line = line.strip()
             if prev_line != '':
                 self.process_line(prev_line)
+        txt_filename_out = txt_filename + '_out.txt'
+        self.print_dict(txt_filename_out)
 
-    def print_dict(self):
-        keys = sorted(self.result_dict.keys())
-        for key in keys:
-            slk_descriptions = self.result_dict[key]
-            for slk_description in slk_descriptions:
-                print("%s=%s", key, slk_description)
+    def print_dict(self, txt_filename_out):
+        with codecs.open(txt_filename_out, 'w', 'utf-8') as fout:
+            keys = sorted(self.result_dict.keys())
+            for key in keys:
+                slk_descriptions = self.result_dict[key]
+                for slk_description in slk_descriptions:
+                    fout.write(' '.join(key) + '=' + slk_description + '\r\n')
 
     def process_line(self, dict_line):
         line_parts = dict_line.split(self.RUS_SLK_DELIMITER, 1)
