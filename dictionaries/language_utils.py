@@ -19,9 +19,13 @@ OLD_SPELLINGS_FILENAME = 'resources/old_spellings.txt'
 OLD_SPELLING_DELIMITER = ':'
 
 SELKUP_SITE_URL = 'http://selkup.org/dict-search'
+SELKUP_INF_ENDING = 'гу'
+
+PYMORPHY_INF = 'INFN'
 
 SUFFIX_LIST = ['-ка', '-то']
 PREFIX_LIST = ['по-']
+
 
 TYPICAL_LENGTH = 20
 
@@ -52,6 +56,9 @@ def check_dictionary(word, translation):
     return False
 
 def check_pos(word, translation):
+    for translation_part in translation:
+        if is_infinitive(translation_part) and word.endswith('ту'):
+            return False
     return True
 
 def check_length(word, translation):
@@ -96,6 +103,14 @@ def check_pymorphy_dict(word):
     if word.lower() in OUT_OF_VOC_WORDS:
         return True
     return morph.parse(word)[0].is_known
+
+def is_infinitive(word):
+    morph_parse_results = morph.parse(word)
+    for morph_parse_result in morph_parse_results:
+        tag = morph_parse_result.tag
+        if tag.POS == PYMORPHY_INF:
+            return True
+    return False
 
 
 def change_old_spellings(word):

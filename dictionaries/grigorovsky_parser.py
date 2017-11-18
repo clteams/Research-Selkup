@@ -233,7 +233,7 @@ class GrigorovskyParser(language_resource_parser.LanguageResourceParser):
         word = word.strip('ъ')
         word = self.make_replacements(word, self.SELKUP_REPLACEMENT_SYMBOLS)
         if not language_utils.check_selkup_word(word, translation):
-            print('!!!!!!bad checks: %s' % word)
+            print('!!!!!!bad check for %s: %s' % (translation, word))
         return word
 
 
