@@ -48,6 +48,7 @@ for line in source_text:
             except AttributeError:
                 pass
     GRIGOROVSKY_PATTERN = 'grigorovsky'
+    CHA_PATTERN = 'CHA'
     for vals, status in ( (proper_values, 'proper'), (shady_values, 'shady') ):
         for val in vals:
             dict_agent.execute(
@@ -55,6 +56,9 @@ for line in source_text:
             )
             dict_agent.execute(
                 'insert into dictionary values (?, ?, ?, ?)', (index, 'dict.value', '@', russian,)
+            )
+            dict_agent.execute(
+                'insert into dictionary values (?, ?, ?, ?)', (index, 'dict.dialect', '@', CHA_PATTERN,)
             )
             dict_agent.execute(
                 'insert into dictionary values (?, ?, ?, ?)', (index, 'dict.status', '@', status,)
