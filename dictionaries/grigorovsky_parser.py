@@ -32,10 +32,6 @@ class GrigorovskyParser(language_resource_parser.LanguageResourceParser):
         with codecs.open(txt_filename, 'r', 'utf-8') as fin:
             prev_line = ''
             for line in fin:
-                if line.startswith('пропадать'):
-                    a = 1
-
-
                 if not self.RUS_SLK_DELIMITER in line:
                     prev_line += ' ' + line.strip()
                 else:
