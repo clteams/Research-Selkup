@@ -5,17 +5,19 @@ import pymorphy2
 import web_utils
 import html_utils
 import dictionary_utils
+import os
 
 __author__ = "gisly"
 
 morph = pymorphy2.MorphAnalyzer()
-YAT_WORDS = 'resources/yat_words.txt'
+YAT_WORDS = 'dictionaries/resources/yat_words.txt'
 YAT = 'ѣ'
 OUT_OF_VOC_WORDS = None
-OUT_OF_VOC_WORDS_FILENAME = 'resources/out_of_voc_words.txt'
+
+OUT_OF_VOC_WORDS_FILENAME = 'dictionaries/resources/out_of_voc_words.txt'
 
 OLD_SPELLINGS = None
-OLD_SPELLINGS_FILENAME = 'resources/old_spellings.txt'
+OLD_SPELLINGS_FILENAME = 'dictionaries/resources/old_spellings.txt'
 OLD_SPELLING_DELIMITER = ':'
 
 SELKUP_SITE_URL = 'http://selkup.org/dict-search'
@@ -139,4 +141,3 @@ def cache_old_spellings():
             for line in fin:
                 parts = line.strip().lower().split(OLD_SPELLING_DELIMITER)
                 OLD_SPELLINGS[parts[0]] = parts[1]
-
