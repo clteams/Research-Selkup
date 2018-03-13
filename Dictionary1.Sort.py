@@ -33,10 +33,10 @@ def clear_diacr(l):
     l = l.replace("́", "")
     for key in repl:
         l = l.replace(key, repl[key])
-    return l
+    return l.lower()
 
 
-alph = ''.join([x + x.upper() for x in 'аӓбвгӷдеёжҗзии̇йкӄлмнӈоӧпрстуӱфхцчҷшщъыьэюя'])
+alph = 'аӓбвгӷдеёжҗзии̇йкӄлмнӈоӧпрстуӱфхцчҷшщъыьэюя'
 dictionary = open('Dictionary1.txt', encoding='utf-8').read().splitlines()
 filtered = []
 for j, line in enumerate(dictionary):
