@@ -1,0 +1,714 @@
+Ара́пая́сыӄ варкымба.
+Жили старик со старухой.
+'There lived an old man and an old woman'
+ara pajasyq warkymba.
+ara paja-sy-q warky-mb-a.
+старик старуха-FAM-DU жить-PSTN-3SG.sub
+old.man old.woman-FAM-DU live-PSTN-3SG.sub
+Таблана́н эльма̄дла тя̄ӈгузат.
+Детей у них не было.
+'They did not have children'
+tablanan el'mādla t'aŋguzat.
+tab-la-nan el'mād-la t'aŋgu-z-at.
+он-PL-LOC2 ребенок-PL отсутствовать-PST-3PL
+he-PL-LOC2 child-PL be absent-PST-3PL
+Табла варкызат, сӯрулап варза́т, авра́лджэшпызат.
+Они жили, скот держали, кормили.
+'They lived, kept the cattle, fed them'
+tabla warkyzat, sūrulap warzat, awralǯešpyzat.
+tab-la warky-z-at sūru-la-p war-z-at awralǯ-ešpy-z-at.
+он-PL жить-PST-3PL животное-PL-ACC держать-PST-3PL кормить-DUR-PST-3PL
+he-PL live-PST-3PL cattle-PL-ACC keep-PST-3PL feed-DUR-PST-3PL
+Ара́т мадёнд ӄва̄за.
+Старик в лес ходил.
+'The old man went to the forest'
+аrat mad'ond qwāza.
+аra-t mad'o-nd qwā-z-a
+старик-DEF тайга-LAT идти-PST-3SG.sub
+old.man-DEF forest-LAT go-PST-3SG.sub
+Оккыр ба̄р ча̄джа, ӄонджырныт, пе̄ге а̄мда.
+Однажды идет, увидел – рябчик сидит.
+'Once he was walking and saw – a hazel-grouse sitting'
+оkkyr bār čāǯa, qonǯyrnyt, pēge āmda.
+оkkyr bār čāǯ-a qonǯyr-n-yt pēge āmd-a
+один раз идти-3SG.sub видеть-PRS-3SG.obj рябчик сидеть 3SG.sub
+one time go-3SG.sub see-PRS-3SG.obj hazel-grouse sit-3SG.sub
+Таб кыгымба тӱ̄лсэзэ тя̄ччыгу.
+Он хотел из ружья выстрелить.
+'He wanted to fire his gun'
+tab kygymba tǖlseze t'aččygu.
+tab kygy-mb-a tǖlse-ze t'aččy-gu.
+3SG.NOM хотеть-PSTN-3SG.sub ружье-COM выстрелить-INF
+3SG.NOM want-PSTN-3SG.sub gun-COM fire-INF
+На пе̄ге ӄут таре̄дык ӭ̄джа́лгва: «Ма́шеп ык тя̄чклел! Мат ӣт тя̄т те̄ка э̄нджак. Ӄвандлел машэп ма̄тӄэнд!»
+Вот рябчик человеческим голосом говорит: «Не стреляй в меня! Я тебе сыном буду. Унеси меня домой!»
+'The hazel-grouse said with a human voice: ' 'Don’t shoot at me! ‘I will be your son’ Take me home!'
+Na pēge qut tarēdyk ē̮ǯalgwa:  “mašep yk t'ačkl'el!  Mat īt t'at t'ēka ēnǯak.  qwandl'el mašep mātqend!”
+na pēge qu-t tarēdyk ē̮ǯal-gw-a: mašep yk t'ačk-l'el mat ī-t t'at t'ēka ē-nǯ-ak qwand-l'el mašep māt-qend
+этот рябчик человек-GEN как сказать-HAB-3SG.sub 1SG.ACC NEG стрелять-IMP.2SG.obj 1SG.NOM сын-GEN вместо 2SG.LAT быть-FUT-1SG.sub унести-IMP.2SG.obj 1SG.ACC дом-LAT.POSS.2SG
+this hazel-grouse man-GEN like say-HAB-3SG.sub 1SG.ACC NEG fire-IMP.2SG.obj 1SG.NOM son-GEN instead 2SG.LAT be-FUT-1SG.sub take-IMP.2SG.obj 1SG.ACC house-LAT.POSS.2SG
+Ара́га ӣмбат пе̄геп и пӣгылба ма̄т.
+Старик взял рябчика и вернулся домой.
+'The old man took the hazel-grouse and came back home'
+araga īmbat pēgep i pīgylba māt.
+ara-ga ī-mb-at pēge-p i pīgyl-b-a māt.
+старик-DIM взять-PSTN-3SG.obj рябчик-ACC “и” вернуться-PSTR-3SG.sub домой
+old.man-DIM take-PSTN-3SG.obj hazel-grouse-ACC and come.back-PSTR-3SG.sub home
+Кве̄ссэ ма̄т тӧ̄мба, пая́ӷынд ӭ̄джалгва: «Мат ӣм тада́п».
+Назад домой пришел, своей жене сказал: «Я сына принес».
+'Back home he came and told his wife: "I have brought a son"'
+kw'ēsse māt tȫmba, pajaɣynd ē̮ǯalgwa:  “mat īm tadap”
+kw'ēsse māt tȫ-mb-a paja-ɣynd ē̮ǯal-gw-a mat ī-m tad-ap
+назад домой прийти-PSTN-3SG.sub старуха-LAT.POSS.3SG сказать-HAB-3SG.sub 1SG.NOM сын-ACC принести-1SG.obj
+back home come-PSTN-3SG.sub old woman- LAT.POSS.3SG say-HAB-3SG.sub 1SG.NOM son-ACC bring-1SG.obj
+Та́бып варза́т кушай пот.
+Держали его несколько лет.
+'They kept him for several years'
+tabyp warzat kušaj pot.
+taby-p war-z-at kušaj pot.
+3SG.ACC держать-PST-3PL несколько год
+3SG.ACC keep-PST-3PL несколько год
+На пе̄ге ӭ̄джа́лгва азе́ӷынд, аве́ӷынд: «Машэп на̄дли́».
+Вот рябчик говорит своему отцу, матери: «Жените меня!»
+'So the hazel-grouse says to his mother and his father: "Marry me off!"'
+na pēge ē̮ǯalgwa azeɣynd, aweɣynd:
+na pēge ē̮ǯal-gw-a aze-ɣynd awe-ɣynd mašep nād-l'i
+вот рябчик сказать-HAB-3SG.sub отец-LAT.POSS.3SG мать-LAT.POSS.3SG 1SG.ACC женить-IMP.2DU
+so hazel-grouse say-HAB-3SG.sub father-LAT.POSS.3SG mother-LAT.POSS.3SG 1SG.ACC marry.off-IMP.2DU
+Ара́га пая́газэ ӭ̄джа́лгват: «Тат пе̄ге, код те̄ка ӄванджа ва́ркыгу».
+Старик со старухой говорят: «Ты рябчик, кто пойдет к тебе жить?»
+'The old man and the old woman say: "You are a hazel-grouse, who will go to live with you?"'
+araga pajagaze ē̮ǯalgwat:
+ara-ga paja-ga-ze ē̮ǯal-gw-at tat pēge kod t'ēka qwan-ǯ-a warky-gu”.
+старик-DIM старуха-DIM-COM сказать-HAB-3PL 2SG.NOM рябчик кто 2SG.LAT пойти-FUT-3SG.sub жить-INF
+old.man-DIM old.woman-DIM-COM say-HAB-3PL 2SG.NOM hazel-grouse who 2SG.LAT go-FUT-3SG.sub live-INF
+А пе̄ге ӄут таре̄дык чэ̄нча: «Ӄӧшкленд арг э̄дэнд, наття̄т варка варӷ ол. Табнан на̄гур нэ̄т».
+А рябчик человеческим голосом говорит: «Съезди в другую деревню, там живет царь. У него три дочери».
+'But the hazel-grouse says with a human voice: "Go to the other village, there lives a king. He has got three daughters"'
+а pēge qut tāredyk čenča:  “qöškl'end arg ēdend, nat'at warka warg ol.  tabnan nāgur nēt”.
+а pēge qu-t tāredyk čenč-a qöšk-l'end arg ēde-nd nat'at wark-a warg ol tab-nan nāgur nē-t
+“а” рябчик человек-GEN как говорить-3SG.sub ходить-IMP.2SG.sub другой деревня-LAT там жить-3SG.sub большой голова 3SG-LOC2 три дочь-POSS.3SG.NOM
+and hazel-grouse man-GEN like say-3SG.sub go-IMP.2SG.sub other village-LAT there live-3SG.sub big head 3SG-LOC2 three daughter-POSS.3SG.NOM
+Ара́гат кӧндып саре́лбат, ӄаӷлонд омда, ӄванна́.
+Старик коня запряг, в сани сел, уехал.
+'The old man put the harness on his horse, sat into the sleigh, set off'
+aragat köndyp sarelbat, qaɣlond omda, qwanna.
+ara-ga-t köndy-p sarel-b-at qaɣlo-nd omd-a qwan-n-a
+старик-DIM-DEF конь-ACC запрячь-PSTR-3SG.obj сани-LAT сесть-3SG.sub пойти-PRS-3SG.sub
+old.man-DIM-DEF horse-ACC put.harness-PSTR-3SG.obj sleigh-LAT sit-3SG.sub set.off-PRS-3SG.sub
+Арг э̄дэнд тӧ̄мба, кӧндып сарымбат. Ма̄т шэрна, таб торо́вайчэс.
+В другую деревню приехал, коня привязал. В дом вошел, он поздоровался.
+'He came to the other village, tethered his horse. 'He entered the house, he said hello'
+arg ēdend tȫmba, köndyp sarymbat.  māt šerna, tab torowajčys.
+arg ēde-nd tȫ-mb-a köndy-p sary-mb-at māt šer-n-a tab torowajčy-s
+другой деревня-LAT прийти-PSTN-3SG.sub конь-ACC привязать-PSTN-3SG.obj домой войти-PRS-3SG.sub 3SG.NOM здороваться-PST.
+other village-LAT come-PSTN-3SG.sub horse-ACC tether-PSTN-3SG.obj home enter-PRS-3SG.sub 3SG.NOM say.hello-PST
+На варӷ ол соӷындя́: «Ӄайӄо тӧ̄мманд миӷнут?»
+Этот царь спрашивает: «Зачем к нам приехал?»
+'This king asks: "What did you come here for?"'
+na warg ol soɣynd'a:  “qajqo tȫmmand m'i-ɣnut?”
+na warg ol soɣynd'-a qajqo tȫ-mm-and m'i-ɣnut
+этот большой голова спрашивать-3SG.sub зачем прийти-PSTN-2SG.sub 1PL-LAT.POSS.
+this big head ask-3SG.sub what.for come-PSTN-2SG.sub 1PL-LAT.POSS.
+«А мат натӄо тӧ̄мбак, манна̄ни̇ ӣм на̄дыгу кыга́. Ти̇нна̄ни̇ нэ̄мд кыга́ӣгу»
+«Я потому приехал, что мой сын хочет жениться. Хочет взять вашу дочь».
+'I came because my son wants to get married. He wants to take your daughter'
+A mat natqo tȫmbak, mannāni īm nadygu kyga.  tinnāni nēmd kyga īgu.
+a mat natqo tȫ-mb-ak mannāni ī-m nady-gu ky-ga tinnāni nē-m-d kyg-a ī-gu.
+“а” 1SG.NOM потому прийти-PSTN-1SG.sub 1SG.POSS сын-POSS.1SG.NOM женитьcя-INF хотеть-3SG.sub 2PL.POSS дочь-ACC-POSS.2SG хотеть-3SG.sub взять-INF
+and 1SG.NOM that.is.why come-PSTN-1SG.sub 1SG.POSS сын-POSS.1SG.NOM get.married-INF want-3SG.sub 2PL.POSS daughter-ACC-POSS.2SG want-3SG.sub take-INF
+На варӷ ол аза́кыгыс шарва́тпыгу. Табып ве̄сь педьсэ́падя́лбат.
+Тот царь не хотел разговаривать. Его всего топором изрубил.
+'That king did not want to talk. He hacked him to death.
+Na warg ol aza kygys šarwatpygu.  tabyp wēs' ped'se pad'albat.
+na warg ol aza kygy-s šarwatpy-gu taby-p wēs' ped'-se pad'al-b-at
+этот большой голова NEG хотеть-PST разговаривать-INF 3SG-ACC весь топор-COM изрубить-PSTN-3SG.obj
+this big head NEG want-PST talk-INF 3SG-ACC all axe-COM hack-PSTN-3SG.obj
+Кӧнд ма̄т тӧ̄мба, ква̄нд наттидэли шэрба.
+Конь домой пришел, во двор туда зашел.
+'The horse came home, walked into the yard'
+könd māt tȫmba, kwānd nat'idēl'i šerba.
+könd māt tȫ-mb-a kwā-nd nat'idēl'i šer-b-a.
+конь домой прийти-PSTN-3SG.sub двор-LAT туда войти-PSTN-3SG.sub
+horse home come-PSTN-3SG.sub yard-LAT there walk-PSTN-3SG.sub
+Пая́га по̄нэ чаннымба́, натидэ̄ли ӄванна. А наттяӷын ӄонджырныт – ара́т падя́лбле эппа ӄаӷлоӷыт.
+Старуха на улицу вышла. А там увидела – её муж изрубленный лежит на санях.
+'The old woman went out. And saw – her husband hacked to death lying on the sleigh'
+pajaga pōnä čannymba, nat'idēl'i qwanna,  a nat'aɣyn qonǯyrnyt – arat pad'alble еppa qaɣloɣyt.
+paja-ga pōnä čanny-mb-a nat'idēl'i qwan-n-a, a nat'aɣyn qonǯyr-n-yt ara-t pad'alb-le еpp-a qaɣlo-ɣyt.
+cтаруха-DIM на.улицу выйти-PSTN-3SG.sub туда пойти-PRS-3SG.sub “а” там видеть-PRS-3SG.obj старик-POSS.3SG изрубить-CONV1 лежать-3SG.sub сани-LOC1
+old.woman-DIM outside go-PSTN-3SG.sub there go-PRS-3SG.sub “а” there see-PRS-3SG.obj old.man-POSS.3SG hack-CONV1 lie-3SG.sub sleigh-LOC1
+Таб ма̄т шэрле тю̄ра, ӣӷынд ӭ̄джалгва: «Ӄай тат ме̄ммындал? Азе́мд падя́лбат».
+Она домой зашла, плачет, своему сыну сказала: «Что ты наделал? Отца изрубили».
+'She entered the house crying, said to her son: "What have you done? Your father has been hacked to death"'
+Tab māt šerl'e t'ūra, īɣynd ē̮ǯalgwa:  “qaj tat mēmmyndal?  azemd pad'albat”.
+tab māt šer-l'e t'ūr-a, ī-ɣynd ē̮ǯal-gw-a: qaj tat mē-mmy-nd-al aze-md pad'al-b-at”.
+3SG.NOM домой войти-CONV1 плакать-3SG.sub сын-LAT.POSS.3SG сказать-HAB-3SG.sub что 2SG.NOM делать-PSTN-EVID-2SG.obj отец-ACC.POSS.2SG изрубить-PSTN-3PL
+3SG.NOM home enter-CONV1 cry-3SG.sub son-LAT.POSS.3SG say-HAB-3SG.sub what 2SG.NOM do-PSTN-EVID-2SG.obj father-ACC.POSS.2SG hack-PSTN-3PL
+Таб аве́ӷынд ӭ̄джалгва: «Шӣвп палле́л чаннэ́нд!»
+Он сказал своей матери: «Положи золу в корыто!»
+'He told his mother: "Put the ahes into the trough!"'
+tab aweɣynd ē̮ǯalgwa: 23a “šīwp pall'el čannend!”
+tab awe-ɣynd ē̮ǯal-gw-a: šīw-p pal-l'el čanne-nd
+3SG.NOM мать-LAT.POSS.3SG сказать-HAB-3SG.sub зола-ACC положить-IMP.2SG.obj корыто-LAT
+3SG.NOM mother-LAT.POSS.3SG tell-HAB-3SG.sub ashes-ACC put-IMP.2SG.obj trough-LAT
+Шӣвт па̄ронд палле́л вадин лагалап!»
+«На золу положи куски мяса!»
+"Put the pieces onto the ashes"'
+Šīwt pārond pall'el wad'in lagalap!”
+Šīw-t pāro-nd pal-l'el wad'i-n laga-la-p
+зола-GEN верх-LAT положить- IMP.2SG.obj мясо-GEN кусок-PL-ACC
+ashes-GEN top-LAT put-IMP.2SG.obj flesh-GEN piece-PL-ACC
+На ӣд вадип нялдённыт тобла́ндысэ. Азыт эннэ́важа́ай ӄумле азымба.
+Этот сын мясо потоптал ногами. Отец встал и человеком снова стал.
+'The son kneaded the pieces with his feet. The father stood up and became a man again'
+Na īd wad'ip n'ald'onnyt toblandyse.  azyt ennä waža aj quml'e azymba.
+na ī-d wad'i-p n'ald'on-n-yt tob-la-n-dy-se. azy-t ennä waž-a aj qum-l'e azy-mb-a.
+этот сын-POSS.3SG мясо-ACC затоптать-PRS-3SG.obj нога-PL-GEN-POSS.3SG-COM отец-POSS.3SG.NOM вверх встать-3SG.sub опять человек-TRANSL стать-PSTN-3SG.sub
+this son-POSS.3SG flesh-ACC knead-PRS-3SG.obj leg-PL-GEN-POSS.3SG-COM father-POSS.3SG.NOM up stand.up-3SG.sub again man-TRANSL become-PSTN-3SG.sub
+Ӣт соӷынде̄шпат азеӷынд: «Ӄай варг ол аза меккут нэ̄мд?»
+Сын говорит отцу: «Что царь не дает свою дочь?»
+'The son says to his father: "Doesn’t the king give his daughter?"'
+Īt soɣyndēšpat azeɣynd:  “qaj warg ol aza mekkut nēmd?”
+Ī-t soɣynd-ēšp-at aze-ɣynd qaj warg ol aza me-kku-t nē-m-d
+Сын-POSS.3SG спрашивать-DUR-3SG.obj отец-LAT.POSS.3SG что большой голова NEG отдавать-HAB-3SG.obj дочь-ACC-POSS.3SG
+son-POSS.3SG ask-DUR-3SG.obj father-LAT.POSS.3SG what big head NEG give-HAB-3SG.obj daughter-ACC-POSS.3SG
+Ара́га ӭ̄джа́лгва: «Шарва́тпыгу аза́кыга́».
+Отец сказал: «Разговаривать не хочет».
+'The father said: "He doesn’t want to talk"'
+araga ē̮ǯalgwa: “šarwatpygu aza kyga”.
+araga ē̮ǯal-gw-a šarwatpy-gu aza kyg-a
+старик сказать-HAB-3SG.sub говорить-INF NEG хотеть-3SG.sub
+old.man say-HAB-3SG.sub say-INF NEG want-3SG.sub
+Шэдымджэ̄ли те̄лт таб азе́ӷынд ӭ̄джа́лгва: «Ӄвалле́нд натидэ̄ли, шэдымджэ̄ли нэ̄мд ӣгу».
+На второй день он говорит отцу: «Поезжай туда вторую дочь взять».
+'The second day he says to his father: "Go there to take the second daughter"'
+šidymǯēl'i t'ēlt tab azeɣynd ē̮ǯalgwa:
+Šidy-mǯēl'-i t'ēlt tab aze-ɣynd ē̮ǯal-gw-a qwal-l'end nat'idēl'i šidy-mǯēl'-i nē-m-d ī-gu
+два-ORDIN-ADJz день 3SG.NOM отец-LAT.POSS.3SG сказать-HAB-3SG.sub пойти-IMP.2SG.sub туда два-ORDIN-ADJz дочь-ACC-POSS.3SG взять-INF
+two-ORDIN-ADJz day 3SG.NOM father-LAT.POSS.3SG say-HAB-3SG.sub go-IMP.2SG.sub туда two-ORDIN-ADJz daughter-ACC-POSS.3SG take-INF
+Таб кӧндып саре́лбат ай натидэ̄ли ӄванна арг э̄дэнд.
+Он лошадь запряг и туда поехал в другую деревню.
+'He put the harness on his horse and went there, to the other village'
+tab köndyp sarelbat aj nat'idēl'i qwanna arg ēdend.
+tab köndy-p sarel-b-at aj nat'idēl'i qwan-n-a arg ēde-nd
+3SG.NOM конь-ACC запрячь-PSTN-3SG.obj опять туда пойти-PRS-3SG.sub другой деревня-LAT
+3SG.NOM horse-ACC put.harness-PSTN-3SG.obj again there go-PRS-3SG.sub other village-LAT
+Кӧндып са̄рымбат ай ма̄т шэрна. Торовайчыс.
+Он лошадь привязал и в дом вошел. Поздоровался.
+'He tethered his horse and entered the house. He said hello'
+Köndyp sarymbat aj māt šerna,  torowajčys
+köndy-p sary-mb-at aj māt šer-n-a torowajčy-s
+конь-ACC привязать-PSTN-3SG.obj и домой войти-PRS-3SG.sub say.hello-PST
+horse-ACC tether-PSTN-3SG.obj and home enter-PRS-3SG.sub здороваться-PST
+На варӷ ол соӷындя: «Ӄайӄо миӷнут тӧ̄мманд?»
+Тот царь спрашивает: «Зачем к нам приехал?»
+'That king asks: "What did you come to us for?"'
+na warg ol soɣynd'a: “qajqo m'iɣnut tȫmmand?”
+na warg ol soɣynd'-a qajqo m'i-ɣnut tȫ-mm-and
+этот большой голова спросить-3SG.sub зачем 1PL-LAT.POSS. 1PL прийти PSTN-2SG.sub
+this big head ask-3SG.sub why 1PL-LAT.POSS. 1PL come-PSTN-2SG.sub
+Таб ӭ̄джалгва: «Ай тӧ̄мбак. Манна̄ни̇ ӣм кыга́на̄дыгу Манна̄ни̇ ӣм пе̄ге».
+Он сказал: «Снова приехал. Мой сын хочет жениться Мой сын – рябчик».
+'He said: "Again I came. My son wants to marry. My son is a hazel-grouse"'
+tab ē̮ǯalgwa: “aj tȫmbak.  mannāni īm kyga nādygu.  mannāni īm pēge”.
+tab ē̮ǯal-gw-a: aj tȫ-mb-ak, mannāni ī-m kyg-a nādy-gu mannāni ī-m pēge
+3SG.NOM сказать-HAB-3SG.sub опять прийти-PSTN-1SG.sub 1SG.POSS сын-POSS.1SG хотеть-3SG.sub жениться-INF 1SG.POSS сын-POSS.1SG рябчик
+3SG.NOM say-HAB-3SG.sub again come-PSTN-1SG.sub 1SG.POSS son-POSS.1SG want-3SG.sub. marry-INF 1SG.POSS son-POSS.1SG hazel-grouse
+На варӷ ол ай табын ӄаймназа ӭ̄джа́лгва. По̄нэӷын ве̄сь падя́нныт, табып ӄаӷлонд панба́т. Кӧндым ӱ̄дыт.
+Тот царь снова ничего не сказал. На улице всего изрубил, его в сани положил. Лошадь отпустил.
+'That king didn’t say anything again. He hacked him to death, put him onto the sleigh. He let the horse go'
+na warg ol aj tabyn qajmnaza ē̮ǯalgwa.  pōnäɣyn wēs' pad'annyt, tabyp qaɣlond panbat.  köndym ǖdyt.
+na warg ol aj taby-n qajmnaza ē̮ǯal-gw-a pōnä-ɣyn wēs' pad'an-n-yt taby-p qaɣlo-nd pan-b-at. köndy-m ǖdy-t
+этот большой голова опять 3SG-LAT ничего сказать-HAB-3SG.sub на улице-LOC1 весь изрубить-PRS-3SG.obj 3SG-ACC сани-LAT положить-PSTN-3SG.obj конь-ACC отпустить-3SG.obj
+this big head again 3SG-LAT nothing say-HAB-3SG.sub оutside-LOC1 all hack-PRS-3SG.obj 3SG-ACC sleigh-LAT put-PSTN-3SG.obj horse-ACC let.go-3SG.obj
+Пая́га по̄нэ чаннымба́ква̄нд, натидэ̄ли ӄванна. Ӄонджырныт: ара́т падялбле эппа.
+Старуха на улицу вышла во двор, туда пришла. Увидела – её муж изрубленный лежит.
+'The old woman went outside into the yard, came there. She looks – her husband lying hacked to death'
+pajaga pōnä čannymba kwānd, nat'idēl'i qwanna.  qonǯyrnyt: arat pad'albl'e еppa.
+paja-ga pōnä čanny-mb-a kwā-nd nat'idēl'i qwan-n-a. qonǯyr-n-yt ara-t pad'alb-l'e еpp-a
+cтаруха-DIM на улице выйти-PSTN-3SG.sub двор-LAT туда пойти-PRS-3SG.sub видеть-PRS-3SG.obj старик-POSS.3SG изрубить-CONV1 лежать-3SG.sub
+old.woman-DIM outside go-PSTN-3SG.sub yard-LAT there go-PRS-3SG.sub see-PRS-3SG.obj old.man-POSS.3SG hack-CONV1 lie-3SG.sub
+Таб ай тю̄рле ма̄т шэрна, ӣӷынд ӭ̄джа́лгва: «Азе́м ай ве̄сь падя́лбат».
+Она снова плача в дом вошла, сыну сказала: «Отца снова всего изрубил».
+'She entered the house crying again, she said to her son: "The father has been all hacked to death again"'
+tab aj t'ūrl'e māt šerna, īɣynd ē̮ǯalgwa: “azem aj wēs' pad'albat”.
+tab aj t'ūr-l'e māt šer-n-a ī-ɣynd ē̮ǯal-gw-a aze-m aj wēs' pad'al-b-at
+3SG.NOM опять плакать-CONV1 домой войти-PRS-3SG.sub сын-LAT.POSS.3SG сказать-HAB 3SG.sub отец-ACC опять весь изрубить-PSTN-3SG.obj
+3SG.NOM again cry-CONV1 home enter-PRS-3SG.sub son-LAT.POSS.3SG say-HAB-3SG.sub father-ACC again all hack-PSTN-3SG.obj
+Ӣд ӭ̄джа́лгва: «Ык тю̄рленд! Ай шӣвп чаннэ́нд палле́л. Шӣвт па̄ронд вадит лага́лап ве̄сь палле́л».
+Сын сказал: «Не плачь! Снова золу в корыто положи. На золу куски мяса положи!»
+'The son said: "Don’t cry. Put the ashes to the trough again. Put the pieces of flesh onto the ashes!"'
+Īd ēǯalgwa: “yk t'url'end!   šīwt pārond wad'it lagalap wēs' pall'el”.
+Ī-d ēǯal-gw-a yk t'ur-l'end aj šīw-p čanne-nd pal-l'el šīw-t pāro-nd wad'i-t laga-la-p wēs' pal-l'el.
+cын-POSS.3SG сказать-HAB-3SG.sub NEG плакать-IMP.2SG.sub опять зола-ACC корыто-LAT положить-IMP.obj зола-GEN верх-LAT мясо-GEN кусок-PL-ACC весь положить-IMP.2SG.obj
+son-POSS.3SG say-HAB-3SG.sub NEG cry-IMP.2SG.sub again ashes-ACC trough-LAT put-IMP.obj ashes-GEN top-LAT flesh-GEN piece-PL-ACC all put-IMP.2SG.obj
+Азыт важымба.
+Отец встал.
+'The father stood up'
+azyt wažymba.
+azy-t wažy-mb-a.
+отец-POSS.3SG встать-PSTN-3SG.sub
+father-POSS.3SG stand.up-PSTN-3SG.sub
+Ӣт соӷынде̄шпа: «Ӄай ӭджалгва варӷ ол?» Аза меккут нэ̄мд. Ӭ̄джалгва: «Код табсэ́варке̄нджа?»
+Сын говорит: «Что сказал царь?» Не дает дочь. Поэтому меня зарубил».
+'The son says: "What did the king say?" He doesn’t give his daughter. He said: «Who will live with him?»
+Īt soɣyndēšpa: “qaj ē̮ǯalgwa warg ol?”  aza mekkut nēmd.  ē̮ǯalgwa: “kod tabse warkēnǯa? ”
+Ī-t soɣynd-ēšp-a qaj ē̮ǯal-gw-a warg ol aza me-kku-t nē-m-d ē̮ǯal-gw-a kod tab-se wark-ēnǯ-a
+cын-POSS.3SG спрашивать-DUR-3SG.sub что сказать-HAB-3SG.sub большой голова NEG отдавать-HAB-3SG.obj дочь-ACC-POSS.3SG сказать-HAB-3SG.sub кто 3SG-COM жить-FUT-3SG.sub
+son-POSS.3SG ask-DUR-3SG.sub what say-HAB-3SG.sub big head NEG give-HAB-3SG.obj daughter-ACC-POSS.3SG say-HAB-3SG.sub who 3SG-COM live-FUT-3SG.sub
+Нагурумджэ̄ли те̄леӷынд ӣд ӭ̄джалгва: «Кӧндып саре̄лбе ай ча̄джленд натидэ̄ли Нагурумджэ̄ли нэ̄мд менджыт».
+На третий день сын сказал: «Лошадь запряжешь и поедешь туда. Третью дочь он отдаст».
+'The third day the son said: "Put the harness on the horse and go there. He will give the third daughter"'
+nagurumǯēl'i t'ēlēɣynd īd ē̮ǯalgwa: “köndyp sarēl'ebe aj čāǯl'end nat'idēl'i, nagurumǯēl'i nēmd menǯyt”.
+naguru-mǯēl'-i t'ēlē-ɣynd ī-d ē̮ǯal-gw-a köndy-p sarē-l'ebe aj čāǯ-l'end nat'idēl'i naguru-mǯēl'-i nē-m-d me-nǯ-yt.
+три-ORDIN-ADJz день-LOC1.POSS.3SG сын-POSS.3SG сказать-HAB.3SG-sub конь-ACC запрячь-CONV2 опять ехать-IMP.2SG.sub туда три-ORDIN-ADJz дочь-ACC.POSS-3SG отдать-FUT-3SG.obj
+three-ORDIN-ADJz day-LOC1.POSS.3SG son-POSS.3SG say-HAB.3SG-sub horse-ACC put.harness-CONV2 again go-IMP.2SG.sub there three-ORDIN-ADJz daughter-ACC-POSS.3SG give-FUT-3SG.obj
+Ара́га саре́лбат кӧндып, ӄванна́натидэ̄ли. Ай тӧ̄мба, ма̄т шэрба. Торовайчыс.
+Старик запряг лошадь, уехал туда. Снова приехал, в дом вошел. Поздоровался.
+'The old man put the harness on his horse, went there. He came again and entered the house. He said hallo'
+araga sarelbat köndyp, qwanna nat'idēl'i.  aj tȫmba, māt šerba. Torowajčys.
+ara-ga sarel-b-at köndy-p qwan-n-a nat'idēl'i aj tȫ-mb-a māt šer-b-a torowajčy-s.
+старик-DIM запрячь-PSTN-3SG.obj конь-ACC пойти-PRS-3SG.sub туда опять прийти-PSTN-3SG.sub дом войти-PSTN-3SG.sub здороваться-PST
+old.man-DIM put.harness-PSTN-3SG.obj horse-ACC go-PRS-3SG.sub there again come-PSTN-3SG.sub home enter-PSTN-3SG.sub say.hello-PST
+На варӷ ол ай соӷындя: «Ӄайӄо тӧ̄мманд?»
+Тот царь снова спросил: «Зачем приехал?»
+'That king asked again: "What did you come for?"
+na warg ol aj soɣynd'a: “qajqo tȫmmand?”
+na warg ol aj soɣynd'-a qajqo tȫ-mm-and
+этот большой голова опять спрашивать-3SG.sub зачем прийти-PSTN-2SG.sub
+this big head again ask-3SG.sub what.for come-PSTN-2SG.sub
+Но на варӷ ол ӭ̄джа́лгва нэ̄ӷынд: «Кыганд ӄвангу ӄумни̇ ча̄джленд». Аза́кыганд ма̄тӄын а̄мдле.
+Но тот царь сказал дочери: «Хочешь идти замуж, иди. Не хочешь, дома сиди».
+'But that king said to the daughter: "If you want to marry, go". If you don't want to, stay at home"'
+No na warg ol ē̮ǯalgwa nēɣynd:  “kygand qwangu qumni čāǯlend”.  aza kygand mātqyn āmdl'e.
+no na warg ol ē̮ǯal-gw-a nē-ɣynd kyg-and qwan-gu qum-ni čāǯ-lend aza kyga-nd māt-qyn āmd-l'e
+“но” этот большой голова сказать-HAB-3SG.sub дочь-LAT.POSS.3SG хотеть-2SG.sub пойти-INF мужчина-LAT идти-IMP.2SG.sub NEG хотеть-2SG.sub дом-LOC1 сидеть-IMP.2SG
+but this big head сказать-HAB-3SG.sub daughter-LAT.POSS.3SG want-2SG.sub go-INF man-LAT go-IMP.2SG.sub NEG want-2SG.sub house-LOC1 sit-IMP.2SG
+На нэ̄д шэ̄рбынди̇ мыла́п шэ̄рбат. Ара́газэ ӄванба натидэ̄ли варкыгу́.
+Эта дочь надела одежду. Со стариком поехала туда жить.
+'This daughter dressed up. She wents there with the old man to live'
+na nēd šerbynd'i mylap šerbat.  aragaze qwanba nat'idēl'i warkygu.
+na nē-d šerby-nd'i my-la-p šer-b-at ara-ga-ze qwan-b-a nat'idēl'i warky-gu.
+этот дочь-POSS.3SG надеть-PTCP.PRS вещь-PL-ACC надеть-PSTN-3SG.ob старик-DIM-COM пойти-PSTN-3SG.sub туда жить-INF
+this daughter-POSS.3SG dress- PTCP.PRS. clothes-PL-ACC dress-PSTN-3SG.ob old.man-DIM-COM go-PSTN-3SG.sub there live-INF
+Натидэ̄ли тӧ̄мбат, авыт ӣндсэ ӄвэдэлд-ят.
+Туда приехали, мать с сыном встретили.
+'They came there, met the mother and the son'
+nat'idēl'i tȫmbat, awyt īndse kwedeld'at.
+nat'idēl'i tȫ-mb-at awy-t ī-n-d-se kwedeld'-at.
+туда прийти-PSTN-3PL мать-POSS.3SG сын-GEN-POSS.3SG-COM встретить-3PL
+there come-PSTN-3PL mother-POSS.3SG сын-GEN-POSS.3SG-COM meet-3PL
+Ма̄т тӧ̄лджат на надэ́п.
+В дом привели эту девушку.
+'They brought this girl to the house'
+mа̄t tȫlǯat na nadep.
+mа̄t tȫlǯ-at na nade-p
+домой привести-3PL этот девушка-ACC
+home bring-3PL this girl-ACC
+Таб нягджэмба.
+Она разделась.
+'She undressed'
+tab n'agǯemba.
+tab n'agǯe-mb-a.
+3SG.NOM раздеться-PSTN-3SG.sub
+3SG.NOM undress-PSTN-3SG.sub
+Пая́га остолт па̄ронд таӄӄылбат.
+Старуха на стол собрала.
+'The old woman laid the table'
+pajaga ostolt pārond taqqylbat.
+paja-ga ostol-t pāro-nd taqqyl-b-at
+старуха-DIM стол-GEN верх-LAT собрать-PSTN-3SG.obj
+old.woman-DIM table-GEN top-LAT lay-PSTN-3SG.obj
+Авре̄шпымбат, ӱдэ̄шпызат, кватта́лджымбат варкыгу́.
+Поели, выпили. Начали жить.
+'They ate and drank. They began to live'
+awrēšpymbat, üdēšpyzat, kwattalǯymbat warkygu.
+awr-ēšpy-mb-at üd-ēšpy-z-at kwattalǯy-mb-at warky-gu
+есть-DUR-PSTN-3PL выпивать-DUR-PST-3PL начать-PSTN-3PL жить-INF
+eat-DUR-PSTN-3PL drink-DUR-PST-3PL begin-PSTN-3PL live-INF
+Табла́сва̄ӈ варкызат, таб пая́мд на̄дырс.
+Они хорошо жили, он свою жену любил.
+'They lived well, he loved his wife'
+tabla swāŋ warkyzat, tab pajamd nādyrs.
+tab-la swā-ŋ warky-z-at tab paja-m-d nādyr-s.
+он-PL хороший-ADVz жить-PST-3PL 3SG.NOM жена-ACC-POSS.3SG любить-PST
+he-PL good-ADVz live-PST-3PL 3SG.NOM wife-ACC-POSS.3SG love-PST
+Но куша́к варклебе̄, ара́пая́сыӄ ӄӯмбат.
+Но сколько пожили, старик со старухой умерли.
+'They lived for a while, the old man and the old woman died'
+no kušak warklebē, ara pajasyq qūmbat.
+no kušak wark-lebē ara paja-sy-q qū-mb-at
+“но” сколько жить-CONV2 старик старуха-FAM-DU умереть-PSTN-3PL
+but how.much live-CONV2 old.man old.woman-FAM-DU die-PSTN-3PL
+Табла шыдэ̄я варкле кватта́лджымбат.
+Они вдвоем жить начали.
+'They began to live together'
+tabla šideja warkle kwattalǯymbat.
+tab-la šide-ja wark-le kwattalǯy-mb-at.
+oн-PL два-DU жить-CONV1 начать-PSTN-3PL
+he-PL two-DU live-CONV1 begin-PSTN-3PL
+Табла́ӄондугу́куджа́лешпызат. А пе̄ге ондж кобомд тэ нягджымбат, азымба́ӄут таре̄дык.
+Они спать ложились. А рябчик свою кожу снял, стал человеком.
+'They went to bed. The hazel-grouse put off his skin, turned into a man'
+tabla qondugu kuǯalešpyzat.  a pēge onǯ kobomd te n'agǯymbat, azymba qut tarēdyk.
+tab qondu-gu kuǯal-ešpy-z-at a pēge onǯ kobo-m-d te n'agǯy-mb-at azy-mb-a qu-t tarēdyk
+он-PL спать-INF ложиться-DUR-PST-3PL "а" рябчик cвой кожа-ACC-POSS.3SG прочь снять-PSTN-3SG.obj стать-PSTN-3SG.sub человек-GEN как
+he-PL sleep-INF lie-DUR-PST-3PL but hazel-grouse one's skin-ACC-POSS.3SG away put.off-PSTN-3SG.obj become-PSTN-3SG.sub man-GEN like
+А пая́ӷынд мембат кобомд, ӭ̄джа́лгва табын: «На кобып кӯнай ык катбот. Кӯ катбо́нджал, машэм аза́ӄонджырджэнджал».
+А жене отдал кожу, сказал ей: «Эту кожу никуда не девай. Если куда денешь, меня не увидишь».
+'He gave his skin to his wife and told her: "Don't get this skin anywhere. If you get it somewhere, you will not see me anymore"'
+a pajaɣynd membat kobomd, ē̮ǯalgwa tabyn:  “na kobyp kūnaj yk kadbot  kū katbonǯal, mašem aža qonǯyrǯenǯal”
+a paja-ɣynd me-mb-at kobo-m-d ē̮ǯal-gw-a taby-n na koby-p kūnaj yk kadbo-t kū katbo-nǯ-al mašem aža qonǯyr-ǯenǯ-al
+“а” жена-LAT.POSS.3SG дать-PSTN-3SG.obj кожа-ACC-POSS.3SG сказать-HAB-3SG.sub 3SG-LAT этот кожа-ACC никуда NEG девать-IMP.2SG.obj куда девать-FUT-2SG.obj 1SG.ACC NEG видеть-FUT-2SG.obj
+but wife-LAT.POSS.3SG give-PSTN-3SG.obj skin-ACC-POSS.3SG say-HAB-3SG.sub 3SG-LAT this skin-ACC nowhere NEG get-IMP.2SG.obj куда get-FUT-2SG.obj 1SG.ACC NEG see-FUT-2SG.obj
+Ӄа̄рт вадьлебе авырба́т.
+Утром встали, поели.
+'They got up in the morning and ate'
+qārt wad'lebe awyrbat
+qārt wad'-lebe awyr-b-at
+утром встать-CONV2 есть-PSTN-3PL
+in the morning stand.up-CONV2 eat-PSTN-3PL
+Ара́т мадё́нд тӱ̄лсэзэ ӄванна табе́ччыгу.
+Муж в лес с ружьем пошел белковать.
+'The husband went to the forest to hunt squirrels'
+arat mad'ond tǖlseze qwanna tabeččygu.
+ara-t mad'o-nd tǖlse-ze qwan-n-a tabeččy-gu
+муж-POSS.3SG тайга-LAT ружье-COM пойти-PRS-3SG.sub белковать-INF
+husband-POSS.3SG taiga-LAT gun-COM go-PRS-3SG.sub hunt.squirrels-INF
+Кужа́к таб варкыза́, таб табе́ччыс. А пая́т ма̄тӄыт э̄ппа, сӯрулап апстэ̄шпыс.
+Сколько он жил, он белковал. А жена дома была, скот кормила.
+'He had been hunting squirrels for all of his life. And the wife stayed at home, fed the cattle'
+kužak tab warkyza, tab tabeččys  a pajat mātqyt eppa, sūrulap apstēšpys.
+kužak tab warky-z-a tab tabeččy-s a paja-t māt-qyt epp-a sūru-la-p apst-ēšpy-s
+сколько 3SG.NOM жить-PST-3SG.sub 3SG.NOM белковать-PST а жена-POSS.3SG дом-LOC1 быть-3SG.sub животное-PL-ACC кормить-DUR-PST
+how.many 3SG.NOM live-PST-3SG.sub 3SG.NOM белковать-PST but wife-POSS.3SG house-LOC1 be-3SG.sub cattle-PL-ACC feed-DUR-PST
+Нення́лат табын тӧ̄ккузат, маннымбат, таб сва̄к варка.
+Сестры к ней приходили, смотрят, она хорошо живет.
+'The sisters came to her, they see her living well'
+n'en'n'alat tabyn tȫkkuzat mannymbat, tab swāk warka
+n'en'n'a-la-t taby-n tȫ-kku-z-at manny-mb-at tab swā-k wark-a
+сестра-PL-POSS.3SG 3SG-LAT приходить-HAB-PST-3PL видеть-DUR-3PL 3SG.NOM хорошо-ADVz жить-3SG.sub
+sister-PL-POSS.3SG 3SG-LAT come-HAB-PST-3PL see-DUR-3PL 3SG.NOM good-ADVz live-3SG.sub
+Кужа́т нення́лат ма̄т ӄванэ̄шпымбат, ондж пиреӷынд кадэ̄шпымбат: «Мина̄ни̇ нення́м сва̄к варка́. Ӄайлебе ме̄лай тассэ́! Табла́аза́варке̄нджат».
+Когда сестры домой пошли, друг другу говорили: «Наша сестра хорошо живет. Что-нибудь сделаем с тобой? Они не будут жить».
+'When the sisters went home, they said to each other: "Our sister is living well. Shall we do anything together? They will not live"'
+kužat n'en'n'alat māt qwanešpymbat, onǯ pireɣynd kadešpymbat:  “mināni n'en'n'am swāk warka.  qajlebe mēlaj tasse! Tabla aza warkēnǯat”.
+kužat n'en'n'a-la-t māt qwan-ešpy-mb-at onǯ pire-ɣynd kad-ešpy-mb-at mināni n'en'n'a-m swā-k wark-a qajlebe mē-laj tas-se tab-la aza wark-ēnǯ-at
+когда сестра-PL-POSS.3SG домой идти-DUR-PSTN-3PL сам себя-LAT.POSS.3SG рассказывать-DUR-PSTN-3PL наш сестра-POSS.1SG хорошо-ADVz жить-3SG.sub что-нибудь делать-IMP.1DU 2SG-COM он-PL NEG жить-FUT-3PL
+when sister-PL-POSS.3SG home go-DUR-PSTN-3PL one's oneself-LAT.POSS.3SG say-DUR-PSTN-3PL our sister-POSS.1SG good-ADVz live-3SG.sub something do-IMP.1DU 2SG-COM he-PL NEG live-FUT-3PL
+Табла чэ̄нчымбат: «Табна́н ара́т э̄за пе̄ге, азымба ӄут таре̄дык».
+Они говорили: «У неё муж был рябчик, стал человеком».
+'They said: "Her husband was a hazel-grouse and became a man"'
+tabla čēnčymbat:  “tabnan arat eza pēge, azymba qut tarēdyk”.
+tab-la čēnčy-mb-at tab-nan ara-t e-z-a pēge azy-mb-a qu-t tarēdyk
+он-PL говорить-PSTR-3PL 3SG-LOC2 муж-POSS.3SG стать-PSTN-3SG рябчик стать-PSTN-3SG.sub человек-GEN как
+he-PL say-PSTR-3PL 3SG-LOC2 husband-POSS.3SG be-PSTN-3SG hazel-grouse become-PSTN-3SG.sub man-GEN like
+Ара́т, кужа́т ма̄т тӧ̄мба табе̄ччле, авырба́т, ӄондугу коджа́лбат.
+Когда муж домой пришел с охоты, поели, спать легли.
+'When the husband came home from hunting, they ate, went to bed'
+Arat kužat māt tȫmba tabēččle, awyrbat, qondugu koǯalbat.
+ara-t kužat māt tȫ-mb-a tabēčč-le awyr-b-at qondu-gu koǯal-b-at
+муж-POSS.3SG когда домой прийти-PSTN-3SG.sub белковать-CONV1 поесть-PSTN-3PL спать-INF лечь-PSTN-3PL
+husband-POSS.3SG when home come-PSTN-3SG.sub hunt.squirrels-CONV1 eat-PSTN-3PL sleep-INF lie-PSTN-3PL
+Пая́т ӄарт эттырба́, ара́мд шыдыт. Таб вадьлебе авырса́т ай мадё́нд кванна.
+Жена утром сварила, мужа разбудила. Он встал, поел и в лес пошел.
+'The wife cooked in the morning, woke her husband up. He stood up, ate and went to the forest'
+Pajat qart ettyrba, aramd šydyt.  tab wad'l'ebe awyrsat aj mad'ond qwanna.
+paja-t qart ettyr-b-a ara-m-d šyd-yt tab wad'-l'ebe awyr-s-at aj mad'o-nd qwan-n-a
+жена-POSS.3SG утром сварить-PSTN-3SG.sub муж-ACC-POSS.3SG разбудить-3SG.obj 3SG.NOM встать-CONV2 есть-PST-3SG.obj опять тайга-LAT пойти-PRS-3SG.sub
+wife-POSS.3SG in the morning cook-PSTN-3SG.sub husband-ACC-POSS.3SG wake.up-3SG.obj 3SG.NOM stand.up-CONV2 eat-PST-3SG.obj again taiga-LAT go-PRS-3SG.sub
+Кужа́т пая́т ӄванба сӯруланд, а табна́н варӷ шоӷо́р тя̄дымбыс.
+Когда жена ушла к скоту, у неё большая печь топилась.
+'When the wife went to the cattle, her stove was burning'
+Kužat pajat qwanba sūruland, a tabnan warg šoɣor t'adymbys.
+kužat paja-t qwan-b-a sūru-la-nd a tab-nan warg šoɣor t'adymby-s
+когда жена-POSS.3SG пойти-PSTN-3SG.sub животное-PL-LAT “а” 3SG-LOC2 большой печь гореть-PST
+when wife-POSS.3SG go-PSTN-3SG.sub cattle-PL-LAT but 3SG-LOC2 big stove burn-PST
+Нення́лат шэрбат ма̄т, таблан нення́тя̄ӈгус ма̄тӄыт.
+Сестры в дом вошли, их сестры дома не было.
+'Her sisters came into the house, their sister was not at home'
+n'en'n'alat šerbat māt, tablan n'en'n'a t'aŋgus mātqyt.
+n'en'n'a-la-t šer-b-at māt tab-la-n n'en'n'a t'aŋgu-s māt-qyt
+сестра-PL-POSS.3SG войти-PSTN-3Pl домой он-PL-GEN сестра отсутствовать-PST дом-LOC1
+sister-PL-POSS.3SG enter-PSTN-3Pl home he-PL-GEN sister be.absent-PST house-LOC1
+Нення́лат пе̄гет кобып пе̄мбат.
+Сестры кожу рябчика искали.
+'The sisters looked for the hazel-grouse's skin'
+n'en'n'alat pēget kobyp pēmbat.
+n'en'n'a-la-t pēge-t koby-p pē-mb-at
+сестра-PL-POSS.3SG рябчик-GEN кожа-ACC искать-PSTN-3PL
+sister-PL-POSS.3SG hazel-grouse-GEN skin-ACC look.for-PSTN-3PL
+Ӄопто̄ӷыт комба́т и варӷ шоӷо́рт тя̄джымбат.
+На кровати нашли и в большую печь бросили.
+'They found it on the bed and threw it to the stove'
+qoptōɣyt kombat i warg šoɣort t'aǯymbat.
+qoptō-ɣyt ko-mb-at i warg šoɣor-t t'aǯy-mb-at.
+кровать-LOC1 найти-PSTN-3PL “и” большой печь-LAT бросить-PSTN-3PL
+bed-LOC1 find-PSTN-3PL and big stove-LAT throw-PSTN-3PL
+Нення́лат ма̄т ӄвасса́т.
+Сестры домой ушли.
+'The sisters went back home'
+n'en'n'alat māt qwassat.
+n'en'n'a-la-t māt qwas-s-at
+Сестра-PL-POSS.3SG домой пойти-PST-3PL
+sister-PL-POSS.3SG home go-PST-3PL
+На налӷуп ма̄т шэрна, кодна́й тя̄ӈгус ма̄тӄыт.
+Эта женщина в дом вошла, никого не было дома.
+This woman entered the house, nobody was at home'
+Na nalɣup māt šerna, kodnaj t'aŋgus mātqyt.
+na nalɣup māt šer-n-a kodnaj t'aŋgu-s māt-qyt
+этот женщина домой войти-PST-3SG.sub никто отсутствовать-PST дом-LOC1
+this woman home enter-PST-3SG.sub никто be.absent-PST house-LOC1
+Шоӷо́р тя̄дымбыс, таб этре̄шпыс.
+Печь топилась, она сварила.
+'The stove was burning, she was cooking'
+šoɣor t'adymbys, tab etrēšpys.
+šoɣor t'adymby-s tab etr-ēšpy-s
+печь гореть-PST 3SG.NOM варить-DUR-PST
+stove burn-PST 3SG.NOM cook-DUR-PST
+Арамд адолджыс.
+Мужа дожидалась.
+'She has been waiting for her husband'
+Aramd adolǯys.
+ara-m-d adolǯy-s
+муж-ACC-POSS.3SG подождать-PST
+husband-ACC-POSS.3SG wait-PST
+Таб тю̄рымба.
+Она плакала.
+'She cried'
+Tab t'ūrymba.
+tab t'ūry-mb-a.
+3SG.NOM плакать-PSTN-3SG.sub
+3SG.NOM cry-PSTN-3SG.sub
+По̄нэт омда кырницыт па̄ронд, тю̄ра.
+На улице села на крыльцо, плачет.
+'She sat on the porch outside crying'
+Pōnät omda kyrnitsyt pārond, t'ūra.
+pōnät omd-a kyrnitsy-t pār-ond t'ūr-a.
+на улице сесть-3SG.sub крыльцо-GEN верх-LAT плакать-3SG.sub
+outside sit-3SG.sub porch-GEN top-LAT cry-3SG.sub
+Ча̄джымба ӄайда пая́га, табым соӷындя: «Ӄайӄо тю̄ранд?»
+Шла какая-то старуха, её спросила: «Почему плачешь?»
+'Some old woman was walking, she asked her: "Why are you crying?"'
+Čāǯymba qajda pajaga, tabym soɣynd'a: “qajqo t'ūrand?”
+Čāǯy-mb-a qajda paja-ga taby-m soɣynd'-a qajqo t'ūr-and
+идти-PSTN-3SG какой-то старуха-DIM она-ACC спросить-3SG.sub почему плакать-2SG.sub
+go-PSTN-3SG some old.woman-DIM she-ACC ask-3SG.sub why cry-2SG.sub
+Таб ӭ̄джа́лгва на пая́ӷынд: «Манна̄ни̇ ара́м куды ӄадымба».
+Она сказала той старухе: «Мой муж куда-то делся».
+'She said to that old woman: "My husband got somewhere"'
+Tab ē̮ǯalgwa na pajaɣynd:  “mannāni aram kudy qadymba”.
+tab ē̮ǯal-gw-a na paja-ɣynd mannāni ara-m kudy qady-mb-a
+3SG.NOM сказать-HAB-3SG.sub этот старуха-LAT.POSS.3SG 1SG.POSS муж-POSS.1SG “куда-то” деться-PSTN-3SG.sub
+3SG.NOM say-HAB-3SG.sub this old.woman-LAT.POSS.3SG 1SG.POSS husband-POSS.1SG somewhere get-PSTN-3SG.sub
+«Танна̄ни̇ нення́лал кобып ара́т тя̄дымбат. Натӄо таб ӄваба, ти̇̄ аза́тӧ̄нджа».
+Твои сестры кожу мужа сожгли. Поэтому он ушел, сюда не придет.
+'Your sisters have burnt down the husband's skin. That is why he went away. He won't come here'
+tannāni n'en'n'alal kobyp arat t'adymbat.  natqo tab qwanba, tī aza tȫnǯa”.
+tannāni n'en'n'a-la-l koby-p ara-t t'ady-mb-at natqo tab qwan-b-a tī aza tȫ-nǯ-a
+2SG.POSS сестра-PL-POSS.2SG кожа-ACC муж-GEN сжечь-PSTN-3PL поэтому 3SG.NOM пойти-PSTN-3SG.sub сюда NEG прийти-FUT-3SG.sub
+2SG.POSS sister-PL-POSS.2SG skin-ACC husband-GEN burn-PSTN-3PL therefore 3SG.NOM go-PSTN-3SG.sub here NEG come-FUT-3SG.sub
+Шэ̄ӷып тамгылби табын мембат, ӭ̄джа́лгва: «Ватто́нд палле́л! Ку на шэ̄ӷ ча̄джэнджа, тат натидэ̄ли ча̄джленд. Шэ̄ӷын ӯгып ора̄лблел.
+Нитку намотанную ей дала, сказала: «На дорогу положи! Куда нитка пойдет, ты туда иди. Он у сестры живет».
+She gave her the wound thread and said: "Put it onto the road. The way the thread goes, there you go. Hold the end of the thread.
+šēɣyp tamgylbi tabyn membat, ē̮ǯalgwa:  “wattond pall'el!  ku na šēɣ čāǯenǯa, tat nat'idēl'i čāǯl'end.  šēɣyn ūgyp orālbl'el.
+šēɣy-p tamgyl-bi taby-n me-mb-at ē̮ǯal-gw-a watto-nd pal-l'el ku na šēɣ čāǯ-enǯa tat nat'idēl'i čāǯ-l'end šēɣy-n ūgy-p orālb-l'el
+нитка-ACC намотать-PTCP.PST 3SG-LAT дать-PSTN-3SG.obj сказать-HAB-3SG.sub дорога-LAT положить-IMP.2SG.obj куда эта нитка идти-FUT-3SG.sub 2SG.NOM туда идти-IMP.2SG.sub нитка-GEN край-ACC держать-IMP.2SG.obj
+thread-ACC wind-PTCP.PST 3SG-LAT give-PSTN-3SG.obj say-HAB-3SG.sub road-LAT. put-IMP.2SG.obj where this thread go-FUT-3SG.sub 2SG.NOM there go-IMP.2SG.sub thread-GEN end-ACC hold-IMP.2SG.obj
+На налӷу́п шэ̄ӷым ӱ̄дымбат ватто́нд. Шэ̄ӷын ӯгым ора́лбат. Кутидэ̄ли шэ̄ӷыт лага́пӱӈгылдя, натидэ̄ли таб ча̄джа.
+Эта женщина нитку отпустила на дорогу. Конец нитки держит. Куда клубок покатится, туда она идет.
+'This woman put the thread onto the road. She holds the end of the thread. The way the clew rolls, there she goes'
+na nalɣyp šēɣym ǖdymbat wattond,  šeɣyn ūgym oralbat.  kut'idēl'i šēɣyt laga püŋgyld'a, nat'idel'i tab čāǯa.
+na nalɣyp šēɣy-m ǖdy-mb-at watto-nd šeɣy-n ūgy-m oralb-at kut'idēl'i šēɣy-t laga püŋgyld'-a nat'idel'i tab čāǯ-a
+этот женщина нить-ACC отпустить-PSTN-3SG.obj дорога-LAT нить-GEN край-ACC держать-3SG.obj куда нить-GEN клубок покатиться-3SG.sub туда 3SG.NOM идти-3SG.sub
+this woman thread-ACC let.go-PSTN-3SG.obj road-LAT thread-GEN end-ACC hold-3SG.obj where thread-GEN clew roll-3SG.sub there 3SG.NOM go-3SG.sub
+Медымба кыба ма̄донд. Таб натидэ̄ли ма̄т шэрба, ӄонджырныт, налӷум а̄мда.
+Подошла к маленькому дому. Она туда в дом вошла, видит, женщина сидит.
+'She came up to the small house. She entered there into the house, she sees the woman sitting'
+medymba kyba mādond,  tab nat'idēl'i māt šerba, qonǯyrnyt, nalɣym āmda.
+medy-mb-a kyba mādo-nd tab nat'idēl'i māt šer-b-a qonǯyr-n-yt nalɣym āmd-a
+подойти-PSTN-3SG маленький дом-LAT 3SG.NOM туда домой войти-PSTN-3SG.sub видеть-PRS-3SG.obj женщина сидеть-3SG.sub
+come-PSTN-3SG small house-LAT 3SG.NOM there home enter-PSTN-3SG.sub see-PRS-3SG.obj woman sit-3SG.sub
+На налӷу́п соӷындя: «Ку ча̄джанд?»
+Э та женщина спросила: «Куда идешь?»
+'This woman asked: "Where are you going?"'
+na nalɣyp soɣynd'a: “ku čāǯand?”
+na nalɣyp soɣynd'-a ku čāǯ-and
+этот женщина спросить-3SG.sub куда идти-2SG.sub
+this woman ask-3SG.sub where go-2SG.sub
+Таб ӭ̄джа́лгва: «Ара́п пе̄ле». «Манна̄ни̇ ара́м пе̄ге э̄за, катте́азымба ӄумле».
+О на сказала: «Мужа ищу». « Мой муж рябчик был, потом человеком стал».
+'She said: "I am looking for my husband". «My husband was a hazel-grouse and became a man"'
+tab ē̮ǯalgwa: “arap pēle.  mannāni aram pēge eza, kat't'e azymba quml'e”.
+tab ē̮ǯal-gw-a ara-p pē-le mannāni ara-m pēge e-z-a kat't'e azy-mb-a qum-l'e
+она сказать-HAB-3SG.sub муж-ACC искать-CONV1 мой муж-POSS.1SG рябчик быть-PST-3SG.sub потом стать-PSTN-3SG.sub человек-TRANSL
+she say-HAB-3SG.sub муж-ACC искать-CONV1 my husband-POSS.1SG hazel-grouse be-PST-3SG.sub later become-PSTN-3SG.sub man-TRANSL
+На налӷу́п ӭ̄джа́лгва: «На манна̄ни̇ темня́м». Таб шӧт ӄванба, тек тӧ̄нджа. Мат таштып кӯ катбо́нджап».
+Женщина сказала: «Это мой брат», Он в лес ушел, скоро придет. Я тебя куда дену?»
+'The woman said: "This is my brother" He went to the forest, he will come back soon Where should I get you?"'
+na nalɣyp ē̮ǯalgwa: “na mannāni t'emn'am”  tab šöt qwanba, t'ek tȫnǯa.  mat taštyp kū katbonǯap”.
+na nalɣyp ē̮ǯal-gw-a na mannāni t'emn'a-m tab šöt qwan-b-a t'ek tȫ-nǯ-a mat taštyp kū katbo-nǯ-ap
+этот женщина сказать-HAB-3SG.sub этот 1SG.POSS брат-POSS.1SG 3SG.NOM в.тайгу пойти-PSTN-3SG.sub скоро прийти-FUT-3SG.sub 1SG.NOM 2SG.ACC куда девать-FUT-1SG.obj
+this woman say-HAB-3SG.sub this 1SG.POSS брат-POSS.1SG 3SG.NOM into.taiga go-PSTN-3SG.sub soon come-FUT-3SG.sub 1SG.NOM 2SG.ACC where get-FUT-1SG.obj
+Табып апстымбат и табын ӭ̄джа́лгва: «Тона варӷ манджырса квӭ̄с ӭда́, натидэ̄ли омдленд».
+Её покормила и ей сказала: «Там большое зеркало висит, туда садись.
+'She gave her to eat and said: "There is a big mirror hanging, there you sit'"
+tabyp apstymbat i tabyn ē̮ǯalgwa:  “tona warq manǯyrsa kwē̮s e̮da nat'idēl'i omdl'end”.
+taby-p apsty-mb-at i taby-n ē̮ǯal-gw-a tona warq manǯyr-sa kwē̮s e̮d-a nat'idēl'i omd-l'end
+3SG-ACC накормить-PSTN-3SG.obj “и” она-LAT сказать-HAB-3SG.sub там большой смотреть-PTCPdestin железо висеть-3SG.sub туда сесть-IMP.2SG.sub
+3SG-ACC feed-PSTN-3SG.obj and she-LAT say-HAB-3SG.sub there big see-PTCPdestin iron hang-3SG.sub there sit-IMP.2SG.sub
+Кужа́т ара́л тӧ̄нджа, аурле̄бе кондыгу куджа́лджэнджа.
+Когда муж придет, поев, спать ляжет.
+'When your husband comes, having eaten he will go to bed'
+kužat aral tȫnǯa, aurlēbe qondygu kuǯalǯenǯa.
+kužat ara-l tȫ-nǯ-a aur-lēbe qondy-gu kuǯal-ǯenǯ-a
+когда муж-POSS.2SG прийти-FUT-3SG.sub поесть-CONV2 спать-INF лечь-FUT-3SG.sub
+when husband-POSS.2SG come-FUT-3SG.sub eat-CONV2 sleep-INF lie-FUT-3SG.sub
+Ӄонда́лджэнджа, тан элле̄ тӱ̄нандж. Тав мӯнып ора́лджэнджал, сва̄ӈ оралбэ́т, ыгы ӱ̄дыккэт.
+Уснет, ты вниз спустишься. Этот палец поймай, хорошо держи, не отпускай.
+'When he falls asleep, come down. Catch this finger and hold it tight, don't let it go'
+qondalǯenǯa, tan ellä tǖnanǯ.  taw mūnyp oralǯenǯal, swāŋ oralbet, ygy ǖdykket.
+qondal-ǯenǯ-a tan ellä tǖ-nan-ǯ taw mūny-p oral-ǯεnǯ-al swā-ŋ oralb-et ygy ǖdykk-et
+уснуть-FUT-3SG.sub 2SG.NOM вниз пойти-FUT-2SG.sub. это палец-ACC схватить-FUT-2SG.obj хороший-ADVz держать-IMP.2SG.obj NEG отпустить-IMP.2SG.
+fall.asleep-FUT-3SG.sub 2SG.NOM down go-FUT-2SG.sub. this finger-ACC catch-FUT-2SG.obj good-ADVz hold-IMP.2SG.obj NEG let. go-IMP.2SG
+Аза ӱ̄дэнджал, танна̄ни̇ энджа».
+Не отпустишь - твой будет.
+'If you don't let it go, he will be yours'
+aza ǖdenǯal, tannāni еnǯa.
+aza ǖd-enǯ-al tannāni ē-nǯ-a
+NEG отпустить-FUT-2SG.obj 2SG.POSS быть-FUT-3SG.sub
+NEG let.go-FUT-2SG.obj 2SG.POSS be-FUT-3SG.sub
+Кужа́т таб тӧ̄нджа, ӭ̄джа́лгенджа: «Ружый апт».
+Когда он придет, скажет: «Русский дух».
+'When he comes, he will say: "Russian spirit"'
+kužat tab tȫnǯa, ē̮ǯalgenǯa: “ružyj apt”.
+kužat tab tȫ-nǯ-a ē̮ǯal-g-enǯ-a ružyj apt
+когда 3SG.NOM прийти-FUT-3SG.sub сказать-HAB-FUT-3SG.sub русский запах
+when 3SG.NOM come-FUT-3SG.sub say-HAB-FUT-3SG.sub Russian spirit
+Неннят ӭ̄джа́лгва: «По̄нэӷын э̄занд, натя̄т аптэ̄тымбал».
+Сестра сказала: «На улице был, там нанюхался».
+'The sister said: "You have been outside, there you have smelled it"'
+
+n'en'n'a-t ē̮ǯal-gw-a pōnä-ɣyn e-z-and nat'at aptēty-mba-l
+сестра-POSS.3SG сказать-HAB-3SG.sub. наружу-LOC1 быть-PST-2SG.sub там обнюхать-PSTN-2SG.obj
+sister-POSS.3SG say-HAB-3SG.sub. outside-LOC1 быть-PST-2SG.sub there smell-PSTN-2SG.obj
+Темня́т аурле̄бе куджа́лба ӄондыгу, ко̄мек ӄонда.
+Брат, поев, лег спать, крепко спит.
+'The brother having eaten went to bed, he sleeps sound'
+t'emn'at aurl'ēbe kuǯalba qondygu, kōmek qonda.
+t'emn'a-t aur-l'ēbe kuǯal-b-a qondy-gu kōmek qond-a
+брат-POSS.3SG есть-CONV2 лечь-PSTN-3SG.sub спать-INF крепко спать-3SG.sub
+brother-POSS.3SG eat-CONV2 lie-PSTN-3SG.sub sleep-INF strong sleep-3SG.sub
+Пая́т натя̄ӷынды тӧ̄мба манджырса квӭ̄зыт моӷоӷынды. Ара́ӷынд медымба́, мӯнып ора́нныт, кессе́к ора́лбыс, ко̄мек.
+Жена оттуда пришла из-за зеркала. К мужу подошла, палец поймала, очень крепко держала.
+'The wife came out of the mirror. She came up to her husband, caught the finger, held it tight'
+pajat nat'aɣyndy tȫmba manǯyrsa kwēz̮ yt moɣoɣyndy,  araɣynd medymba mūnyp orannyt, kessek oralbys, kōmek.
+paja-t nat'aɣyndy tȫ-mb-a manǯyr-sa kwē̮zy-t moɣo-ɣyndy ara-ɣynd medy-mb-a mūny-p ora-n-yt kessek oralby-s kōmek
+жена-POSS.3SG оттуда прийти-PSTN-3SG.sub видеть-PTCPdestin железо-GEN спина-ABL муж-LAT.3SG подойти-PSTN-3SG.sub палец-ACC схватить-PRS-3SG.obj крепко держать-PST крепко
+wife-POSS.3SG from there come-PSTN-3SG.sub see-PTCPdestin iron-GEN back-ABL husband-LAT.3SG come-PSTN-3SG.sub finger-ACC hold-PRS-3SG.obj strong hold-PST strong
+Ара́т кыльдимба, эннэ́вашшэ̄дя. Одо́п межанныт и по̄нэ кура́лба.
+Муж проснулся, подскочил. Руку выдернул и на улицу убежал.
+'The husband woke up, jumped. He pulled out his hand and ran away outside'
+arat kyl'd'imba, ennä waššəda  odop mežannyt i pōnä kuralba.
+ara-t kyl'd'i-mb-a ennä waššəd'-a odo-p mežan-n-yt i pōnä kural-b-a.
+муж-POSS.3SG проснуться-PSTN-3SG.sub вверх подняться-3SG. sub рука-ACC вырвать-PRS-3SG.obj “и” на.улицу убежать-PSTN-3SG.sub
+husband-POSS.3SG wake.up-PSTN-3SG.sub up stand.up-3SG.sub hand-ACC pull.out-PRS-3SG.obj and outside run-PSTN-3SG.sub
+Пая́т ӄалымба.
+Жена осталась.
+'The wife stayed'
+pajat qalymba.
+paja-t qaly-mb-a
+жена-POSS.3SG остаться-PSTN-3SG.sub
+wife-POSS.3SG stay-PSTN-3SG.sub
+Табын нення́ӭ̄джа́лгва: «Таб тэя́вдел ай тӧ̄нджа, ни̇к а̄мдленд.
+Его сестра сказала: «Он завтра снова придет, так сиди».
+'His sister said: "He will come tomorrow again, sit this way"'
+tabyn n'en'n'a ē̮ǯalgwa:  “tab tejawd'el aj tȫnǯa, nik āmdl'end”.
+taby-n n'en'n'a ē̮ǯal-gw-a tab tejawd'el aj tȫ-nǯ-a nik āmd-l'end
+3SG-GEN сестра сказать-HAB-3SG.sub 3SG.NOM завтра опять прийти-FUT-3SG.sub так сидеть-IMP.2SG.sub
+3SG-GEN sister say-HAB-3SG.sub 3SG.NOM tomorrow again come-FUT-3SG.sub this.way sit-IMP.2SG.sub
+Тӧ̄лебе, авырчэнджа ай ӄондыгу коджа́лджэнджа».
+«Придя, поест и спать ляжет».
+'Having come he will eat and go to bed'
+tȫl'ebe, awyrčenǯa aj qondygu koǯalǯenǯa”.
+tȫ-l'ebe awyr-čenǯ-a aj qondy-gu koǯal-ǯenǯ-a
+прийти-CONV2 поесть-FUT-3SG.sub опять спать-INF лечь-FUT-3SG.sub
+come-CONV2 eat-FUT-3SG.sub again sleep-INF lie-FUT-3SG.sub
+Шэдымджэ̄ли те̄лт ай тӧ̄мба. Пая́т натя̄т амдыс манджырса квӭзыт моӷоӷыт.
+На второй день снова пришел. Жена там сидела за зеркалом.
+'The second day he came again. The wife has been sitting behind the mirror'
+šidymǯēl'i t'ēlt aj tȫmba.  pajat nat'at amdys manǯyrsa kwē̮zyt moɣoɣyt.
+šidy-mǯēl'-i t'ēlt aj tȫ-mb-a paja-t nat'at amdy-s manǯyr-sa kwē̮zy-t moɣo-ɣyt
+два-ORDIN-ADJz день опять прийти-PSTN-3SG.sub жена-POSS.3SG там сидеть-PST смотреть-PTCP destin железо-GEN спина-LOC1
+two-ORDIN-ADJz day again come-PSTN-3SG.sub wife-POSS.3SG там sit-PST watch-PTCP destin iron-GEN back-LOC1
+Ара́т тӧ̄мба ма̄т ай ӭ̄джалгва: «Ружый апт».
+Муж пришел домой и сказал: «Русский дух».
+'The husband came home and said: "Russian spirit"'
+arat tȫmba mat aj ē̮ǯalgwa: “ružyj apt”.
+ara-t tȫ-m̮b-a mat aj ē̮ǯal-gw-a ružyj apt
+муж-POSS.3SG прийти-PSTN-3SG.sub дом опять сказать-HAB-3SG.sub русский запах
+husband-POSS.3SG come-PSTN-3SG.sub home again say-HAB-3SG.sub Russian smell
+Табын нення́ӭ̄джалгва: «По̄нэӷын аптэ́ттымбал на аптып».
+Его сестра сказала: «На улице нанюхался этого духа».
+'His sister said: "You have been outside, there you have smelled this spirit"'
+tabyn n'en'n'a ē̮ǯalgwa:  “pōnäɣyn aptettymbal na aptyp”.
+taby-n n'en'n'a ē̮ǯal-gw-a pōnä-ɣyn aptetty-mb-al na apty-p
+3SG-GEN сестра сказать-HAB-3SG.sub наружу-LOC1 обнюхать-PSTN-2SG.obj этот дух-ACC
+3SG-GEN sister say-HAB-3SG.sub outside-LOC1 smell-PSTN-2SG.obj this spirit-ACC
+Тӧ̄лебе авырба ай ӄондыгу куджа́лба, кессе́к ӄонда́лба.
+Придя, поел и лег, крепко уснул.
+'Having come he ate and lied down, slept sound'
+tȫl'ebe awyrba aj qondygu kuǯalba, kessek qondalba.
+tȫ-l'ebe awyr-b-a aj qondy-gu kuǯal-b-a kessek qondal-b-a
+прийти-CONV2 есть-PSTR-3SG опять спать-INF лечь-PSTN-3SG.sub крепко уснуть-PSTN-3SG.sub
+come-CONV2 eat-PSTR-3SG again sleep-INF lie-PSTN-3SG.sub strong sleep-PSTN-3SG.sub
+Аза ӧндэдист, ӄанду́к пая́т медымба.
+Не слышал, как жена подошла.
+'He didn't hear his wife coming up.
+aza önded'ist, qanduk pajat medymba,
+aza önded'i-s-t qanduk paja-t medy-mb-a
+NEG слышать-PST-3SG.obj как жена-POSS.3SG подойти-PSTN-3SG.sub
+NEG hear-PST-3SG.obj how wife-POSS.3SG come-PSTN-3SG.sub
+Табын мӯноп кессе́к ора́ссыт.
+Его палец крепко схватила.
+She caught his finger tight'
+tabyn mūnop kessek orassyt.
+taby-n mūno-p kessek oras-s-yt
+3SG-GEN палец-ACC крепко схватить-PST-3SG.obj
+3SG-GEN finger-ACC strong catch-PST-3SG.obj
+Но табна́н орт аза медымба ара́мд ора́лгу.
+Но у неё силы не хватило мужа удержать.
+'But she didn't have enough strength to hold her husband'
+no tabnan ort aza medymba aramd oralgu.
+no tab-nan or-t aza medy-mb-a ara-m-d oral-gu
+“но” 3SG-LOC2 сила-POSS.3SG NEG быть.достаточным-PSTN-3SG.sub муж-ACC-POSS.3SG схватить-INF
+but 3SG-LOC2 strength-POSS.3SG NEG be.enough-PSTN-3SG.sub husband-ACC-POSS.3SG catch-INF
+Таб кунымба по̄нэ, ӄванба́.
+Он убежал на улицу, ушел.
+'He ran away outside, went away'
+tab kunymba pōnä, qwanba.
+tab kuny-mb-a pōnä qwan-b-a
+3SG.NOM убежать-PSTN-3SG.sub на улицу уйти-PSTN-3SG.sub
+3SG.NOM run.away-PSTN-3SG.sub outside go-PSTN-3SG.sub
+Табын нення́ӭ̄джа́лгва: «Нагурумджэ̄ли те̄лт аза удырджэнджал ара́мд, арага́лк ӄалэнандж».
+Его сестра сказала: «На третий день не удержишь, без мужа останешься».
+'His sister said: "If you don't hold him the third day, you will stay without the husband"'
+tabyn n'en'n'a ē̮ǯalgwa:  “nagurumǯēl'i t'ēlt aza udyrǯenǯal aramd, aragalk qalenanǯ”.
+taby-n n'en'n'a ē̮ǯal-gw-a naguru-mǯēl-'i t'ēlt aza udyr-ǯenǯ-al ara-m-d ara-galk qal-enanǯ
+3SG-GEN сестра сказать-HAB-3SG.sub три-ORDIN-ADJz день NEG удержать-FUT-2SG.obj муж-ACC-POSS.3SG муж-KAR остаться-2SG-FUT
+3SG-GEN sister say-HAB-3SG.sub three-ORDIN-ADJz day NEG hold-FUT-2SG.obj husband-ACC-POSS.3SG husband-KAR stay-2SG-FUT
+Нагурумджэ̄ли те̄лт, куша́к орт э̄ппа, таб ора́лбыст ара́мд. Удырба́т.
+На третий день, сколько сил было, она держала мужа. Удержала.
+'The third day she was holding her husband as tight as she could. She held him back'
+nagurumǯēl'i t'ēlt, kušak ort eppa, tab oralbyst aramd,  Udyrbat
+naguru-mǯēl-'i t'ēlt kušak or-t e-pp-a tab oralby-s-t ara-md udyr-b-at
+три-ORDIN-ADJz день сколько сила-POSS.3SG быть-PSTN-3SG 3SG/NOM держать-PST-3SG.obj муж-ACC-POSS.3SG удержать-PST-3SG.obj
+three-ORDIN-ADJz day сколько strength-POSS.3SG be-PSTN-3SG 3SG/NOM hold-PST-3SG.obj husband-ACC.POSS.3SG hold-PST-3SG.obj
+Ай кватталджымбат варкыгу, сва̄к варкыгу.
+Снова начали жить, хорошо жить.
+'They began to live, live well'
+aj kwattalǯymbat warkygu, swāk warkygu.
+aj kwattalǯy-mb-at warky-gu swā-k warky-gu
+опять начать-PSTN-3PL жить-INF хорошо-ADVz жить-INF
+again begin-PSTN-3PL live-INF good-ADVz live-INF
