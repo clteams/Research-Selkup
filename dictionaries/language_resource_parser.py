@@ -8,6 +8,7 @@ class LanguageResourceParser:
     resource_language = ''
     result_dict = None
     result_rules = None
+    result_texts = None
 
     def parse_file(self, txt_filename):
         raise Exception('Unimplemented')

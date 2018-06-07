@@ -28,8 +28,29 @@ PYMORPHY_INF = 'INFN'
 SUFFIX_LIST = ['-ка', '-то']
 PREFIX_LIST = ['по-']
 
+RUSSIAN_ALPHABET = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+SELKUP_ALPHABET = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяё̄е̄ы̄ӧӧ̄о̄ю̈ю̈̄ю̄я̄ӭӭ̄э̄ӓӓ̄āӱӱ̄ӯи̇и̇̄ӣдзӷӄӈҗҳҷ́'
+ENGLISH_ALPHABET = 'abcdefghijklmnopqrstuvwxyz\'‘'
+SPECIAL_CHARACTERS = '.,!\?«»: –-"’'
+
 
 TYPICAL_LENGTH = 20
+
+def has_correct_characters(sentence, language_code):
+    if language_code == 'rus':
+        alphabet = RUSSIAN_ALPHABET + SPECIAL_CHARACTERS
+    elif language_code == 'slk':
+        alphabet = SELKUP_ALPHABET + SPECIAL_CHARACTERS
+    elif language_code == 'en':
+        alphabet = ENGLISH_ALPHABET + SPECIAL_CHARACTERS
+    else:
+        raise Exception('Unknown language code : %s' % language_code)
+    sentence = sentence.lower()
+    for letter in sentence:
+        if letter not in alphabet:
+            print(letter)
+            return False
+    return True
 
 def check_pymorphy(word):
     cache_dictionaries()
